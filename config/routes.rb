@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: { format: :json } do
+    # AUTH ROUTES
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create]
+
+    # DOCUMENTARIES
+    resources :documentaries, only: [:index, :show]
   end
 end

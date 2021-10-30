@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
-  before_action :ensure_logged_in, only: [:index]
-  before_action :ensure_logged_out, only: [:new, :create]
+  # before_action :ensure_logged_in, only: [:index]
+  # before_action :ensure_logged_out, only: [:create]
   
   
   def create

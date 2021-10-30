@@ -1,6 +1,6 @@
 class Api::SessionsController < ApplicationController
-  before_action :ensure_logged_out, only: [:create]
-  before_action :ensure_logged_in, only: [:destroy]
+  # before_action :ensure_logged_out, only: [:create]
+  # before_action :ensure_logged_in, only: [:destroy]
   
   
   def create

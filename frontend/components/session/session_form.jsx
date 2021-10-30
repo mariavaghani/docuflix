@@ -23,7 +23,8 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state)
+      .then((e) => this.props.history.push({ pathname: "/browse" }));
   }
 
   render() {

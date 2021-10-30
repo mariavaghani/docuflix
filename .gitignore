@@ -27,6 +27,11 @@ npm-debug.log
 /node_modules
 /yarn-error.log
 
+# ignore seed files
+app/assets/seeds
+config/new_user_credentials.csv
+
+
 /public/assets
 .byebug_history
 
