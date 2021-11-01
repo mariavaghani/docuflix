@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_230327) do
+ActiveRecord::Schema.define(version: 2021_10_31_023045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,21 @@ ActiveRecord::Schema.define(version: 2021_10_29_230327) do
     t.text "description", null: false
     t.integer "year", null: false
     t.string "maturity_rating", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "documentaries_genres", force: :cascade do |t|
+    t.integer "documentary_id", null: false
+    t.integer "genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["documentary_id"], name: "index_documentaries_genres_on_documentary_id"
+    t.index ["genre_id"], name: "index_documentaries_genres_on_genre_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

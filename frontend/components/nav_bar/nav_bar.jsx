@@ -20,10 +20,11 @@ class NavBar extends React.Component {
 
     const { currentUser, logout } = this.props;
     return (
-      <div>
+      <nav>
+        <h1>Docuflix</h1>
         <p>Hello, {currentUser.email}</p>
         <button onClick={this.handleLogout}>Logout</button>
-      </div>
+      </nav>
     )
   }
 }

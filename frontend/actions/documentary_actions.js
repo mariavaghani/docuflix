@@ -3,19 +3,29 @@ import * as DocuAPIUtil from "../utils/documentary_util";
 
 
 export const RECEIVE_DOCUMENTARY = 'RECEIVE_DOCUMENTARY';
-export const RECEIVE_ALL_DOCUMENTARIES = 'RECEIVE_ALL_DOCUMENTARIES';
+// export const RECEIVE_DOCUMENTARIES_BY_GENRE = 'RECEIVE_DOCUMENTARIES_BY_GENRE';
+export const RECEIVE_DOCUMENTARIES = 'RECEIVE_DOCUMENTARIES';
 
-export const receiveAllDocumentaries = (documentaries) => {
+export const receiveDocumentaries = (documentaries) => {
   return {
-    type: RECEIVE_ALL_DOCUMENTARIES,
+    type: RECEIVE_DOCUMENTARIES,
     documentaries
   }
 }
 
-export const fetchDocumentaries = () => dispatch => {
-  return DocuAPIUtil.fetchDocumentaries()
+// const receiveDocumentariesByGenre = (documentaries) => {
+//   return {
+//     type: RECEIVE_DOCUMENTARIES_BY_GENRE,
+//     documentaries
+//   }
+// }
+
+export const fetchDocumentaries = (filters) => dispatch => {
+  
+  return DocuAPIUtil.fetchDocumentaries(filters)
   .then( documentaries => {
-    return dispatch(receiveAllDocumentaries(documentaries))
+    return dispatch(receiveDocumentaries(documentaries))
   })
 }
+
 

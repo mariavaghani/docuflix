@@ -1,0 +1,15 @@
+.docu-carusel {
+  display: flex;
+  li {
+    width: 222px;
+    height: 125px;
+    margin-right: 4px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      object-fit: cover;
+      
+    }
+  }
+}

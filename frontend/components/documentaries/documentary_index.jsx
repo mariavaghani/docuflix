@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchDocumentaries } from '../../actions/documentary_actions'
+import { fetchDocumentaries, fetchDocumentariesByGenre } from '../../actions/documentary_actions'
+import { selectDocumentariesByGenre } from '../../selectors/selectors';
 import { DocumentaryIndexItem } from './documentary_index_item';
 
-class DocumentaryCardIndex extends Component {
-  componentDidMount(){
-    this.props.fetchDocumentaries();
-  }
+class DocumentaryIndex extends Component {
+  
   render() {
+    
     return (
-      <ul>
+      <ul className="docu-carusel">
         {
         this.props.documentaries.map(documentary => {
           return (<DocumentaryIndexItem key={documentary.id}
             documentary={documentary}
-            // props={props}
             />)
           })
         }
@@ -23,12 +22,14 @@ class DocumentaryCardIndex extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  documentaries: Object.values(state.entities.documentaries)
+const mapStateToProps = (state, ownProps) => ({
+  documentaries: selectDocumentariesByGenre(state, ownProps.genreId)
+  
 })
 
-const mapDispatchToProps = dispatch => ({
-  fetchDocumentaries: () => dispatch(fetchDocumentaries())
+const mapDispatchToProps = (dispatch,ownProps) => ({
+  // fetchDocumentariesByGenre: () => dispatch(fetchDocumentariesByGenre(ownProps.genreId)),
+
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(DocumentaryCardIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(DocumentaryIndex)

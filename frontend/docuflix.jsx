@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 // TODO: learn more about bootstrapping user to the window, seems unsafe
-// TODO: make 
+// TODO: make index of genres, that would each render a component that would 
+// render index of documentaries of each genre
 
 
 

@@ -1,27 +1,20 @@
-// export const fetchDocumentaries = (filters) => {
-//   return $.ajax({
-//     method: "GET",
-//     url: "/api/benches",
-//     error: (err) => console.log(err),
-//     data: { filters }
-//   })
-// }
 
-export const fetchDocumentaries = () => {
+
+export const fetchDocumentaries = (filters) => {
   return $.ajax({
     method: "GET",
     url: "/api/documentaries",
     error: (err) => console.log(err),
-    // data: { filters }
+    data: { filters }
   })
 }
 
-// export const fetchDocumentary = (documentary) => {
+// export const fetchDocumentariesByGenre = (genreId) => {
 //   return $.ajax({
 //     method: "GET",
-//     url: "/api/documentaries/${}",
+//     url: "/api/documentaries/",
 //     error: (err) => console.log(err),
-//     data: { documentary }
+//     data: { genreId }
 //   })
 // }
 

@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import DocumentaryCardContainer from '../documentaries/documentary_index'
-
-import NavBarContainer from '../nav_bar/nav_bar_container'
+import GenreIndexContainer from '../genres/genre_index'
 
 export class Browse extends Component {
   render() {
     return (
       <div>
-        <NavBarContainer />
-        <DocumentaryCardContainer />
+        <GenreIndexContainer />
       </div>
     )
   }

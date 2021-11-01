@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_DOCUMENTARIES } from '../actions/documentary_actions';
+import { RECEIVE_DOCUMENTARIES } from '../actions/documentary_actions';
 
 export const DocumentariesReducer = (state = {}, action) => {
 
@@ -7,7 +7,7 @@ export const DocumentariesReducer = (state = {}, action) => {
 
   switch (action.type) {
 
-    case RECEIVE_ALL_DOCUMENTARIES:
+    case RECEIVE_DOCUMENTARIES:
 
       return action.documentaries;
 
