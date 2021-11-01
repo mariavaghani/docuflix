@@ -28,6 +28,10 @@
     "postinstall": "webpack",
     "start": "webpack --mode=development --watch"
   },
+  "engines": {
+    "node": "14.17.6",
+    "npm": "6.14.15"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mariavaghani/docuflix.git"
