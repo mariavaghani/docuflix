@@ -31,11 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
 })
 
-// TODO: learn more about bootstrapping user to the window, seems unsafe
-// TODO: make index of genres, that would each render a component that would 
-// render index of documentaries of each genre
 
 
+// TODO: research modals? expand a documentary on hover, expand into another 
+// modal upon pressing a button on the first modal
 
-// GOAL: create a component that would render index of documentaries, displaying
-// title and rating
+// GOAL: have a documentary to expand on hover to display more information

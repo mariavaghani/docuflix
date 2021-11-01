@@ -1,6 +1,6 @@
 class Api::GenresController < ApplicationController
   def index
-    @genres = Genre.all.includes(:documentaries_genres)
+    @genres = Genre.includes(:documentaries_genres).all
     puts "GENRES TO BE RETURNED HERE"
     puts @genres
     puts "GENRES ^^"
