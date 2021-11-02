@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.active_storage.service = :amazon_prod
+  # trying this code >>>
+  config.default_url_options = { host: "https://docuflix.herokuapp.com" }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
