@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateGenres, updateFilter, updateGenresFilter } from "../../actions/filter_actions";
+import { updateGenres, updateGenresFilter } from "../../actions/filter_actions";
 
 import DocumentaryIndexContainer from '../documentaries/documentary_index';
 

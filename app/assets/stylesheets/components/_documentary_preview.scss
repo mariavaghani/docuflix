@@ -1,7 +1,57 @@
 .documentary-preview {
-  color: red;
   position: absolute;
+  width: $video-preview-width;
   height: 300px;
-  width: 300px;
-  background-color: aqua;
+  background-color: $docu-preview-background;
+  transform: translate(-12.5%,0);
+
+  video {
+    width: $video-preview-width;
+    height: $video-preview-height;
+    object-fit: cover;
+
+  }
 }
+
+.hidden {
+  display: none;
+}
+
+.loading-img {
+  position: absolute;
+  width: $video-preview-width;
+  height: $video-preview-height;
+  object-fit: cover;
+  // transform: translate(0,300px);
+}
+
+.docu-carusel {
+  display: flex;
+  li:first-child {
+    .documentary-preview {
+      transform: translate(0,0);
+      
+    }
+  }
+}
+
+.maturity-rating {
+  border: 1px solid white;
+  padding: 2px;
+}
+
+.info-row{
+  margin-top: 10px;
+  span {
+  margin: 3px;
+  }
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    > li {
+
+      margin: 5px;
+    }
+  }
+}
+

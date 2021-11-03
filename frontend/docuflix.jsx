@@ -32,9 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-
-// TODO: research modals? expand a documentary on hover, expand into another 
-// modal upon pressing a button on the first modal
-// TODO: create a demo user with a button
-
-// GOAL: have a documentary to expand on hover to display more information
+// MVP VIDEOS
+// TODO: add a mute/unmute button
+// TODO: make the preview to show the thumbnail while the video is loading
+// TODO: paginate documentaries by groups that fit the page
+// TODO: add a button that expands the preview into a bigger preview card with description

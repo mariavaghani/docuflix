@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { DocumentaryPreview } from '../modals/documentary_preview'
+import DocumentaryPreviewContainer from '../modals/documentary_preview'
 import { DocumentaryIndexCard } from './documentary_index_card'
 
 export class DocumentaryIndexItem extends Component {
@@ -11,18 +11,17 @@ export class DocumentaryIndexItem extends Component {
 
   render() {
 
-    const modalDisplay = this.state.showModal ?
+    const displayModal = this.state.showModal ?
       (
-        <DocumentaryPreview 
+        <DocumentaryPreviewContainer
           hideModal={() => this.setState({ showModal: false })}
+          documentary={this.props.documentary}
         />
-      ) : (
-        ""
-      );
+      ) : ""
     
     return (
       <li>
-        {modalDisplay}
+        {displayModal}
 
         <DocumentaryIndexCard
           documentary={this.props.documentary}

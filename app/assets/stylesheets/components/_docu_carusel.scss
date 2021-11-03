@@ -1,15 +1,20 @@
 .docu-carusel {
   display: flex;
-  li {
-    width: 222px;
-    height: 125px;
+  > li {
+    width: $index-thumbnail-width;
+    height: $index-thumbnail-height;
     margin-right: 4px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
     
-    img {
-      width: 100%;
-      object-fit: cover;
-      
-    }
   }
+}
+
+.index-thumbnail {
+  width: $index-thumbnail-width;
+  height: $index-thumbnail-height;
+
+  object-fit: cover;
 }

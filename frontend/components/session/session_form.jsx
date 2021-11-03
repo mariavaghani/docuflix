@@ -9,7 +9,13 @@ class SessionForm extends React.Component {
       password: ''
     }
 
+    this.demoUser = {
+      email:"demo-user@demo.com",
+      password: "123456"
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
 
   }
 
@@ -27,12 +33,21 @@ class SessionForm extends React.Component {
       .then((e) => this.props.history.push({ pathname: "/browse" }));
   }
 
+  handleDemoSubmit(e) {
+    e.preventDefault();
+    this.props.processForm(this.demoUser)
+      .then((e) => this.props.history.push({ pathname: "/browse" }));
+  }
+
   render() {
     return (
       <div className="session-form">
 
         <h2>{this.props.formType}</h2>
-        <Link className="btn" to={this.props.sessionPath}>{this.props.btnContent}</Link>
+        <Link className="btn"
+          to={this.props.sessionPath}
+          onClick={ () => this.props.clearSessionErrors() }
+          >{this.props.btnContent}</Link>
 
         <ul>
           {
@@ -58,6 +73,7 @@ class SessionForm extends React.Component {
           
 
           <button onClick={this.handleSubmit}>{this.props.formType}</button>
+          <button onClick={this.handleDemoSubmit}>Login as Demo User</button>
         </form>
       </div>
     )

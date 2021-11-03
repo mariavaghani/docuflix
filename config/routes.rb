@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     # AUTH ROUTES
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create]
+    
+    # RESOURCES
     resources :genres, only: [:index, :show]
-
-    # DOCUMENTARIES
     resources :documentaries, only: [:index, :show]
   end
 end

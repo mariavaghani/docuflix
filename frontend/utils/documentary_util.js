@@ -9,6 +9,13 @@ export const fetchDocumentaries = (filters) => {
   })
 }
 
+export const fetchDocumentary = (docuId) => (
+  $.ajax({
+    url: `/api/documentaries/${docuId}`,
+    method: 'GET',
+  })
+)
+
 // export const fetchDocumentariesByGenre = (genreId) => {
 //   return $.ajax({
 //     method: "GET",

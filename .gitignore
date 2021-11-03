@@ -31,7 +31,10 @@ npm-debug.log
 app/assets/seeds
 config/new_user_credentials.csv
 config/maria_vaghani_accessKeys.csv
+<<<<<<< HEAD
 
+=======
+>>>>>>> documentary_preview_modal
 
 
 /public/assets

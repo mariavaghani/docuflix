@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchDocumentaries, fetchDocumentariesByGenre } from '../../actions/documentary_actions'
 import { selectDocumentariesByGenre } from '../../selectors/selectors';
 import { DocumentaryIndexItem } from './documentary_index_item';
 
@@ -28,7 +27,6 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch,ownProps) => ({
-  // fetchDocumentariesByGenre: () => dispatch(fetchDocumentariesByGenre(ownProps.genreId)),
 
 })
 

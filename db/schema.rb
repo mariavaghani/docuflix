@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_31_023045) do
+ActiveRecord::Schema.define(version: 2021_11_03_025725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 2021_10_31_023045) do
     t.string "maturity_rating", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type_media"
+    t.string "runtime_size"
+    t.index ["type_media"], name: "index_documentaries_on_type_media"
   end
 
   create_table "documentaries_genres", force: :cascade do |t|
