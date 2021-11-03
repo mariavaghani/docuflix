@@ -33,8 +33,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// TODO: research modals? expand a documentary on hover, expand into another 
-// modal upon pressing a button on the first modal
-// TODO: create a demo user with a button
-
-// GOAL: have a documentary to expand on hover to display more information
+// TODO: make a show json.jbuilder to load the entire resource on hover
+// TODO: start playing video on hover

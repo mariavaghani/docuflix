@@ -6,11 +6,8 @@ export const DocumentaryIndexCard = (props) => {
   return (
     <div 
       onMouseOver={ () => props.showModal() }
-      
       >
       <img src={documentary.thumbnail} alt={documentary.title} />
-      <h5>{documentary.title}</h5>
-      <h6>{documentary.maturityRating}</h6>
     </div>
   )
 }

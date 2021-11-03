@@ -11,19 +11,15 @@ export class DocumentaryIndexItem extends Component {
 
   render() {
 
-    const modalDisplay = this.state.showModal ?
-      (
+          
+          return (
+            <li>
+
         <DocumentaryPreview 
           hideModal={() => this.setState({ showModal: false })}
+          documentary={this.props.documentary}
+          displayModal={this.state.showModal}
         />
-      ) : (
-        ""
-      );
-    
-    return (
-      <li>
-        {modalDisplay}
-
         <DocumentaryIndexCard
           documentary={this.props.documentary}
           showModal={ () => this.setState({ showModal: true }) }

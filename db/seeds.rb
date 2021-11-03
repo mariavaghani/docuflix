@@ -69,6 +69,8 @@ doc5.thumbnail.attach(io: doc5_thumb, filename: "#{name5}_background_2x.jpeg")
 d_g5 = DocumentariesGenre.create(documentary_id: doc5.id, genre_id: natureEcology.id)
 d_g5 = DocumentariesGenre.create(documentary_id: doc5.id, genre_id: scienceNature.id)
 
+User.destroy_all
 
+demoUser = User.create!(email:"demo-user@demo.com", password: "123456")
 
 puts "All seeded, thank you for asking!"
