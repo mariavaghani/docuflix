@@ -13,17 +13,20 @@ class DocumentaryPreview extends Component {
   }
   
   componentDidMount(){
+    console.log('mounting');
+    
     this.props.fetchDocumentary(this.props.documentary.id);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
         this.setState({imgClasses: "loading-img hidden"});
-      }, 2000);
+      }, 3000);
     };
     
   }
-
+  
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
+    console.log('unmounting');
   }
 
   render() {
@@ -32,7 +35,7 @@ class DocumentaryPreview extends Component {
     return (
             
       <div className="documentary-preview"
-        // onMouseLeave={() => this.props.hideModal()}
+        onMouseLeave={() => this.props.hideModal()}
         >
 
         <img 

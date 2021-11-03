@@ -18,7 +18,7 @@ def sec_to_str(sec)
   units.reject{|str| str.start_with?("0")}.join("")
 end
 
-require 'open-uri'
+# require 'open-uri'
 Genre.destroy_all
 
 natureEcology = Genre.create!(genre: "Nature & Ecology")
