@@ -7,7 +7,11 @@ export const DocumentaryIndexCard = (props) => {
     <div 
       onMouseOver={ () => props.showModal() }
       >
-      <img src={documentary.thumbnail} alt={documentary.title} />
+      <img
+        src={documentary.thumbnail}
+        alt={documentary.title} 
+        className="index-thumbnail"
+      />
     </div>
   )
 }

@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-
-// TODO: make a show json.jbuilder to load the entire resource on hover
-// TODO: start playing video on hover
+// MVP VIDEOS
+// TODO: add a mute/unmute button
+// TODO: make the preview to show the thumbnail while the video is loading
+// TODO: paginate documentaries by groups that fit the page
+// TODO: add a button that expands the preview into a bigger preview card with description
