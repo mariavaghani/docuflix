@@ -1,10 +1,11 @@
 import React from "react";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
-import { AuthRoute, ProtectedRoute } from "../utils/route_utils";
+import { AuthRoute, ProtectedRoute, ToAuthRoute } from "../utils/route_utils";
 import SplashContainer from "./splash/splash_container";
-import {Browse} from "./browse/browse_container";
+import BrowseContainter from "./browse/browse_container";
 import NavBarContainer from "./nav_bar/nav_bar_container";
+import { Switch } from "react-router";
 
 
 const App = () => (
@@ -13,15 +14,16 @@ const App = () => (
       <ProtectedRoute path="/browse" component={NavBarContainer}/>
     </header>
 
-    {/* APP WHEN LOGGED IN */}
-    <ProtectedRoute path="/browse" component={Browse}/>
+      {/* <ToAuthRoute exact={false} path="" /> */}
+    <Switch>
+      <ProtectedRoute exact={false} path="/browse" component={BrowseContainter}/>
+      <AuthRoute exact={true} path="/login" component={LoginFormContainer} />
+      <AuthRoute exact={true} path="/signup" component={SignupFormContainer} />
+      <AuthRoute exact={false} path="/" component={SplashContainer}/>
 
-    {/* APP DESIGN WHEN LOGGED OUT */}
+    </Switch>
+ 
 
-    <AuthRoute path="/" component={SplashContainer}/>
-
-    <AuthRoute path="/login" component={LoginFormContainer} />
-    <AuthRoute path="/signup" component={SignupFormContainer} />
   </div>
 );
 

@@ -37,3 +37,4 @@ document.addEventListener("DOMContentLoaded", () => {
 // TODO: make the preview to show the thumbnail while the video is loading
 // TODO: paginate documentaries by groups that fit the page
 // TODO: add a button that expands the preview into a bigger preview card with description
+// TODO: style the splash page

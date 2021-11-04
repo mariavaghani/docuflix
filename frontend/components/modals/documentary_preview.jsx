@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchDocumentary } from '../../actions/documentary_actions';
+import { withRouter } from 'react-router';
+import { fetchDocumentary, toggleDocumentaryInfo } from '../../actions/documentary_actions';
 import { selectGenresByDocumentary } from '../../selectors/selectors';
+import { VideoPreview } from "../ui_elements/video_preview";
+import { VideoInfo } from "../ui_elements/video_info";
+import { VideoMetadata } from "../ui_elements/video_metadata";
+import  VideoControlsContainer  from "../ui_elements/video_controls";
+
 
 class DocumentaryPreview extends Component {
 
@@ -13,7 +19,6 @@ class DocumentaryPreview extends Component {
   }
   
   componentDidMount(){
-    console.log('mounting');
     
     this.props.fetchDocumentary(this.props.documentary.id);
     if (!this.props.loading) {
@@ -26,7 +31,17 @@ class DocumentaryPreview extends Component {
   
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
-    console.log('unmounting');
+  }
+
+  goToDocumentarySplash(id) {
+    
+    return (e) => {
+      this.props.history.push({
+        pathname: "/browse",
+        search: `jbv=${id}`
+      });
+      this.props.showDocumentaryInfo();
+    }
   }
 
   render() {
@@ -36,25 +51,16 @@ class DocumentaryPreview extends Component {
             
       <div className="documentary-preview"
         onMouseLeave={() => this.props.hideModal()}
-        >
-
-        <img 
-          src={documentary.thumbnail} 
-          alt={documentary.title}
-          className={this.state.imgClasses}
-        />
-
-        <video src={documentary.video}
-          autoPlay
-          muted
-        >
-        </video>
-
+      >
+        <VideoPreview documentary={documentary} imgClasses={this.state.imgClasses}/>
+        <VideoControlsContainer />
         <h1>{documentary.title}</h1>
         <div className="info-row">
-          <span className="maturity-rating">{documentary.maturityRating}</span>
-          <span>{documentary.runtimeSize}</span>
+          <button onClick={this.goToDocumentarySplash(documentary.id)}>More Info</button>
         </div>
+      
+        <VideoInfo documentary={documentary}/>
+        <VideoMetadata genres={this.props.genres}/>
 
         <div className="info-row">
           <ul className="genre-docu-preview">
@@ -72,12 +78,13 @@ class DocumentaryPreview extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   documentary: state.entities.documentaries[ownProps.documentary.id],
-  loading: state.ui.loading.loadingPreview,
+  loading: state.ui.loadingPreview,
   genres: selectGenresByDocumentary(state, ownProps.documentary.id)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchDocumentary: (postId) => dispatch(fetchDocumentary(postId))
+  fetchDocumentary: (postId) => dispatch(fetchDocumentary(postId)),
+  showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(DocumentaryPreview)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DocumentaryPreview))

@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
 
   handleDemoSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.demoUser)
+    this.props.loginAsDemo(this.demoUser)
       .then((e) => this.props.history.push({ pathname: "/browse" }));
   }
 

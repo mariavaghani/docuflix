@@ -5,6 +5,7 @@ import * as DocuAPIUtil from "../utils/documentary_util";
 export const RECEIVE_DOCUMENTARY = 'RECEIVE_DOCUMENTARY';
 export const RECEIVE_DOCUMENTARIES = 'RECEIVE_DOCUMENTARIES';
 export const START_LOADING_VIDEO = 'START_LOADING_VIDEO';
+export const TOGGLE_DOCUMENTARY_INFO = 'TOGGLE_DOCUMENTARY_INFO';
 
 export const receiveDocumentaries = (documentaries) => {
   return {
@@ -23,6 +24,13 @@ export const receiveDocumentary = (documentary) => {
 export const startLoadingVideo = () => {
   return {
     type: START_LOADING_VIDEO,
+    
+  }
+}
+
+export const toggleDocumentaryInfo = () => {
+  return {
+    type: TOGGLE_DOCUMENTARY_INFO
     
   }
 }

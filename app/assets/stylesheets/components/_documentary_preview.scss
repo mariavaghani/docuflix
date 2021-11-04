@@ -4,25 +4,34 @@
   height: 300px;
   background-color: $docu-preview-background;
   transform: translate(-12.5%,0);
-
-  video {
-    width: $video-preview-width;
-    height: $video-preview-height;
-    object-fit: cover;
-
-  }
 }
 
+.video-preview {
+  position: absolute;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
 .hidden {
   display: none;
 }
 
 .loading-img {
   position: absolute;
-  width: $video-preview-width;
-  height: $video-preview-height;
+  width: 100%;//$video-preview-width;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  top: 0;
+  z-index: 10;
   // transform: translate(0,300px);
+}
+
+.preview-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+
 }
 
 .docu-carusel {
