@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router';
 import { fetchDocumentary, toggleDocumentaryInfo } from '../../actions/documentary_actions';
 import { selectGenresByDocumentary } from '../../selectors/selectors';
-import { VideoPreview } from "../ui_elements/video_preview";
+import VideoPreviewContainer from "../ui_elements/video_preview";
 import { VideoInfo } from "../ui_elements/video_info";
 import { VideoMetadata } from "../ui_elements/video_metadata";
 import  VideoControlsContainer  from "../ui_elements/video_controls";
@@ -50,10 +50,15 @@ class DocumentaryPreview extends Component {
     return (
             
       <div className="documentary-preview"
-        onMouseLeave={() => this.props.hideModal()}
-      >
-        <VideoPreview documentary={documentary} imgClasses={this.state.imgClasses}/>
+        onMouseLeave={() => this.props.hideModal()}>
+
+        <VideoPreviewContainer
+          documentary={documentary}
+          imgClasses={this.state.imgClasses}
+        />
+
         <VideoControlsContainer />
+
         <h1>{documentary.title}</h1>
         <div className="info-row">
           <button onClick={this.goToDocumentarySplash(documentary.id)}>More Info</button>
@@ -62,15 +67,6 @@ class DocumentaryPreview extends Component {
         <VideoInfo documentary={documentary}/>
         <VideoMetadata genres={this.props.genres}/>
 
-        <div className="info-row">
-          <ul className="genre-docu-preview">
-            {
-            this.props.genres.map(genre => {
-              return (<li key={genre.id}>{genre.genre}</li>)
-              })
-            }
-          </ul>
-        </div>
       </div>
     )
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { toggleDocumentaryInfo } from '../../actions/documentary_actions';
-import { VideoPreview } from "../ui_elements/video_preview";
+import VideoPreviewContainer from "../ui_elements/video_preview";
 import { VideoInfo } from "../ui_elements/video_info";
 import { VideoMetadata } from "../ui_elements/video_metadata";
 import { selectGenresByDocumentary } from '../../selectors/selectors';
@@ -49,10 +49,9 @@ class DocumentaryInfoAndWatch extends Component {
       <div className="documentary-info-and-watch" onClick={this.closeDocumentarySplash}>
         <div>
           <button onClick={this.closeDocumentarySplash}>X</button>
-          <VideoPreview 
+          <VideoPreviewContainer
             documentary={documentary}
             imgClasses={this.state.imgClasses}
-            containerClass="documentary-preview-info-container"
           />
           <VideoControlsContainer />
           <h1>{documentary.title}</h1>

@@ -35,12 +35,6 @@ export const toggleDocumentaryInfo = () => {
   }
 }
 
-// const receiveDocumentariesByGenre = (documentaries) => {
-//   return {
-//     type: RECEIVE_DOCUMENTARIES_BY_GENRE,
-//     documentaries
-//   }
-// }
 
 export const fetchDocumentaries = (filters) => dispatch => {
   

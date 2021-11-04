@@ -17,19 +17,19 @@ export const VideoPreview = (props) => {
         className="video-preview"
         src={props.documentary.video}
         autoPlay
-        muted
+        muted={props.muted}
       >
       </video>
     </div>
   )
 }
 
-// const mapStateToProps = (state) => ({
-  
-// })
+const mapStateToProps = (state) => ({
+  muted: state.videoControls.muted
+})
 
-// const mapDispatchToProps = {
+const mapDispatchToProps = {
   
-// }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(VideoPreview)
+export default connect(mapStateToProps, mapDispatchToProps)(VideoPreview)
