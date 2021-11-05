@@ -41,13 +41,12 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="session-form">
+      <div className="session-container">
 
-        <h2>{this.props.formType}</h2>
-        <Link className="btn"
+        {/* <Link className="btn"
           to={this.props.sessionPath}
           onClick={ () => this.props.clearSessionErrors() }
-          >{this.props.btnContent}</Link>
+          >{this.props.btnContent}</Link> */}
 
         <ul>
           {
@@ -57,7 +56,7 @@ class SessionForm extends React.Component {
           }
         </ul>
 
-        <form>
+        <form className="session-form">
 
           <label>Email</label>
           <input type="text"
@@ -72,8 +71,12 @@ class SessionForm extends React.Component {
             onChange={this.handleInput("password")} />
           
 
-          <button onClick={this.handleSubmit}>{this.props.formType}</button>
-          <button onClick={this.handleDemoSubmit}>Login as Demo User</button>
+          <button onClick={this.handleSubmit} className="docuflix-btn form-ele">
+            {this.props.formType}
+          </button>
+          <button onClick={this.handleDemoSubmit} className="docuflix-btn form-ele">
+            Login as Demo User
+          </button>
         </form>
       </div>
     )

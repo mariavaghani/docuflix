@@ -1,66 +1,39 @@
-.documentary-preview {
+.documentary-preview { // the panel that holds preview, controls and info
   position: absolute;
   width: $video-preview-width;
-  height: 300px;
+  height: 350px;
   background-color: $docu-preview-background;
   transform: translate(-12.5%,0);
+  display: flex;
+  flex-direction: column;
+} 
+
+
+.preview-container { // container with video and image on top
+  width: 100%;
+  position: relative;
+  display: flex;
+  aspect-ratio: 16 / 9;
+}
+
+.loading-img { // thumbnail image that would disappear
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  z-index: 10;
 }
 
 .video-preview {
   position: absolute;
-
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+
 .hidden {
   display: none;
 }
 
-.loading-img {
-  position: absolute;
-  width: 100%;//$video-preview-width;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  top: 0;
-  z-index: 10;
-  // transform: translate(0,300px);
-}
 
-.preview-container {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  position: relative;
-
-}
-
-.docu-carusel {
-  display: flex;
-  li:first-child {
-    .documentary-preview {
-      transform: translate(0,0);
-      
-    }
-  }
-}
-
-.maturity-rating {
-  border: 1px solid white;
-  padding: 2px;
-}
-
-.info-row{
-  margin-top: 10px;
-  span {
-  margin: 3px;
-  }
-  > ul {
-    display: flex;
-    flex-wrap: wrap;
-    > li {
-
-      margin: 5px;
-    }
-  }
-}
 

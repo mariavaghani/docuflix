@@ -1,4 +1,4 @@
-.documentary-info-and-watch {
+.documentary-info-and-watch { // documentary info panel backdrop over entire screen
   width: 100%;
   height: 100%;
   top: 0;
@@ -7,7 +7,7 @@
   z-index: 10;
   display: flex;
   justify-content: center;
-  > div {
+  > div { // documentary info container
     width: 60%;
     height: 600px;
     top: 50px;
@@ -16,14 +16,14 @@
   }
 }
 
-.documentary-info{
+.documentary-info{ // the grid with information
   display: grid;
   width: 100%;
   grid-template-columns: 60% 40%;
   position: static;
 }
 
-.docu-info-col-1{
+.docu-info-col-1{ 
   width: 100%;
 }
 

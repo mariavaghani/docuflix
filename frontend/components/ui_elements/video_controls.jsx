@@ -13,11 +13,11 @@ class VideoControls extends Component {
       );
     return (
       <div>
-        <button>Play</button>
-        <button>+</button>
-        <button>Like</button>
-        <button>Not for me</button>
-        <button onClick={this.props.toggleMute}>{muteButtonDisplay}</button>
+        <button className="docuflix-btn">Play</button>
+        <button className="docuflix-btn">+</button>
+        <button className="docuflix-btn">Like</button>
+        <button className="docuflix-btn">Not for me</button>
+        <button className="docuflix-btn" onClick={this.props.toggleMute}>{muteButtonDisplay}</button>
       </div>
     )
   }

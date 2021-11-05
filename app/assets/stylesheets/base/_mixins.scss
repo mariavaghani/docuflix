@@ -1,0 +1,24 @@
+@mixin button($bg-color, $border-clr, $txt-clr){
+  color: $txt-clr;
+  // border: 3px solid $color;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: $bg-color;
+  border: 1px solid $border-clr;
+  box-sizing: border-box;
+  
+  &:hover {
+    color: darken($txt-clr, 20);
+    border-color: darken($txt-clr, 20);
+    cursor: pointer;
+  }
+}
+
+@mixin nav($height){
+  display: flex;
+  justify-content: space-between;
+  height: $height;
+  align-items: center;
+}

@@ -33,8 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // MVP VIDEOS
-// TODO: add a mute/unmute button
-// TODO: make the preview to show the thumbnail while the video is loading
-// TODO: paginate documentaries by groups that fit the page
-// TODO: add a button that expands the preview into a bigger preview card with description
+// DONE: add a mute/unmute button
+// DONE: make the preview to show the thumbnail while the video is loading
+// DONE: add a button that expands the preview into a bigger preview card with description
 // TODO: style the splash page
+// TODO: add profiles to user account, add two profiles on sign up
+// TODO: Go over css and refactor
+
+// LATER:
+// TODO_LATER: paginate documentaries by groups that fit the page
+// TODO_LATER: make a frontend show page for a documentary info panel
+// if would react on query string in route and render title page with documentary
+// info panel

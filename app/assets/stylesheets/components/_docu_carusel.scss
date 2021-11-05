@@ -10,6 +10,11 @@
     border-radius: 4px;
     
   }
+  li:first-child {
+    .documentary-preview {
+      transform: translate(0,0);
+    }
+  }
 }
 
 .index-thumbnail {
@@ -17,4 +22,11 @@
   height: $index-thumbnail-height;
 
   object-fit: cover;
+}
+
+.genres-index {
+  > li {
+    margin-top: 25px;
+  }
+  
 }

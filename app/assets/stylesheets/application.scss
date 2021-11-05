@@ -17,14 +17,18 @@
 //  CSS reset
 
 @import "base/reset";
+@import "base/fonts";
 @import "base/variables";
 @import "base/colors";
 @import "base/layout";
+@import "base/mixins";
 
 // NAVBAR
 
 @import "components/navbar";
 @import "components/docu_carusel";
-@import "components/genres_index";
+@import "components/splash";
 @import "components/documentary_preview";
-@import "components/documentary_info_and_watch";
+@import "components/documentary_info_panel";
+@import "components/ui_elements";
+@import "components/session";

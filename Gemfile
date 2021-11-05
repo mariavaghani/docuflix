@@ -27,7 +27,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem "jquery-rails"
 # AWS gem
 gem "aws-sdk-s3", require:false
+# custom seeds
 gem "seedbank"
+# getting images
+gem 'react-rails-img'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

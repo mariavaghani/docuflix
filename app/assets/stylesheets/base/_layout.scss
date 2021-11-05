@@ -1,5 +1,62 @@
 body {
   background-color: $body-background;
-  color: rgb(250, 242, 242);
+  color: $ui-main-clr;
+  font-family: $text-font;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+  // text-justify: center;
+  h1{ // giant title
+    font-family: $title-font;
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  h2 { // big buttons text
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  h3 { // subtitles
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  h4 { // index titles
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  h5 { // form labels
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  h6 { //footer fine print
+    font-weight: 300;
+    // margin-bottom: 20px;
+    color: $muted-text-clr;
+  }
+
+
+
 }
+
+
+
+.fa {
+  font-size: 14px;
+  
+  &:first-child {
+    padding-right: 10px;
+  }
+  &:last-child {
+    padding-left: 10px;
+    
+  }
+}
+
 

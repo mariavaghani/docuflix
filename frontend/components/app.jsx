@@ -1,12 +1,11 @@
 import React from "react";
-import LoginFormContainer from "./session/login_form_container";
-import SignupFormContainer from "./session/signup_form_container";
 import { AuthRoute, ProtectedRoute, ToAuthRoute } from "../utils/route_utils";
 import SplashContainer from "./splash/splash_container";
 import BrowseContainter from "./browse/browse_container";
 import NavBarContainer from "./nav_bar/nav_bar_container";
-import { Switch } from "react-router";
-
+import { Redirect, Switch } from "react-router";
+import { LoginPage } from "./session/login_page";
+import { SignupPage } from "./session/signup_page";
 
 const App = () => (
   <div>
@@ -17,10 +16,11 @@ const App = () => (
       {/* <ToAuthRoute exact={false} path="" /> */}
     <Switch>
       <ProtectedRoute exact={false} path="/browse" component={BrowseContainter}/>
-      <AuthRoute exact={true} path="/login" component={LoginFormContainer} />
-      <AuthRoute exact={true} path="/signup" component={SignupFormContainer} />
-      <AuthRoute exact={false} path="/" component={SplashContainer}/>
-
+      <AuthRoute exact={true} path="/login" component={LoginPage} />
+      <AuthRoute exact={true} path="/signup" component={SignupPage} />
+      <AuthRoute exact={true} path="/" component={SplashContainer}/>
+      {/* <Redirect to="/" /> */}
+      <Redirect to="/browse" />
     </Switch>
  
 

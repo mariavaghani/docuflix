@@ -17,9 +17,9 @@ class GenreIndex extends Component {
         this.props.genres.map(genre => {
           return (
             <li key={genre.id}>
-              <h2>
+              <h4>
                 {genre.genre}
-              </h2>
+              </h4>
               <DocumentaryIndexContainer genreId={genre.id} />
             </li>
           )

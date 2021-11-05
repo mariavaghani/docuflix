@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { withRouter } from 'react-router';
+import { DocuflixLogo } from '../ui_elements/docuflix_logo';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -20,10 +21,15 @@ class NavBar extends React.Component {
 
     const { currentUser, logout } = this.props;
     return (
-      <nav>
-        <h1>Docuflix</h1>
+      <nav className="browse-nav">
+        <DocuflixLogo logoClass={"docuflix-logo"}/>
         <p>Hello, {currentUser.email}</p>
-        <button onClick={this.handleLogout}>Logout</button>
+        <button 
+          onClick={this.handleLogout}
+          className="docuflix-btn"
+        >
+            Logout
+          </button>
       </nav>
     )
   }

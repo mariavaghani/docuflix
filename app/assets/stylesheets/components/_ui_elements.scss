@@ -1,0 +1,128 @@
+
+.maturity-rating {
+  border: 1px solid white;
+  padding: 2px;
+}
+
+.info-row{
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  span {
+  margin: 3px;
+  }
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    > li {
+
+      margin: 5px;
+    }
+  }
+}
+
+.docuflix-logo {
+  fill: $docuflix-red;
+  width: 6.75rem;
+  height: 2rem;
+}
+
+.docuflix-logo-bg {
+  fill: $docuflix-red;
+  width: 10rem;
+  height: 4rem;
+}
+
+$transparent: rgba(3, 0, 0, 0);
+
+.docuflix-btn {
+  @include button($docuflix-red, $transparent, $ui-main-clr);
+}
+
+.splash-get-started {
+  @include button($docuflix-red, $transparent, $ui-main-clr);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  height: inherit;
+}
+
+.docuflix-lnk {
+  color: $docu-preview-background;
+  > h2 {
+    margin-bottom: 0;
+  }
+}
+
+.form-ele {
+  margin-top: 20px;
+}
+
+
+.contact-btn {
+  @include button($transparent, $ui-main-clr, $ui-main-clr);
+  // position: relative;
+}
+.contact-btn-muted {
+  @include button($transparent, $muted-text-clr, $muted-text-clr);
+  width: 120px;
+  margin-left: 0px;
+}
+
+.contact-drpdwn-link, .contact-drpdwn-link-btm {
+  position: relative;
+}
+
+.dropdown-contact {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 5px;
+  background-color: $docu-preview-background;
+
+  li {
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  li:hover {
+    background-color: lighten($docu-preview-background, 20);
+  }
+  
+}
+
+.contact-drpdwn-link:hover .dropdown-contact {
+  display: flex;
+  flex-direction: column;
+  top: 30px;
+  color: $ui-main-clr;
+
+}
+
+.contact-drpdwn-link-btm:hover .dropdown-contact {
+  // display: flex;
+  // flex-direction: column;
+  display:block;
+  bottom: 10px;
+  color: $muted-text-clr;
+}
+
+.input-group {
+  position: relative;
+
+  > label {
+    position: absolute;
+    color: $muted-text-clr;
+    top: 10%;
+    left: 2%
+  }
+  > input {
+    font-family: $text-font;
+    font-weight: 300;
+    font-size: 18px;
+    padding-top: 5%;
+    padding-left: 2%;
+  }
+}

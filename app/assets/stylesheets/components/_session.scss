@@ -1,0 +1,64 @@
+// Place all the styles related to the session controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login-box {
+  display: flex;
+  width: 40%;
+  height: 600px;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.632);
+  > div {
+    width: 80%;
+  }
+
+}
+
+
+.signup-card {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  width:40%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-container {
+  width: 100%;
+}
+
+.light-mode-signup {
+  background-color: white;
+}
+
+.input-field-splash {
+  height: 50px;
+  background-color: $ui-main-clr;
+  box-sizing: border-box;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  width:100%;
+}
+
+.splash-form {
+  // display: flex;
+  flex-direction: row;
+  position: static;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  height: 50px;
+  width: 100%;
+  background-color: blue;
+  
+}
+

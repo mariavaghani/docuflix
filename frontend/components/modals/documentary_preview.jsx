@@ -50,18 +50,20 @@ class DocumentaryPreview extends Component {
     return (
             
       <div className="documentary-preview"
-        onMouseLeave={() => this.props.hideModal()}>
+        onMouseLeave={() => this.props.hideModal()}
+        >
 
-        <VideoPreviewContainer
-          documentary={documentary}
-          imgClasses={this.state.imgClasses}
-        />
+        <div>
+          <VideoPreviewContainer
+            documentary={documentary}
+            imgClasses={this.state.imgClasses}
+          />
+        </div>
 
         <VideoControlsContainer />
 
-        <h1>{documentary.title}</h1>
         <div className="info-row">
-          <button onClick={this.goToDocumentarySplash(documentary.id)}>More Info</button>
+          <button className="docuflix-btn" onClick={this.goToDocumentarySplash(documentary.id)}>More Info</button>
         </div>
       
         <VideoInfo documentary={documentary}/>
