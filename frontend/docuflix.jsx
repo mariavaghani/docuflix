@@ -36,7 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // DONE: add a mute/unmute button
 // DONE: make the preview to show the thumbnail while the video is loading
 // DONE: add a button that expands the preview into a bigger preview card with description
-// TODO: style the splash page
+// DONE: style the splash page
+// TODO: add a page to edit user account and where a user could see their watch 
+// profiles
 // TODO: add profiles to user account, add two profiles on sign up
 // TODO: Go over css and refactor
 
