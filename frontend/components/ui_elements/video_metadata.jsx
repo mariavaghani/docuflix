@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 export const VideoMetadata = (props) => {
-  console.log(`props in video Metadata: `, props);
 
   return (
     <div className="info-row">

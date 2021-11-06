@@ -5,7 +5,7 @@ import { ContactButton } from '../ui_elements/contact_button'
 export const Footer = (props) => {
 
   return (
-    <footer >
+    <footer className={props.footerClass}>
       <h6>Questions? Be sure to check out the Contacts link!!</h6>
       <div>
         <div>
@@ -36,8 +36,8 @@ export const Footer = (props) => {
       </div>
       <div>
         <ContactButton
-          btnclass={"contact-btn-muted"}
-          lnkClass={"contact-drpdwn-link-btm"}/>
+          btnClass={"contact-btn-muted"}
+          dropClass={"contact-drpdwn-footer"}/>
       </div>
     </footer>
   )

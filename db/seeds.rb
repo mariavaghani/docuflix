@@ -113,6 +113,10 @@ d_g5 = DocumentariesGenre.create(documentary_id: doc5.id, genre_id: scienceNatur
 
 User.destroy_all
 
+Profile.destroy_all
+
 demoUser = User.create!(email:"demo-user@demo.com", password: "123456")
+demoUser_guest = Profile.create!(user_id: demoUser.id, profile_name: "Guest", maturity_setting: "NC-17", autoplay_next_episode: true, autoplay_preview: true)
+demoUser_kids = Profile.create!(user_id: demoUser.id, profile_name: "Kids", maturity_setting: "PG", autoplay_next_episode: true, autoplay_preview: true)
 
 puts "All seeded, thank you for asking!"

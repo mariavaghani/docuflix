@@ -14,7 +14,7 @@ class DocumentaryInfoAndWatch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgClasses: "loading-img"
+      imgClasses: "loading-img div-100"
     }
     this.closeDocumentarySplash = this.closeDocumentarySplash.bind(this);
   }
@@ -22,7 +22,7 @@ class DocumentaryInfoAndWatch extends Component {
   componentDidMount() {
     console.log('mounting');
     this.loadingImgTimeout = setTimeout(() => {
-        this.setState({ imgClasses: "loading-img hidden" });
+        this.setState({ imgClasses: "loading-img div-100 hidden" });
       }, 3000);
         
   }
@@ -47,7 +47,7 @@ class DocumentaryInfoAndWatch extends Component {
     const { documentary } = this.props;
     return (
       <div className="documentary-info-and-watch" onClick={this.closeDocumentarySplash}>
-        <div>
+        <div className="div-60">
           <button onClick={this.closeDocumentarySplash}>X</button>
           <VideoPreviewContainer
             documentary={documentary}
@@ -55,12 +55,12 @@ class DocumentaryInfoAndWatch extends Component {
           />
           <VideoControlsContainer />
           <h1>{documentary.title}</h1>
-          <div className="documentary-info">
-            <div className="docu-info-col-1">
+          <div className="documentary-info div-100">
+            <div>
               <VideoInfo documentary={documentary} />
 
             </div>
-            <div className="docu-info-col-2">
+            <div>
               <span>Genres: </span>
               <VideoMetadata genres={this.props.genres} />
 

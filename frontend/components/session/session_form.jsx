@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
+
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -41,12 +43,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="session-container">
-
-        {/* <Link className="btn"
-          to={this.props.sessionPath}
-          onClick={ () => this.props.clearSessionErrors() }
-          >{this.props.btnContent}</Link> */}
+      <div className="div-100">
 
         <ul>
           {
@@ -83,4 +80,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

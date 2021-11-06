@@ -12,7 +12,7 @@ class GenreIndex extends Component {
 
   render() {
     return (
-      <ul className="genres-index">
+      <ul className="genres-index fixed-nav">
         {
         this.props.genres.map(genre => {
           return (

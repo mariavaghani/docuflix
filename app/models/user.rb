@@ -1,11 +1,24 @@
 class User < ApplicationRecord
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
   attr_reader :password
   
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, 
+    format: { with: VALID_EMAIL_REGEX, message: "Email isn't valid" }
   validates :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+
   
+  has_many :profiles,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Profile,
+    dependent: :destroy
+
   after_initialize :ensure_session_token
+
+  
   
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

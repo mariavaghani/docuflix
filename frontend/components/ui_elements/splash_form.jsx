@@ -20,12 +20,12 @@ class SplashForm extends Component {
   }
   render() {
     return (
-      <form className="splash-form">
+      <form className="splash-form div-100">
     
         <div className="input-group">
           <label><h5>Email</h5></label>
           <input type='text'
-            className="input-field-splash"
+            className="input-field-splash div-100"
             />
         </div>
         <button

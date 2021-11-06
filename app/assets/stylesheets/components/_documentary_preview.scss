@@ -10,7 +10,6 @@
 
 
 .preview-container { // container with video and image on top
-  width: 100%;
   position: relative;
   display: flex;
   aspect-ratio: 16 / 9;
@@ -18,7 +17,6 @@
 
 .loading-img { // thumbnail image that would disappear
   position: absolute;
-  width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   z-index: 10;
@@ -26,7 +24,6 @@
 
 .video-preview {
   position: absolute;
-  width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }

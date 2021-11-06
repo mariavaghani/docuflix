@@ -14,7 +14,7 @@ class DocumentaryPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgClasses: "loading-img"
+      imgClasses: "loading-img div-100"
     }
   }
   
@@ -23,7 +23,7 @@ class DocumentaryPreview extends Component {
     this.props.fetchDocumentary(this.props.documentary.id);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
-        this.setState({imgClasses: "loading-img hidden"});
+        this.setState({imgClasses: "loading-img div-100 hidden"});
       }, 3000);
     };
     

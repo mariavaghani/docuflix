@@ -5,8 +5,6 @@ import { DocuflixLogo } from '../ui_elements/docuflix_logo';
 // import kids_intro from 'kids_intro.png';
 
 // Font Awesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { Footer } from '../nav_bar/footer';
 import { ContactButton } from '../ui_elements/contact_button';
 import SplashFormContainer from '../ui_elements/splash_form';
@@ -23,20 +21,20 @@ class Splash extends React.Component {
     
     return (
       <div>
-        <div className="splash-card-main card">
+        <div className="splash-card-main card div-100">
           <nav className="nav-splash">
             <div className="nav-ele">
               <DocuflixLogo logoClass={"docuflix-logo"}/>
             </div>
             <div className="btn-group-nav">
               <ContactButton 
-                btnclass={"contact-btn nav-ele"}
-                lnkClass={"contact-drpdwn-link"}
+                btnClass={"contact-btn nav-ele"}
+                dropClass={"contact-drpdwn"}
               />
               <Link to="/login" className="docuflix-btn nav-ele">Sign In</Link>
             </div>
           </nav>
-          <div className="sign-up-starter">
+          <div className="sign-up-starter div-60">
             <h1>Almost unlimited documentaries, and... actually nothing more</h1>
             <h3>Watch in your browser. Cancel... There is nothing to cancel :)</h3>
             <h3>Ready? Let's go!! We just need your email below to get started.</h3>

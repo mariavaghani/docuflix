@@ -46,6 +46,15 @@ body {
 }
 
 
+.light-mode {
+  background-color: $ui-main-clr;
+  color: $body-background;
+  width: 100%;
+}
+
+.fixed-nav {
+  padding-top: 100px;
+}
 
 .fa {
   font-size: 14px;
@@ -57,6 +66,25 @@ body {
     padding-left: 10px;
     
   }
+}
+
+// SIZES
+
+.div-100{ 
+  width: 100%;
+}
+
+.div-60 {
+  width: 60%;
+}
+
+.div-80 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.div-40 {
+  width: 40%;
 }
 
 

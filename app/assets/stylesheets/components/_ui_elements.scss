@@ -33,7 +33,7 @@
   height: 4rem;
 }
 
-$transparent: rgba(3, 0, 0, 0);
+
 
 .docuflix-btn {
   @include button($docuflix-red, $transparent, $ui-main-clr);
@@ -68,16 +68,37 @@ $transparent: rgba(3, 0, 0, 0);
   @include button($transparent, $muted-text-clr, $muted-text-clr);
   width: 120px;
   margin-left: 0px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.contact-drpdwn-link, .contact-drpdwn-link-btm {
+
+// DROPDOWN MENU
+// =======================
+
+.drpdwn-container {
   position: relative;
 }
 
-.dropdown-contact {
+.dropdown-list {
   display: none;
   position: absolute;
   cursor: pointer;
+  
+  
+}
+
+.drpdwn-container:hover .dropdown-list {
+  display: block;
+  flex-direction: column;
+  
+}
+//  =========================
+
+.contact-drpdwn {
+  // display: block;
+  top: 20px;
+  color: $ui-main-clr;
   width: 100px;
   border-radius: 5px;
   background-color: $docu-preview-background;
@@ -90,24 +111,31 @@ $transparent: rgba(3, 0, 0, 0);
   li:hover {
     background-color: lighten($docu-preview-background, 20);
   }
-  
-}
-
-.contact-drpdwn-link:hover .dropdown-contact {
-  display: flex;
-  flex-direction: column;
-  top: 30px;
-  color: $ui-main-clr;
 
 }
 
-.contact-drpdwn-link-btm:hover .dropdown-contact {
-  // display: flex;
-  // flex-direction: column;
-  display:block;
-  bottom: 10px;
+.contact-drpdwn-footer {
+  // display:block;
+  bottom: 30px;
   color: $muted-text-clr;
+
+  width: 100px;
+  border-radius: 5px;
+  background-color: $docu-preview-background;
+
+  li {
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  li:hover {
+    background-color: lighten($docu-preview-background, 20);
+  }
+
 }
+
+
+//  INPUT ELEMENTS
 
 .input-group {
   position: relative;

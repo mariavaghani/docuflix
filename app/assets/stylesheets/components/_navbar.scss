@@ -1,23 +1,21 @@
 .browse-nav {
   @include nav(50px);
+  position: fixed;
+  background-color: $body-background;
+  top: 0;
 }
 
 .nav-splash {
   @include nav(80px);
-  width: 95%;
 }
 .nav-login {
   @include nav(100px);
-  width: 95%;
   position: absolute;
   
 }
 
 .nav-signup {
   @include nav(90px);
-  // width: 100%;
-  padding-left: 30px;
-  padding-right: 30px;
   border-bottom: 1px solid rgba(3, 3, 3, 0.126);
 }
 
@@ -30,17 +28,19 @@
 }
 
 footer {
+  border-top: 1px solid grey;
   padding-top: 30px;
-  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   text-align: left;
-   h6 {
+  h6 {
     margin-top: 20px;
   }
-  > div {
+  > div, >h6 {
+    padding-right: 100px;
+    padding-left: 100px;
     display: flex;
     justify-content: space-between;
   }

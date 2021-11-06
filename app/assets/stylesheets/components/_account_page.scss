@@ -1,0 +1,27 @@
+.ap-grid {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  align-items: center;
+}
+
+.ap-inner-grid {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  align-items: center;
+
+  > h5 {
+    margin-bottom: 0;
+  } 
+}
+
+
+.ap-card {
+  border-bottom: 1px solid grey;
+  padding-top: 20px;
+}
+
+.user-edit-input {
+  height: 30px;
+  background-color: white;
+}

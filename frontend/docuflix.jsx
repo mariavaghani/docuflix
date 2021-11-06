@@ -33,14 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // MVP VIDEOS
-// DONE: add a mute/unmute button
-// DONE: make the preview to show the thumbnail while the video is loading
-// DONE: add a button that expands the preview into a bigger preview card with description
-// DONE: style the splash page
 // TODO: add a page to edit user account and where a user could see their watch 
 // profiles
+// TODO: custom validation for number of profiles per user
+// TODO: add static images to AWS, update references in CSS
 // TODO: add profiles to user account, add two profiles on sign up
+// TODO: test up to 5 watch profiles validations
 // TODO: Go over css and refactor
+// TODO: add sign up button on login page
+// TODO: style the dropdown and "Choose Profile" button
 
 // LATER:
 // TODO_LATER: paginate documentaries by groups that fit the page

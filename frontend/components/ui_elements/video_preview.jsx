@@ -2,26 +2,23 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 export const VideoPreview = (props) => {
-  console.log(`props in video preview: `, props);
   
   return (
-      // <div className="preview-wrapper">
-        <div className="preview-container">
-            <img
-              src={props.documentary.thumbnail}
-              alt={props.documentary.title}
-              className={props.imgClasses}
-            />
-        
-          <video
-            className="video-preview"
-            src={props.documentary.video}
-            autoPlay
-            muted={props.muted}
-          >
-          </video>
-        </div>
-      //</div>
+    <div className="preview-container div-100">
+        <img
+          src={props.documentary.thumbnail}
+          alt={props.documentary.title}
+          className={props.imgClasses}
+        />
+    
+      <video
+        className="video-preview div-100"
+        src={props.documentary.video}
+        autoPlay
+        muted={props.muted}
+      >
+      </video>
+    </div>
   )
 }
 

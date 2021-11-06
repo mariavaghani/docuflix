@@ -6,11 +6,12 @@ import { faSortDown, faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
 
 export const ContactButton = (props) => {
-  const btnClass = props.btnclass;
+  const btnClass = props.btnClass;
+  const dropClass = props.dropClass;
   return (
  
-    <div className={props.lnkClass}>
-        <button className={btnClass}>
+    <div className="drpdwn-container ">
+      <button className={"drpdwn-btn " + btnClass}>
           <div>
             <span className="fa">
               <FontAwesomeIcon icon={faAddressCard} />
@@ -21,7 +22,7 @@ export const ContactButton = (props) => {
             </span>
           </div>
         </button>
-        <div className="dropdown-contact">
+      <div className={"dropdown-list " + dropClass}>
           <ul>
             <li>LinkedIn</li>
             <li>GitHub</li>

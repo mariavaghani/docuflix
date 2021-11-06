@@ -6,7 +6,6 @@ export const selectDocumentariesByGenre = (state, genreId) => {
 }
 
 export const selectGenresByDocumentary = (state, documentaryId) => {
-  console.log(`state in selectors: `, state);
   
   return Object.values(state.entities.genres).filter((genre) => {
     

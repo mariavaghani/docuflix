@@ -6,8 +6,6 @@ import DocumentaryInfoAndWatchContainer from "../modals/documentary_info_and_wat
 
 class Browse extends Component {
   render() {
-    console.log('browse re-rendering');
-    console.log(`this.props.showingDocumentaryInfo: `, this.props.showingDocumentaryInfo);
     
     
     const displayDocumentaryInfo = this.props.showingDocumentaryInfo ?
