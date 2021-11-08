@@ -5,10 +5,10 @@ class Api::DocumentariesController < ApplicationController
     # @documentaries = Documentary.with_attached_thumbnail.all.includes(:genres)
     @documentaries = Documentary
       .with_attached_thumbnail
-      .joins(:documentaries_genres)
-      .includes(:documentaries_genres)
-      .where(documentaries_genres: {genre_id: params[:filters].keys})
-      .distinct
+      .joins(:genres)
+      .includes(:genres)
+      # .where(documentaries_genres: {genre_id: params[:filters].keys})
+      # .distinct
     render :index
   end
 

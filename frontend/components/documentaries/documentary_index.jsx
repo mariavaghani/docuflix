@@ -6,7 +6,6 @@ import { DocumentaryIndexItem } from './documentary_index_item';
 class DocumentaryIndex extends Component {
   
   render() {
-    
     return (
       <ul className="docu-carusel">
         {
@@ -21,10 +20,11 @@ class DocumentaryIndex extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  documentaries: selectDocumentariesByGenre(state, ownProps.genreId)
+const mapStateToProps = (state, ownProps) => {
   
-})
+  return {documentaries: selectDocumentariesByGenre(state, ownProps.genreId),
+  genres: Object.values(state.entities.genres)}
+}
 
 const mapDispatchToProps = (dispatch,ownProps) => ({
 

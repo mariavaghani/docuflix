@@ -98,6 +98,7 @@
 .contact-drpdwn {
   // display: block;
   top: 20px;
+  right: 0;
   color: $ui-main-clr;
   width: 100px;
   border-radius: 5px;
@@ -153,4 +154,14 @@
     padding-top: 5%;
     padding-left: 2%;
   }
+}
+
+.user-edit-input {
+  height: 30px;
+  background-color: grey;
+}
+
+.user-edit-input:focus {
+  height: 30px;
+  background-color: white;
 }

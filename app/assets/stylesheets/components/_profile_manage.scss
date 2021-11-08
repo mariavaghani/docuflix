@@ -1,0 +1,28 @@
+.profile-index {
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-card {
+  width: $profile-badge-img-dim;
+  height: $profile-badge-img-dim;
+  border-radius: 5px;
+}
+
+.profile-avatar {
+  width:100%;
+  object-fit: cover;
+}
+
+.on-profile-badge{
+
+  height: $profile-badge-img-dim;
+  width: $profile-badge-img-dim;
+  background-color: rgba(0, 0, 0, 0.521);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

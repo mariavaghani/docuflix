@@ -6,11 +6,13 @@ class Profile < ApplicationRecord
   validates :user_id, presence: true
   validates :profile_name, presence: true, uniqueness: { scope: :user_id }
   validates :maturity_setting, presence: true, inclusion: { in: MATURITY_SETTINGS }
-  validates :autoplay_next_episode, :autoplay_preview, presence: true,
-    inclusion: { in: [true, false] }
+  validates :autoplay_next_episode, :autoplay_preview, inclusion: { in: [true, false] }
   validate :user_should_have_5_max_profiles
 
   # belongs_to :user
+
+  has_one_attached :avatar
+
 
   has_one :user,
     primary_key: :user_id,

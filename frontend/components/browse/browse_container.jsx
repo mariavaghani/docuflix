@@ -12,6 +12,7 @@ class Browse extends Component {
       (
         <DocumentaryInfoAndWatchContainer />
       ) : ""
+      
     return (
       <div>
         {displayDocumentaryInfo}

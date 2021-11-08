@@ -56,6 +56,26 @@ body {
   padding-top: 100px;
 }
 
+.flex-center-on-page-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.overlay-container {
+  position: relative;
+}
+
+.overlay-object {
+  position: absolute;
+}
+
+.on-top {
+  z-index: 10;
+}
+
 .fa {
   font-size: 14px;
   
@@ -87,4 +107,7 @@ body {
   width: 40%;
 }
 
+.div-300h {
+  height: 300px;
+}
 

@@ -57,6 +57,7 @@ class SessionForm extends React.Component {
 
           <label>Email</label>
           <input type="text"
+            className="user-edit-input"
             value={this.state.email}
             onChange={this.handleInput("email")} />
           
@@ -64,6 +65,7 @@ class SessionForm extends React.Component {
 
           <label>Password</label>
           <input type="password"
+            className="user-edit-input"
             value={this.state.password}
             onChange={this.handleInput("password")} />
           

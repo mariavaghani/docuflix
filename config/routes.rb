@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     # AUTH ROUTES
     resource :session, only: [:create, :destroy]
-    resources :users, only: [:create, :update]
+    resources :users, only: [:create, :update] do
+    resources :profiles, only: [:index]
+      
+    end
     
     # RESOURCES
     resources :genres, only: [:index, :show]
     resources :documentaries, only: [:index, :show]
+    resources :profiles, only: [:create, :destroy, :update, :show]
   end
 end

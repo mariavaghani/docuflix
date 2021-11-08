@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateGenres, updateGenresFilter } from "../../actions/filter_actions";
+import { applyUserFilters, updateGenres, updateGenresFilter, updateUserProfileFilter } from "../../actions/filter_actions";
+import { parseGenreIdsFromFetchedDocumentaries } from '../../selectors/selectors';
 
 import DocumentaryIndexContainer from '../documentaries/documentary_index';
 
 class GenreIndex extends Component {
 
   componentDidMount(){
-    this.props.updateGenres();
+    // this.props.updateGenres();
+    this.props.selectWatchProfile();
   }
 
   render() {
@@ -15,6 +17,7 @@ class GenreIndex extends Component {
       <ul className="genres-index fixed-nav">
         {
         this.props.genres.map(genre => {
+          
           return (
             <li key={genre.id}>
               <h4>
@@ -31,12 +34,12 @@ class GenreIndex extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  genres: Object.values(state.entities.genres)
+  genres: Object.values(state.entities.genres),
+  selectedProfile: state.session.selectedProfile
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  updateGenres: (genresToFetch) => dispatch(updateGenresFilter(updateGenres, genresToFetch)),
-  
+  selectWatchProfile: (userProfileFilters) => dispatch(updateUserProfileFilter(applyUserFilters, userProfileFilters))
 
 })
 
