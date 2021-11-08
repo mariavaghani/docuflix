@@ -117,6 +117,11 @@ Profile.destroy_all
 
 demoUser = User.create!(email:"demo-user@demo.com", password: "123456")
 demoUser_guest = Profile.create!(user_id: demoUser.id, profile_name: "Guest", maturity_setting: "NC-17", autoplay_next_episode: true, autoplay_preview: true)
+guest_avatar = open("#{Rails.root}/app/assets/images/profile4.png")
+demoUser_guest.avatar.attach(io: guest_avatar, filename: "profile4.png")
+      
 demoUser_kids = Profile.create!(user_id: demoUser.id, profile_name: "Kids", maturity_setting: "PG", autoplay_next_episode: true, autoplay_preview: true)
-
+kids_avatar = open("#{Rails.root}/app/assets/images/profile_kids.png")
+demoUser_kids.avatar.attach(io: kids_avatar, filename: "profile_kids.png")
+      
 puts "All seeded, thank you for asking!"
