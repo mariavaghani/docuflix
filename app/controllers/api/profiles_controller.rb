@@ -13,10 +13,14 @@ class Api::ProfilesController < ApplicationController
   end
 
   def update
+    require 'open-uri'
     @profile = Profile.find(params[:profile][:id])
 
 
     if @profile.update(profile_params)
+      new_avatar = open(params[:profile][:avatar])
+      @profile.avatar.attach(io: new_avatar, filename: params[:profile][:avatar].split("/").last)
+
       render :show
     else
       render json: @profile.errors.full_messages, status: 422

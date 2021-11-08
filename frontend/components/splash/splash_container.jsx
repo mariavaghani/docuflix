@@ -46,7 +46,7 @@ class Splash extends React.Component {
 
         <div className='card cards-below'>
           <img
-            src="https://docuflix-seeds-pro.s3.amazonaws.com/ui_images/kids_intro.png" 
+            src={window.kidsIntroUrl}
             className="img-splash"/>
           <div className="cards-below-txt">
             <h1>Profiles for kids</h1>

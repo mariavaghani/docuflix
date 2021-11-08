@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // MVP VIDEOS
 // TODO: add a page to edit user account and where a user could see their watch 
 // profiles
+// TODO: add errors to edit account page
+// TODO: errors to profile manager and form
 // TODO: custom validation for number of profiles per user
 // TODO: add static images to AWS, update references in CSS
 // TODO: add profiles to user account, add two profiles on sign up

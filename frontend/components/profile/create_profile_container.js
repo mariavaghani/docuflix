@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
     maturitySetting: "NC-17",
     autoplayNextEpisode: true,
     autoplayPreview: true,
+    avatar: ""
   },
   formType: "Create Profile",
   selectedProfile: state.session.selectedProfile

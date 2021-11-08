@@ -42,7 +42,8 @@ export const updateUserProfile = (profile) => {
         profile_name: profile.profileName,
         maturity_setting: profile.maturitySetting,
         autoplay_next_episode: profile.autoplayNextEpisode,
-        autoplay_preview: profile.autoplayPreview
+        autoplay_preview: profile.autoplayPreview,
+        avatar: profile.avatar
       }
     }
   })
