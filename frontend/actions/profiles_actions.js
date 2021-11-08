@@ -5,6 +5,8 @@ import { applyUserFilters, updateUserProfileFilter } from "./filter_actions";
 export const RECEIVE_SELECTED_PROFILE = 'RECEIVE_SELECTED_PROFILE';
 export const RECEIVE_USER_PROFILES = 'RECEIVE_USER_PROFILES';
 export const RECEIVE_USER_PROFILE = 'RECEIVE_USER_PROFILE';
+export const RECEIVE_PROFILE_ERRORS = 'RECEIVE_PROFILE_ERRORS';
+export const CLEAR_PROFILE_ERRORS = 'CLEAR_PROFILE_ERRORS';
 
 export const receiveSelectedProfile = (profileId) => {
   return {
@@ -27,6 +29,20 @@ export const receiveUserProfile = (profile) => {
   }
 }
 
+export const receiveProfileErrors = (errors) => {
+  return {
+    type: RECEIVE_PROFILE_ERRORS,
+    errors
+  }
+}
+
+export const clearProfileErrors = (errors) => {
+  return {
+    type: CLEAR_PROFILE_ERRORS,
+    errors
+  }
+}
+
 
 export const fetchUserProfiles = (userId) => dispatch => {
   return ProfileAPIUtil.fetchUserProfiles(userId)
@@ -46,14 +62,16 @@ export const createUserProfile = (profileForm) => dispatch => {
   return ProfileAPIUtil.createUserProfile(profileForm)
     .then(profile => {
       return dispatch(receiveUserProfile(profile))
-    })
+    },
+    (res) => dispatch(receiveProfileErrors(res.responseJSON)))
 }
 
 export const updateUserProfile = (profileForm) => dispatch => {
   return ProfileAPIUtil.updateUserProfile(profileForm)
     .then(profile => {
       return dispatch(receiveUserProfile(profile))
-    })
+    },
+      (res) => dispatch(receiveProfileErrors(res.responseJSON)))
 }
 
 export const switchUserProfile = (profileId, userProfileFilters) => (dispatch, getState) => {

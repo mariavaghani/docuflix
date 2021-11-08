@@ -24,8 +24,10 @@ export const createUserProfile = (profile) => {
         id: profile.id,
         profile_name: profile.profileName,
         maturity_setting: profile.maturitySetting,
-        auto_play_next_episode: profile.autoplayNextEpisode,
-        auto_play_preview: profile.autoplayPreview
+        autoplay_next_episode: profile.autoplayNextEpisode,
+        autoplay_preview: profile.autoplayPreview,
+        user_id: profile.userId,
+        avatar: profile.avatar
       }
     }
   })
@@ -43,7 +45,8 @@ export const updateUserProfile = (profile) => {
         maturity_setting: profile.maturitySetting,
         autoplay_next_episode: profile.autoplayNextEpisode,
         autoplay_preview: profile.autoplayPreview,
-        avatar: profile.avatar
+        avatar: profile.avatar,
+        avatar_modified: profile.avatarModified
       }
     }
   })

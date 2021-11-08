@@ -17,7 +17,7 @@ class CreateProfileBadge extends Component {
 
     this.props.history.replace({
       pathname: "/profiles/manage",
-      state: { editProfileId: this.props.profile.id }
+      state: { addNewProfile: true }
     });
   }
   render() {

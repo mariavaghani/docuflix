@@ -11,6 +11,7 @@ class ProfileForm extends React.Component {
 
     this.state = props.profile;
     this.state.showAvatarOptions = false;
+    this.state.avatarModified = false;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.PROFILE_AVATARS = [window.profileKidsUrl, window.profile1Url, window.profile2Url, window.profile3Url, window.profile4Url]
 
@@ -20,10 +21,10 @@ class ProfileForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state);
-    this.props.history.replace({
+    this.props.action(this.state)
+      .then(() => this.props.history.replace({
       pathname: "/profiles/manage"
-    });
+    }));
   }
 
   update(field) {
@@ -41,6 +42,7 @@ class ProfileForm extends React.Component {
     console.log(`avatar: `, avatar);
     
     this.setState({avatar: avatar});
+    this.setState({ avatarModified: true })
   }
 
   render() {

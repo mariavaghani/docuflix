@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { fetchUserProfiles } from '../../actions/profiles_actions';
 import CreateNewProfileBadgeContainer from './create_new_profile_badge';
 import EditProfileFormContainer from './edit_profile_form';
+import CreateProfileFormContainer from './create_profile_container';
 import ManageProfileBadgeContainer from './manage_proflie_badge';
 import WatchProfileBadgeContainer from './watch_profile_badge';
 
@@ -41,6 +42,8 @@ class ProfileIndex extends Component {
 
     if (this.props.location.state && this.props.location.state.editProfileId) return <EditProfileFormContainer
       profileId={this.props.location.state.editProfileId}/>;
+
+    if (this.props.location.state && this.props.location.state.addNewProfile) return <CreateProfileFormContainer/>;
     
     const pageTitle = this.state.editMode ? "Manage Profiles:" : "Who's watching?";
     const buttonText = this.state.editMode ? "Done" : "Manage Profiles";
