@@ -1,0 +1,19 @@
+.form-card {
+  width:100%;
+  border-bottom: 1px solid grey;
+  padding-top:20px;
+  padding-bottom:20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.form-body {
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+.form-card:first-child {
+  padding-top:0;
+
+}

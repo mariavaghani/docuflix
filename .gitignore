@@ -19,6 +19,7 @@ npm-debug.log
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+*.ai
 
 # Ignore uploaded files in development
 /storage/*

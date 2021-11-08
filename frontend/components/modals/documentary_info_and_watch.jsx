@@ -20,7 +20,6 @@ class DocumentaryInfoAndWatch extends Component {
   }
 
   componentDidMount() {
-    console.log('mounting');
     this.loadingImgTimeout = setTimeout(() => {
         this.setState({ imgClasses: "loading-img div-100 hidden" });
       }, 3000);
@@ -38,7 +37,6 @@ class DocumentaryInfoAndWatch extends Component {
       
       
   componentWillUnmount() {
-    console.log('unmounting');
     clearTimeout(this.loadingImgTimeout);
   }
   

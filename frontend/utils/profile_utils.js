@@ -14,6 +14,14 @@ export const fetchUserProfile = (profileId) => {
   })
 }
 
+export const deleteUserProfile = (profileId) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/profiles/${profileId}`,
+    error: (err) => console.log(err),
+  })
+}
+
 export const createUserProfile = (profile) => {
   return $.ajax({
     method: "POST",

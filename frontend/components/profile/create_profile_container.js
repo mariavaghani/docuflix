@@ -14,7 +14,9 @@ const mapStateToProps = (state) => ({
     userId: state.session.id
   },
   formType: "Create Profile",
-  selectedProfile: state.session.selectedProfile
+  selectedProfile: state.session.selectedProfile,
+  errors: state.errors.profile
+
 })
 
 const mapDispatchToProps = (dispatch) => ({

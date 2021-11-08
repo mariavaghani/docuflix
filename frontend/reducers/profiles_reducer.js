@@ -1,4 +1,4 @@
-import { RECEIVE_USER_PROFILE, RECEIVE_USER_PROFILES } from "../actions/profiles_actions";
+import { RECEIVE_USER_PROFILE, RECEIVE_USER_PROFILES, REMOVE_USER_PROFILE } from "../actions/profiles_actions";
 
 
 export const ProfilesReducer = (state = {}, action) => {
@@ -12,6 +12,9 @@ export const ProfilesReducer = (state = {}, action) => {
       return action.profiles;
     case RECEIVE_USER_PROFILE:
       nextState[action.profile.id] = action.profile;
+      return nextState;
+    case REMOVE_USER_PROFILE:
+      delete nextState[action.profileId];
       return nextState;
 
     default:

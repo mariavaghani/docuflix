@@ -7,7 +7,6 @@ class Profile < ApplicationRecord
   validates :profile_name, presence: true, uniqueness: { scope: :user_id }
   validates :maturity_setting, presence: true, inclusion: { in: MATURITY_SETTINGS }
   validates :autoplay_next_episode, :autoplay_preview, inclusion: { in: [true, false] }
-  validate :user_should_have_5_max_profiles
 
   # belongs_to :user
 
@@ -23,11 +22,5 @@ class Profile < ApplicationRecord
     through: :user,
     source: :profiles
 
-  
 
-  def user_should_have_5_max_profiles
-    if user && user_profiles.length > 5 
-      errors[:user_profiles] << 'You could have only up to 5 watch profiles'
-    end
-  end
 end

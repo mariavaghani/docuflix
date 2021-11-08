@@ -16,8 +16,10 @@ class Api::ProfilesController < ApplicationController
     require 'open-uri'
     @profile = Profile.new(profile_params)
     @profile.user_id = params[:profile][:user_id]
-
-    if @profile.save
+    user = User.find(params[:profile][:user_id])
+    if user.profiles.length > 4
+      render json: ["Already have maximum number of profiles on your account"], status: 422
+    elsif @profile.save
       new_avatar = open(params[:profile][:avatar])
       @profile.avatar.attach(io: new_avatar, filename: params[:profile][:avatar].split("/").last)
 
@@ -42,6 +44,16 @@ class Api::ProfilesController < ApplicationController
       render :show
     else
       render json: @profile.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    @profile = Profile.find(params[:id])
+    if @profile.user_profiles.length > 1
+      @profile.destroy
+      render json: {}
+    else
+      render json: ["Can't delete the last profile"], status: 404
     end
   end
 

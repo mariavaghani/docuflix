@@ -5,6 +5,7 @@ import { applyUserFilters, updateUserProfileFilter } from "./filter_actions";
 export const RECEIVE_SELECTED_PROFILE = 'RECEIVE_SELECTED_PROFILE';
 export const RECEIVE_USER_PROFILES = 'RECEIVE_USER_PROFILES';
 export const RECEIVE_USER_PROFILE = 'RECEIVE_USER_PROFILE';
+export const REMOVE_USER_PROFILE = 'REMOVE_USER_PROFILE';
 export const RECEIVE_PROFILE_ERRORS = 'RECEIVE_PROFILE_ERRORS';
 export const CLEAR_PROFILE_ERRORS = 'CLEAR_PROFILE_ERRORS';
 
@@ -43,6 +44,13 @@ export const clearProfileErrors = (errors) => {
   }
 }
 
+export const removeUserProfile = (profileId) => {
+  return {
+    type: REMOVE_USER_PROFILE,
+    profileId
+  }
+}
+
 
 export const fetchUserProfiles = (userId) => dispatch => {
   return ProfileAPIUtil.fetchUserProfiles(userId)
@@ -56,6 +64,13 @@ export const fetchUserProfile = (profileId) => dispatch => {
   .then( profile => {
     return dispatch(receiveUserProfile(profile))
   })
+}
+
+export const deleteUserProfile = (profileId) => dispatch => {
+  return ProfileAPIUtil.deleteUserProfile(profileId)
+    .then( () => {
+      return dispatch(removeUserProfile(profileId))
+    })
 }
 
 export const createUserProfile = (profileForm) => dispatch => {

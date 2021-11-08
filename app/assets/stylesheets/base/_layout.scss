@@ -96,6 +96,7 @@ body {
 
 .div-60 {
   width: 60%;
+  margin: 0 auto;
 }
 
 .div-80 {
@@ -105,9 +106,38 @@ body {
 
 .div-40 {
   width: 40%;
+  margin: 0 auto;
 }
 
 .div-300h {
   height: 300px;
 }
+.div-600w {
+  width: 600px;
+}
 
+
+.div-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-flex {
+  display: flex;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.div-grid-50-50 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+.space-evenly {
+  justify-content: space-evenly;
+}
