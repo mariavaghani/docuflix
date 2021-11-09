@@ -19,7 +19,7 @@ npm-debug.log
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-*.ai
+
 
 # Ignore uploaded files in development
 /storage/*
@@ -43,3 +43,5 @@ config/maria_vaghani_accessKeys.csv
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/app/assets/images/Docuflix-logo.ai
+Gemfile.lock
