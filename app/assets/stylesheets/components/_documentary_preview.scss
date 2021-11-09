@@ -1,11 +1,13 @@
 .documentary-preview { // the panel that holds preview, controls and info
   position: absolute;
   width: $video-preview-width;
-  height: 350px;
+  // height: 350px;
   background-color: $docu-preview-background;
   transform: translate(-12.5%,0);
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
+
 } 
 
 
@@ -13,6 +15,7 @@
   position: relative;
   display: flex;
   aspect-ratio: 16 / 9;
+  margin-bottom: 20px;
 }
 
 .loading-img { // thumbnail image that would disappear

@@ -12,9 +12,9 @@ export const VideoPreview = (props) => {
         />
     
       <video
-        className="video-preview div-100"
+        className="video-preview div-100 bdr-rad-5-top"
         src={props.documentary.video}
-        autoPlay
+        autoPlay={props.autoplay}
         muted={props.muted}
       >
       </video>
@@ -23,7 +23,8 @@ export const VideoPreview = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  muted: state.videoControls.muted
+  muted: state.videoControls.muted,
+  autoplay: state.entities.profiles[state.session.selectedProfile].autoplayPreview
 })
 
 const mapDispatchToProps = {

@@ -1,0 +1,1 @@
+export const btnColor = "rgb(200, 200, 200)";

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 export const VideoMetadata = (props) => {
 
   return (
-    <div className="info-row">
+    <div className="info-row pad-l-10">
       <ul className="genre-docu-preview">
         {
           props.genres.map(genre => {

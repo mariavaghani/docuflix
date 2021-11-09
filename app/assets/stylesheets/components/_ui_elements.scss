@@ -1,7 +1,10 @@
 
 .maturity-rating {
   border: 1px solid white;
-  padding: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .info-row{
@@ -70,6 +73,23 @@
   margin-left: 0px;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.fa-btn {
+  color:$ui-main-clr;
+}
+
+.fa-btn-circle {
+  color:$ui-main-clr;
+  border: 2px solid $video-control-clr;
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+  margin: 5px;
+}
+
+.fa-btn-circle:hover {
+  border-color: lighten($video-control-clr, 20);
 }
 
 
@@ -164,4 +184,13 @@
 .user-edit-input:focus {
   height: 30px;
   background-color: white;
+}
+
+.bdr-rad-5 {
+  border-radius: 5px;
+}
+
+.bdr-rad-5-top {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

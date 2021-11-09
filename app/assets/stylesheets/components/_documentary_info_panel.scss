@@ -8,10 +8,12 @@
   display: flex;
   justify-content: center;
   > div { // documentary info container
-    height: 600px;
+    // height: 600px;
     top: 50px;
     position: fixed;
     background-color: rgb(34, 34, 34);
+    padding-bottom: 20px;
+    border-radius: 5px;
   }
 }
 

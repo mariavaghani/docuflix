@@ -111,6 +111,23 @@
 # d_g5 = DocumentariesGenre.create(documentary_id: doc5.id, genre_id: natureEcology.id)
 # d_g5 = DocumentariesGenre.create(documentary_id: doc5.id, genre_id: scienceNature.id)
 
+
+# doc6 = Documentary.create!(title: "The Alpinist",
+#   description: "Marc-André Leclerc climbs alone, far from the limelight. On remote alpine faces, the free-spirited 23-year-old Canadian makes some of the boldest solo ascents in history. Yet, he draws scant attention. With no cameras, no rope, and no margin for error, Leclerc's approach is the essence of solo adventure. Nomadic and publicity shy, he doesn’t own a phone or car, and is reluctant to let a film crew in on his pure vision of climbing. Veteran filmmaker Peter Mortimer (THE DAWN WALL) sets out to make a film about Leclerc but struggles to keep up with his elusive subject. Then, Leclerc embarks on a historic adventure in Patagonia that will redefine what is possible in solo climbing.",
+#   year: 2021,
+#   maturity_rating:"PG-13",
+#   type_media: "movie")
+# name6 = "the-alpinist"
+# doc6_video = open("#{Rails.root}/app/seeds/video_seeds/#{name6}-trailer-1_a720p.m4v")
+# doc6_thumb = open("#{Rails.root}/app/seeds/thumbnail_seeds/#{name6}_background_2x.jpeg")
+# doc6.video.attach(io: doc6_video, filename: "#{name6}-trailer-1_a720p.m4v")
+# doc6.thumbnail.attach(io: doc6_thumb, filename: "#{name6}_background_2x.jpeg")
+# doc6.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc6.video.blob).metadata[:duration])
+# doc6.save
+
+# d_g6 = DocumentariesGenre.create(documentary_id: doc6.id, genre_id: natureEcology.id)
+# d_g6 = DocumentariesGenre.create(documentary_id: doc6.id, genre_id: biography.id)
+
 # User.destroy_all
 
 # Profile.destroy_all

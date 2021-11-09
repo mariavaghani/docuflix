@@ -75,6 +75,14 @@ body {
 .on-top {
   z-index: 10;
 }
+.on-top-20 {
+  z-index: 20;
+}
+
+.in-top-right-corner {
+  top: 10px;
+  right: 10px;
+}
 
 .fa {
   font-size: 14px;
@@ -140,4 +148,33 @@ body {
 }
 .space-evenly {
   justify-content: space-evenly;
+}
+.just-start-align-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.align-start-just-center {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pad-l-10 {
+  padding-left:10px;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}
+
+.of-hide {
+  overflow: hidden;
 }

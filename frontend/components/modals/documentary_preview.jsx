@@ -7,6 +7,10 @@ import VideoPreviewContainer from "../ui_elements/video_preview";
 import { VideoInfo } from "../ui_elements/video_info";
 import { VideoMetadata } from "../ui_elements/video_metadata";
 import  VideoControlsContainer  from "../ui_elements/video_controls";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { btnColor } from '../../utils/ui_utils';
 
 
 class DocumentaryPreview extends Component {
@@ -14,7 +18,7 @@ class DocumentaryPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgClasses: "loading-img div-100"
+      imgClasses: "loading-img div-100 bdr-rad-5-top"
     }
   }
   
@@ -23,7 +27,7 @@ class DocumentaryPreview extends Component {
     this.props.fetchDocumentary(this.props.documentary.id);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
-        this.setState({imgClasses: "loading-img div-100 hidden"});
+        this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden"});
       }, 3000);
     };
     
@@ -49,7 +53,7 @@ class DocumentaryPreview extends Component {
     const { documentary } = this.props;
     return (
             
-      <div className="documentary-preview"
+      <div className="documentary-preview bdr-rad-5"
         onMouseLeave={() => this.props.hideModal()}
         >
 
@@ -60,10 +64,13 @@ class DocumentaryPreview extends Component {
           />
         </div>
 
-        <VideoControlsContainer />
+        <VideoControlsContainer documentaryId={documentary.id}/>
 
-        <div className="info-row">
-          <button className="docuflix-btn" onClick={this.goToDocumentarySplash(documentary.id)}>More Info</button>
+        <div className="info-row pad-l-10">
+
+          <button className="fa-btn-circle flex-center-on-page-column font-075" onClick={this.goToDocumentarySplash(documentary.id)}>
+            <FontAwesomeIcon icon={faChevronDown} size="sm" color={btnColor} />
+          </button>
         </div>
       
         <VideoInfo documentary={documentary}/>

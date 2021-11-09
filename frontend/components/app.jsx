@@ -8,6 +8,7 @@ import { LoginPage } from "./session/login_page";
 import SignupPageContainer from "./session/signup_page";
 import AccountPageContainer from "./account/account_page";
 import ProfileIndexContainer from "./profile/profile_index";
+import WatchPageContainer from "./watch/watch_page";
 
 
 const App = () => (
@@ -18,8 +19,11 @@ const App = () => (
     </header>
 
     <Switch>
-      <ProtectedBoolRoute exact={false} path="/browse" 
+      <ProtectedBoolRoute exact={true} path="/browse" 
         componentTrue={BrowseContainter} 
+        componentFalse={ProfileIndexContainer}/>
+      <ProtectedBoolRoute exact={false} path='/watch/:documentaryId' 
+        componentTrue={WatchPageContainer}
         componentFalse={ProfileIndexContainer}/>
       <ProtectedRoute exact={false} path="/YourAccount" component={AccountPageContainer}/>
       <ProtectedRoute exact={false} path="/profiles/manage" component={ProfileIndexContainer}/>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router';
-import { receiveSelectedProfile } from '../../actions/profiles_actions'
+import { fetchUserProfile, receiveSelectedProfile } from '../../actions/profiles_actions'
 
 class WatchProfileBadge extends Component {
   constructor(props) {
@@ -13,9 +13,18 @@ class WatchProfileBadge extends Component {
 
   selectProfileAndGoToBrowse() {
     this.props.selectWatchProfile(this.props.profile.id)
-    this.props.history.push({
-      pathname: "/browse"
-    });
+    console.log(`this.props: `, this.props);
+    
+    const nexturl = this.props.match.url === "/profiles/manage" ? (
+      "/browse"
+    ) : (
+      this.props.match.url
+    )
+    this.props.fetchUserProfile(this.props.profile.id)
+    .then( () => this.props.history.replace({
+      pathname: nexturl
+    })
+    )
   }
 
   render() {
@@ -39,7 +48,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  selectWatchProfile: (profileId) => dispatch(receiveSelectedProfile(profileId))
+  selectWatchProfile: (profileId) => dispatch(receiveSelectedProfile(profileId)),
+  fetchUserProfile: (profileId) => dispatch(fetchUserProfile(profileId))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(WatchProfileBadge))

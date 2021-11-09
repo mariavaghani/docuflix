@@ -1,7 +1,7 @@
 import { TOGGLE_MUTE_VIDEO } from "../actions/video_controls_actions";
 
 const _null_State = {
-  muted: true
+  muted: true,
 }
 
 export const VideoControlsReducer = (state = _null_State, action) => {
@@ -14,6 +14,7 @@ export const VideoControlsReducer = (state = _null_State, action) => {
     case TOGGLE_MUTE_VIDEO:    
       nextState.muted = !nextState.muted;
       return nextState;
+    
     default:
       return state;
   }

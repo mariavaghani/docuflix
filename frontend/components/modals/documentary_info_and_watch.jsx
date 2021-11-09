@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { toggleDocumentaryInfo } from '../../actions/documentary_actions';
+import { fetchDocumentary, toggleDocumentaryInfo } from '../../actions/documentary_actions';
 import VideoPreviewContainer from "../ui_elements/video_preview";
 import { VideoInfo } from "../ui_elements/video_info";
 import { VideoMetadata } from "../ui_elements/video_metadata";
 import { selectGenresByDocumentary } from '../../selectors/selectors';
 import VideoControlsContainer from "../ui_elements/video_controls";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { btnColor } from '../../utils/ui_utils';
 
 
 class DocumentaryInfoAndWatch extends Component {
@@ -14,48 +17,59 @@ class DocumentaryInfoAndWatch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgClasses: "loading-img div-100"
+      imgClasses: "loading-img div-100 bdr-rad-5-top"
     }
     this.closeDocumentarySplash = this.closeDocumentarySplash.bind(this);
+    
   }
-
+  
   componentDidMount() {
+    
+    if (this.props.history.action === "POP") this.props.fetchDocumentary(this.props.documentary.id);
     this.loadingImgTimeout = setTimeout(() => {
-        this.setState({ imgClasses: "loading-img div-100 hidden" });
-      }, 3000);
-        
+      this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
+    }, 3000);
+    
   }
   
   closeDocumentarySplash(e) {
     if (e.target !== e.currentTarget)
-      return;
+    return;
     this.props.history.push({
       pathname: "/browse"
     });
     this.props.hideDocumentaryInfo();
   }
-      
-      
+  
+  
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
   }
   
   render() {
-    console.log(`this.props: `, this.props);
+
     const { documentary } = this.props;
     return (
       <div className="documentary-info-and-watch" onClick={this.closeDocumentarySplash}>
         <div className="div-60">
-          <button onClick={this.closeDocumentarySplash}>X</button>
+          <div className="overlay-container">
+
+            <button 
+              onClick={this.closeDocumentarySplash}
+              className="overlay-object on-top-20 in-top-right-corner fa-btn-circle flex-center-on-page-column">
+              <FontAwesomeIcon icon={faTimes} size="sm" color={btnColor} onClick={this.closeDocumentarySplash}/>
+            </button>
+          </div>
           <VideoPreviewContainer
             documentary={documentary}
             imgClasses={this.state.imgClasses}
           />
-          <VideoControlsContainer />
+          <VideoControlsContainer documentaryId={documentary.id}/>
           <h1>{documentary.title}</h1>
           <div className="documentary-info div-100">
             <div>
               <VideoInfo documentary={documentary} />
+          <div>{documentary.description}</div>
 
             </div>
             <div>
@@ -64,7 +78,6 @@ class DocumentaryInfoAndWatch extends Component {
 
             </div>
           </div>
-
         </div>
       </div>
     )
@@ -73,17 +86,17 @@ class DocumentaryInfoAndWatch extends Component {
 
 const mapStateToProps = (state, { location }) => {
   const id = parseInt(new URLSearchParams(location.search).get("jbv"));
-  console.log(`selectGenresByDocumentary(state, id): `, selectGenresByDocumentary(state, id));
   
   return {
     genres: selectGenresByDocumentary(state, id),
-    documentary: state.entities.documentaries[id]
+    documentary: state.entities.documentaries[id],
+
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  hideDocumentaryInfo: () => dispatch(toggleDocumentaryInfo())
-
+  hideDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
+  fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId))
 })
 
 
