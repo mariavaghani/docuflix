@@ -93,9 +93,13 @@
 }
 
 .scroll-handle-btn {
-  background-color: red;
+  background-color: transparent;
   height: $index-thumbnail-height;
   width: 50px;
+}
+
+.scroll-handle-btn:hover {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.541));
 }
 
 

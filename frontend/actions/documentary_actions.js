@@ -3,6 +3,7 @@ import * as DocuAPIUtil from "../utils/documentary_util";
 
 
 export const RECEIVE_DOCUMENTARY = 'RECEIVE_DOCUMENTARY';
+export const RECEIVE_FEATURED_DOCUMENTARY = 'RECEIVE_FEATURED_DOCUMENTARY';
 export const RECEIVE_DOCUMENTARIES = 'RECEIVE_DOCUMENTARIES';
 export const START_LOADING_VIDEO = 'START_LOADING_VIDEO';
 export const TOGGLE_DOCUMENTARY_INFO = 'TOGGLE_DOCUMENTARY_INFO';
@@ -17,6 +18,13 @@ export const receiveDocumentaries = (documentaries) => {
 export const receiveDocumentary = (documentary) => {
   return {
     type: RECEIVE_DOCUMENTARY,
+    documentary
+  }
+}
+
+export const receiveFeaturedDocumentary = (documentary) => {
+  return {
+    type: RECEIVE_FEATURED_DOCUMENTARY,
     documentary
   }
 }
@@ -49,6 +57,14 @@ export const fetchDocumentary = (docuId) => dispatch => {
   return DocuAPIUtil.fetchDocumentary(docuId)
   .then( documentary => {
     return dispatch(receiveDocumentary(documentary))
+  })
+}
+
+export const fetchFeaturedDocumentary = (docuId) => dispatch => {
+  dispatch(startLoadingVideo());
+  return DocuAPIUtil.fetchDocumentary(docuId)
+  .then( documentary => {
+    return dispatch(receiveFeaturedDocumentary(documentary))
   })
 }
 

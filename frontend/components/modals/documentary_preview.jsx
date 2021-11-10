@@ -7,9 +7,8 @@ import VideoPreviewContainer from "../ui_elements/video_preview";
 import { VideoInfo } from "../ui_elements/video_info";
 import { VideoMetadata } from "../ui_elements/video_metadata";
 import  VideoControlsContainer  from "../ui_elements/video_controls";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { btnColor } from '../../utils/ui_utils';
 
 
@@ -51,10 +50,12 @@ class DocumentaryPreview extends Component {
   render() {
     
     const { documentary } = this.props;
+
     return (
             
-      <div className="documentary-preview bdr-rad-5"
+      <div className="documentary-preview bdr-rad-5 on-top"
         onMouseLeave={() => this.props.hideModal()}
+        style={{transform: `translate(-${this.props.scrolledBy+50}px, 0px)`}}
         >
 
         <div>

@@ -2,24 +2,25 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchProfileWatchList } from '../../actions/watch_lists_actions';
 import { getDocumentariesFromWatchList, selectDocumentariesByGenre } from '../../selectors/selectors';
+import { DocumentaryIndex } from './documentary_index';
 import { DocumentaryIndexItem } from './documentary_index_item';
 
 class MyListIndex extends Component {
 
 
   render() {
-    console.log(`this.props: `, this.props);
     
     return (
-      <ul className="docu-carusel">
-        {
-          this.props.documentaries.map(documentary => {
-            return (<DocumentaryIndexItem key={documentary.id}
-              documentary={documentary}
-            />)
-          })
-        }
-      </ul>
+      // <ul className="docu-carusel">
+      //   {
+      //     this.props.documentaries.map(documentary => {
+      //       return (<DocumentaryIndexItem key={documentary.id}
+      //         documentary={documentary}
+      //       />)
+      //     })
+      //   }
+      // </ul>
+      <DocumentaryIndex documentaries={this.props.documentaries}/>
     )
   }
 }

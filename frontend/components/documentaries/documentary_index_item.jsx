@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import DocumentaryPreviewContainer from '../modals/documentary_preview'
 import { DocumentaryIndexCard } from './documentary_index_card'
 
@@ -16,17 +15,20 @@ export class DocumentaryIndexItem extends Component {
         <DocumentaryPreviewContainer
           hideModal={() => this.setState({ showModal: false })}
           documentary={this.props.documentary}
+          scrolledBy={this.props.scrolledBy}
         />
       ) : ""
+
     
     return (
       <li>
         {displayModal}
-
-        <DocumentaryIndexCard
-          documentary={this.props.documentary}
-          showModal={ () => this.setState({ showModal: true }) }
-        />
+        
+                <DocumentaryIndexCard
+        documentary={this.props.documentary}
+        showModal={ () => this.setState({ showModal: true }) }
+        
+          />
       </li>
     )
   }

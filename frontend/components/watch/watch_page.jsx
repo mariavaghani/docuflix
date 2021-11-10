@@ -18,7 +18,6 @@ class WatchPage extends Component {
   }
 
   goBack () {
-    console.log(`going back `);
     this.props.history.goBack();
   }
 
