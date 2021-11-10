@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // TODO: add sign up button on login page
 // TODO: style the dropdown and "Choose Profile" button, little image next to name
 // TODO: stop scroll of main page when it is time to scroll modal
+// TODO: add carousel to documentaries
+// TODO: add ratings
+// TODO: add feature movie
 
 // LATER:
 // TODO_LATER: paginate documentaries by groups that fit the page

@@ -4,18 +4,39 @@ import { selectDocumentariesByGenre } from '../../selectors/selectors';
 import { DocumentaryIndexItem } from './documentary_index_item';
 
 class DocumentaryIndex extends Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  
+  scrollForward() {
+    this.myRef.current.scrollBy(100, 100);
+    console.log('here');
+    
+  }
   
   render() {
     return (
-      <ul className="docu-carusel">
-        {
-        this.props.documentaries.map(documentary => {
-          return (<DocumentaryIndexItem key={documentary.id}
-            documentary={documentary}
-            />)
-          })
-        }
-      </ul>
+      <div>
+          <div className="overlay-container on-top-20">
+            <button className="scroll-handle-btn overlay-object in-top-right-edge"
+              onClick={() => this.scrollForward()}>next</button>
+          </div>
+          <div className="overlay-container on-top-20">
+            <button className="scroll-handle-btn overlay-object in-top-left-edge"
+              onClick={() => this.scrollForward()}>prev</button>
+          </div>
+        <ul className="docu-carusel of-auto overlay-container" ref={this.myRef}>
+          {
+          this.props.documentaries.map(documentary => {
+            return (<DocumentaryIndexItem key={documentary.id}
+              documentary={documentary}
+        
+              />)
+            })
+          }
+        </ul>
+      </div>
     )
   }
 }

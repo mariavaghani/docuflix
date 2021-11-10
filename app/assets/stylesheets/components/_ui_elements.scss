@@ -92,6 +92,12 @@
   border-color: lighten($video-control-clr, 20);
 }
 
+.scroll-handle-btn {
+  background-color: red;
+  height: $index-thumbnail-height;
+  width: 50px;
+}
+
 
 // DROPDOWN MENU
 // =======================

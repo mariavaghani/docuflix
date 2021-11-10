@@ -8,10 +8,13 @@ import MyListIndex from '../documentaries/my_list_index';
 
 class GenreIndex extends Component {
 
+
   componentDidMount(){
     // this.props.updateGenres();
     this.props.selectWatchProfile();
   }
+
+ 
 
   render() {
     return (
@@ -31,6 +34,8 @@ class GenreIndex extends Component {
                 {genre.genre}
               </h4>
               <DocumentaryIndexContainer genreId={genre.id} />
+              
+
             </li>
           )
           })

@@ -72,6 +72,10 @@ body {
   position: absolute;
 }
 
+.overlay-object-fixed {
+  position: fixed;
+}
+
 .on-top {
   z-index: 10;
 }
@@ -82,6 +86,15 @@ body {
 .in-top-right-corner {
   top: 10px;
   right: 10px;
+}
+
+.in-top-right-edge {
+  top: 0;
+  right: 0;
+}
+.in-top-left-edge {
+  top: 0;
+  left: 0;
 }
 
 .fa {
@@ -177,4 +190,18 @@ body {
 
 .of-hide {
   overflow: hidden;
+}
+
+.of-auto {
+  overflow-x: auto;
+  // overflow-y: hidden;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
 }

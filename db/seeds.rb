@@ -13,11 +13,11 @@ dev_path_video = "#{Rails.root}/app/assets/seeds/video_seeds/"
 dev_path_thumbnail = "#{Rails.root}/app/assets/seeds/thumbnail_seeds/"
 
 
-curr_path_video = production_path_video
-curr_path_thumbnail = production_path_thumbnail
+# curr_path_video = production_path_video
+# curr_path_thumbnail = production_path_thumbnail
 
-# curr_path_video = dev_path_video
-# curr_path_thumbnail = dev_path_thumbnail
+curr_path_video = dev_path_video
+curr_path_thumbnail = dev_path_thumbnail
 
 MINUTE = 60
 HOUR   = MINUTE*60
@@ -173,6 +173,108 @@ doc8.save
 d_g8 = DocumentariesGenre.create(documentary_id: doc8.id, genre_id: music.id)
 d_g8 = DocumentariesGenre.create(documentary_id: doc8.id, genre_id: biography.id)
 d_g8 = DocumentariesGenre.create(documentary_id: doc8.id, genre_id: socialCultural.id)
+
+doc9 = Documentary.create!(title: "Woman in Motion",
+  description: "Woman in Motion is the inspiring true story of how renowned Star Trek actress Nichelle Nichols pioneered the NASA recruiting program to hire people of color and the first female astronauts for the space agency in the late 1970s and 1980s. In addition to Nichols, Woman in Motion features notable celebrities, activists, scientists and astronauts including Neil deGrasse Tyson, George Takei, Pharrell Williams, Martin Luther King III, Al Sharpton, Vivica A. Fox, Walter Koenig, Rod Roddenberry, Michael Dorn, Guy Bluford, Charles Bolden, Ivor Dawson, Frederik Gregory and Benjamin Crump.",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name9 = "woman-in-motion"
+doc9_video = open( curr_path_video + "#{name9}-trailer-1_a720p.m4v")
+doc9_thumb = open( curr_path_thumbnail + "#{name9}_background_2x.jpeg")
+doc9.video.attach(io: doc9_video, filename: "#{name9}-trailer-1_a720p.m4v")
+doc9.thumbnail.attach(io: doc9_thumb, filename: "#{name9}_background_2x.jpeg")
+doc9.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc9.video.blob).metadata[:duration])
+doc9.save
+
+d_g9 = DocumentariesGenre.create(documentary_id: doc9.id, genre_id: biography.id)
+d_g9 = DocumentariesGenre.create(documentary_id: doc9.id, genre_id: socialCultural.id)
+
+
+doc10 = Documentary.create!(title: "The Reason I Jump",
+  description: "Based on the best-selling book by Naoki Higashida, The Reason I Jump is an immersive cinematic exploration of neurodiversity through the experiences of nonspeaking autistic people from around the world. The film blends Higashida's revelatory insights into autism, written when he was just 13, with intimate portraits of five remarkable young people. It opens a window for audiences into an intense and overwhelming, but often joyful, sensory universe. Moments in the lives of each of the characters are linked by the journey of a young Japanese boy through an epic landscape; narrated passages from Naoki’s writing reflect on what his autism means to him and others, how his perception of the world differs, and why he acts in the way he does: the reason he jumps. The film distils these elements into a sensually rich tapestry that leads us to Naoki’s core message: not being able to speak does not mean there is nothing to say.",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name10 = "the-reason-i-jump"
+doc10_video = open( curr_path_video + "#{name10}-trailer-1_a720p.m4v")
+doc10_thumb = open( curr_path_thumbnail + "#{name10}_background_2x.jpeg")
+doc10.video.attach(io: doc10_video, filename: "#{name10}-trailer-1_a720p.m4v")
+doc10.thumbnail.attach(io: doc10_thumb, filename: "#{name10}_background_2x.jpeg")
+doc10.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc10.video.blob).metadata[:duration])
+doc10.save
+
+d_g10 = DocumentariesGenre.create(documentary_id: doc10.id, genre_id: biography.id)
+d_g10 = DocumentariesGenre.create(documentary_id: doc10.id, genre_id: socialCultural.id)
+
+
+doc11 = Documentary.create!(title: "Queer Japan",
+  description: "Trailblazing artists, activists, and everyday people from across the spectrum of gender and sexuality defy social norms and dare to shine in this kaleidoscopic view of LGBTQ+ culture in contemporary Japan. From glossy pride parades to playfully perverse underground parties, Queer Japan pictures people living brazenly unconventional lives in the sunlight, the shadows, and everywhere in between. Featuring: Vivienne Sato, Gengoroh Tagame, Atsushi Matsuda, Nogi Sumiko, Hiroshi Hasegawa, Akira the Hustler & Tomato Hatakeno.",
+  year: 2020,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name11 = "queer-japan"
+doc11_video = open( curr_path_video + "#{name11}-trailer-1_a720p.m4v")
+doc11_thumb = open( curr_path_thumbnail + "#{name11}_background_2x.jpeg")
+doc11.video.attach(io: doc11_video, filename: "#{name11}-trailer-1_a720p.m4v")
+doc11.thumbnail.attach(io: doc11_thumb, filename: "#{name11}_background_2x.jpeg")
+doc11.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc11.video.blob).metadata[:duration])
+doc11.save
+
+d_g11 = DocumentariesGenre.create(documentary_id: doc11.id, genre_id: socialCultural.id)
+
+
+doc12 = Documentary.create!(title: "Assassins",
+  description: "The audacious murder of Kim Jong-un's brother in a crowded Malaysian airport sparked a worldwide media frenzy. At the center of the investigation are two young women who are either cold-blooded killers or unwitting pawns in a political assassination. ASSASSINS goes beyond the headlines to question every angle of this case, from human trafficking to geo-political espionage to the secretive dynamics of the North Korean dynasty.",
+  year: 2020,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name12 = "assassins"
+doc12_video = open( curr_path_video + "#{name12}-trailer-1_a720p.m4v")
+doc12_thumb = open( curr_path_thumbnail + "#{name12}_background_2x.jpeg")
+doc12.video.attach(io: doc12_video, filename: "#{name12}-trailer-1_a720p.m4v")
+doc12.thumbnail.attach(io: doc12_thumb, filename: "#{name12}_background_2x.jpeg")
+doc12.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc12.video.blob).metadata[:duration])
+doc12.save
+
+d_g12 = DocumentariesGenre.create(documentary_id: doc12.id, genre_id: socialCultural.id)
+
+doc13 = Documentary.create!(title: "Totally Under Control",
+  description: "On January 20th, 2020 the US and South Korea both discovered their first cases of COVID-19. However, 9 months later, the novel Coronavirus has claimed the lives of almost 200,000 Americans and caused staggering economic damage, while in South Korea, there were no significant lockdowns and, in an urbanized population of 51 million, only 344 lives have been lost. Where did we go wrong? As the presidential election nears, Americans are increasingly enraged by a lack of clear leadership, endemic political corruption and left to wonder how did the wealthiest and most powerful country in the world manage to fail so thoroughly in its response to a global pandemic?
+
+Academy Award-winning filmmaker Alex Gibney, directing with Ophelia Harutyunyan and Suzanne Hillinger, interrogates this question and its devastating implications in Totally Under Control. With damning testimony from public health officials and hard investigative reporting, Gibney exposes a system-wide collapse caused by a profound dereliction of Presidential leadership.
+
+
+It will be a generation before we know the full extent of the damage wrought by this pandemic, but Totally Under Control will stand as the definitive account of the Trump administration’s incompetence, corruption and denial in the face of this global pandemic.",
+  year: 2020,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name13 = "totally-under-control"
+doc13_video = open( curr_path_video + "#{name13}-trailer-1_a720p.m4v")
+doc13_thumb = open( curr_path_thumbnail + "#{name13}_background_2x.jpeg")
+doc13.video.attach(io: doc13_video, filename: "#{name13}-trailer-1_a720p.m4v")
+doc13.thumbnail.attach(io: doc13_thumb, filename: "#{name13}_background_2x.jpeg")
+doc13.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc13.video.blob).metadata[:duration])
+doc13.save
+
+d_g13 = DocumentariesGenre.create(documentary_id: doc13.id, genre_id: socialCultural.id)
+
+
+doc14 = Documentary.create!(title: "Robin's Wish",
+  description: "Robin's Wish is the final word in the story of what really happened to Robin Williams at the end of his life, it reveals the beauty and power behind the mind of one of the greatest entertainers of all time.",
+  year: 2020,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name14 = "robins-wish"
+doc14_video = open( curr_path_video + "#{name14}-trailer-1_a720p.m4v")
+doc14_thumb = open( curr_path_thumbnail + "#{name14}_background_2x.jpeg")
+doc14.video.attach(io: doc14_video, filename: "#{name14}-trailer-1_a720p.m4v")
+doc14.thumbnail.attach(io: doc14_thumb, filename: "#{name14}_background_2x.jpeg")
+doc14.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc14.video.blob).metadata[:duration])
+doc14.save
+
+d_g14 = DocumentariesGenre.create(documentary_id: doc14.id, genre_id: socialCultural.id)
+d_g14 = DocumentariesGenre.create(documentary_id: doc14.id, genre_id: biography.id)
 
 User.destroy_all
 
