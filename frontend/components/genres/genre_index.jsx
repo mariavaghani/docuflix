@@ -4,6 +4,7 @@ import { applyUserFilters, updateGenres, updateGenresFilter, updateUserProfileFi
 import { parseGenreIdsFromFetchedDocumentaries } from '../../selectors/selectors';
 
 import DocumentaryIndexContainer from '../documentaries/documentary_index';
+import MyListIndex from '../documentaries/my_list_index';
 
 class GenreIndex extends Component {
 
@@ -15,6 +16,12 @@ class GenreIndex extends Component {
   render() {
     return (
       <ul className="genres-index fixed-nav">
+        <li key="my list">
+          <h4>
+            My List
+          </h4>
+          <MyListIndex />
+        </li>
         {
         this.props.genres.map(genre => {
           

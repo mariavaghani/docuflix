@@ -36,14 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
 // TODO: add a page to edit user account and where a user could see their watch 
 // profiles
 // TODO: add errors to edit account page
-// TODO: errors to profile manager and form
-// TODO: custom validation for number of profiles per user
-// TODO: add static images to AWS, update references in CSS
-// TODO: add profiles to user account, add two profiles on sign up
-// TODO: test up to 5 watch profiles validations
 // TODO: Go over css and refactor
 // TODO: add sign up button on login page
-// TODO: style the dropdown and "Choose Profile" button
+// TODO: style the dropdown and "Choose Profile" button, little image next to name
+// TODO: stop scroll of main page when it is time to scroll modal
 
 // LATER:
 // TODO_LATER: paginate documentaries by groups that fit the page

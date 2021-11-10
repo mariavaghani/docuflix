@@ -1,5 +1,6 @@
 import { fetchDocumentaries } from "./documentary_actions";
 import { fetchGenres } from "./genre_actions";
+import { fetchProfileWatchList } from "./watch_lists_actions";
 
 export const UPDATE_GENRES = 'UPDATE_GENRES';
 export const APPLY_USER_FILTERS = 'APPLY_USER_FILTERS';
@@ -34,7 +35,14 @@ export function updateUserProfileFilter(filter, value) {
       .then((action) => {
         
         updateGenresFilter(updateGenres, action.documentaries.genreIds)(dispatch, getState)
-      });
+          .then((obj) => {
+            
+            console.log(`obj: `, obj);
+            console.log(`getState().session.selectedProfile: `, getState().session.selectedProfile);
+            
+            fetchProfileWatchList(getState().session.selectedProfile)(dispatch)
+          } )
+      })
     // delicious curry!
   };
 }

@@ -12,7 +12,16 @@ class Profile < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :watch_lists,
+    primary_key: :id,
+    foreign_key: :documentary_id,
+    class_name: :MyWatchList,
+    dependent: :destroy
 
+  has_many :documentaries_in_watch_list,
+    through: :watch_lists,
+    source: :documentary
+  
   has_one :user,
     primary_key: :user_id,
     foreign_key: :id,

@@ -29,7 +29,6 @@ export const createUserProfile = (profile) => {
     error: (err) => console.log(err),
     data: {
       profile: {
-        id: profile.id,
         profile_name: profile.profileName,
         maturity_setting: profile.maturitySetting,
         autoplay_next_episode: profile.autoplayNextEpisode,

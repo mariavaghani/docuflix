@@ -1,0 +1,2 @@
+module MyWatchListsHelper
+end

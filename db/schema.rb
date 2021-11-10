@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_220135) do
+ActiveRecord::Schema.define(version: 2021_11_09_235326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 2021_11_05_220135) do
     t.string "genre", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "my_watch_lists", force: :cascade do |t|
+    t.integer "profile_id", null: false
+    t.integer "documentary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["documentary_id"], name: "index_my_watch_lists_on_documentary_id"
+    t.index ["profile_id"], name: "index_my_watch_lists_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|

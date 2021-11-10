@@ -91,5 +91,10 @@ export const updateUserProfile = (profileForm) => dispatch => {
 
 export const switchUserProfile = (profileId, userProfileFilters) => (dispatch, getState) => {
   dispatch(receiveSelectedProfile(profileId));
-  return updateUserProfileFilter(applyUserFilters, userProfileFilters)(dispatch, getState);
+  return updateUserProfileFilter(applyUserFilters, userProfileFilters)(dispatch, getState)
+    // .then(() => {
+    //   console.log('fetching profile watch list');
+      
+    //   return fetchProfileWatchList(profileId)(dispatch)
+    // } )
 }

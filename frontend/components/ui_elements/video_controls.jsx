@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import { toggleMuteVideo } from '../../actions/video_controls_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faPlay, faPlus, faThumbsUp, faThumbsDown, faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faPlus, faThumbsUp, faThumbsDown, faVolumeMute, faVolumeUp, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router'
 import { btnColor } from '../../utils/ui_utils'
+import { addDocumentaryToWatchList, removeDocumentaryFromWatchList } from '../../actions/watch_lists_actions'
+import { documentaryInMyList, getWatchListId } from '../../selectors/selectors'
 
 class VideoControls extends Component {
 
@@ -17,7 +19,6 @@ class VideoControls extends Component {
 
   goToWatchPage(e) {
     e.preventDefault();
-    console.log('going to watch page');
     this.props.history.push({
       pathname: `watch/${this.props.documentaryId}`,
     });
@@ -25,6 +26,19 @@ class VideoControls extends Component {
 
   render() {
     
+    
+    const myListToggleButton = this.props.inMyList ? (
+      <button className="fa-btn-circle flex-center-on-page-column"
+        onClick={ () => this.props.removeFromMyList(this.props.watchListId) }>
+        <FontAwesomeIcon icon={faCheck} size="lg" color={btnColor} />
+      </button>
+    ) : (
+      <button className="fa-btn-circle flex-center-on-page-column"
+          onClick={() => this.props.addToMyList(this.props.selectedProfile, this.props.documentaryId) }>
+        <FontAwesomeIcon icon={faPlus} size="lg" color={btnColor} />
+      </button>
+    )
+
     const muteButtonDisplay = this.props.muted ? (
       <FontAwesomeIcon icon={faVolumeUp} size="lg" color={btnColor}/>
       ) : (
@@ -35,7 +49,7 @@ class VideoControls extends Component {
         <button className="fa-btn-circle flex-center-on-page-column font-075" onClick={this.goToWatchPage}>
           <FontAwesomeIcon icon={faPlay} size="sm" color={btnColor}/>
         </button>
-        <button className="fa-btn-circle flex-center-on-page-column"><FontAwesomeIcon icon={faPlus} size="lg" color={btnColor}/></button>
+        {myListToggleButton}
         <button className="fa-btn-circle flex-center-on-page-column"><FontAwesomeIcon icon={faThumbsUp} size="sm" color={btnColor}/></button>
         <button className="fa-btn-circle flex-center-on-page-column"><FontAwesomeIcon icon={faThumbsDown} size="sm" color={btnColor}/></button>
         <button className="fa-btn-circle flex-center-on-page-column" onClick={this.props.toggleMute}>
@@ -46,12 +60,17 @@ class VideoControls extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  muted: state.videoControls.muted
+const mapStateToProps = (state, ownProps) => ({
+  muted: state.videoControls.muted,
+  inMyList: documentaryInMyList(ownProps.documentaryId, state.entities.watchLists),
+  selectedProfile: state.session.selectedProfile,
+  watchListId: getWatchListId(ownProps.documentaryId, state.entities.watchLists)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleMute: () => dispatch(toggleMuteVideo())
+  toggleMute: () => dispatch(toggleMuteVideo()),
+  addToMyList: (profileId, documentaryId) => dispatch(addDocumentaryToWatchList(profileId, documentaryId)),
+  removeFromMyList: (watchListId) => dispatch(removeDocumentaryFromWatchList(watchListId))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VideoControls))

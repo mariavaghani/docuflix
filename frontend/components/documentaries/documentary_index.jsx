@@ -22,8 +22,10 @@ class DocumentaryIndex extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   
-  return {documentaries: selectDocumentariesByGenre(state, ownProps.genreId),
-  genres: Object.values(state.entities.genres)}
+  return {
+    documentaries: selectDocumentariesByGenre(state, ownProps.genreId),
+  // genres: Object.values(state.entities.genres)
+  }
 }
 
 const mapDispatchToProps = (dispatch,ownProps) => ({

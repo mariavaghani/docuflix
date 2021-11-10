@@ -31,3 +31,20 @@ export const parseGenreIdsFromFetchedDocumentaries = (documentaries) => {
   });
   return genreIdsToState;
 }
+
+export const documentaryInMyList = (documentaryId, myWatchList) => {
+
+  return Object.values(myWatchList).some(watchListObj => (
+    watchListObj.documentaryId === documentaryId
+  ));
+
+}
+
+export const getWatchListId = (documentaryId, myWatchList) => {
+  for (let i = 0; i < Object.values(myWatchList).length; i++) {
+    const watchList = Object.values(myWatchList)[i];
+    if (watchList.documentaryId === documentaryId) {
+      return watchList.id
+    };
+  }
+}

@@ -6,13 +6,15 @@ Rails.application.routes.draw do
     # AUTH ROUTES
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create, :update] do
-    resources :profiles, only: [:index]
-      
+      resources :profiles, only: [:index]
     end
     
     # RESOURCES
     resources :genres, only: [:index, :show]
     resources :documentaries, only: [:index, :show]
-    resources :profiles, only: [:create, :destroy, :update, :show]
+    resources :profiles, only: [:create, :destroy, :update, :show] do 
+      resources :my_watch_lists, only: [:index]
+    end
+    resources :my_watch_lists, only: [:create, :destroy]
   end
 end
