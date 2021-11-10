@@ -48,3 +48,13 @@ export const getWatchListId = (documentaryId, myWatchList) => {
     };
   }
 }
+
+export const getDocumentariesFromWatchList = (documentaries, watchLists) => {
+  let documentariesToReturn = [];
+
+  Object.values(watchLists).forEach(watchList => {
+    documentariesToReturn.push(documentaries[watchList.documentaryId]);
+  });
+
+  return documentariesToReturn;
+}
