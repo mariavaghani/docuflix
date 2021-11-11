@@ -26,7 +26,6 @@ export const receiveRating = (rating) => {
 }
 
 export const addRatingToDocumentary = (profileId, documentaryId, ratingValue) => dispatch => {
-  console.log(`profileId: `, profileId);
   
   return RatingApiUtil.addRatingToDocumentary(profileId, documentaryId, ratingValue)
     .then(rating => {
