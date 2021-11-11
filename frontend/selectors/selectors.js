@@ -64,3 +64,11 @@ export const pickRandomDocumentary = (documentaries) => {
   const ids = Object.keys(documentaries);
   return documentaries[ids[ids.length * Math.random() << 0]];
 }
+
+export const selectAllDocumentaries = (documentaries) => {
+  Object.freeze(documentaries);
+  const onlyDocumentaries = Object.assign({}, documentaries);
+  delete onlyDocumentaries.genreIds;
+
+  return Object.values(onlyDocumentaries);
+}

@@ -9,18 +9,23 @@ import SignupPageContainer from "./session/signup_page";
 import AccountPageContainer from "./account/account_page";
 import ProfileIndexContainer from "./profile/profile_index";
 import WatchPageContainer from "./watch/watch_page";
+import SearchResultsContainter from "./browse/search_results";
 
 
 const App = () => (
   <div>
     <header>
       <ProtectedRoute exact={false} path="/browse" component={NavBarContainer}/>
+      <ProtectedRoute exact={true} path="/search" component={NavBarContainer}/>
       <ProtectedRoute exact={false} path="/YourAccount" component={NavBarContainer}/>
     </header>
 
     <Switch>
       <ProtectedBoolRoute exact={true} path="/browse" 
         componentTrue={BrowseContainter} 
+        componentFalse={ProfileIndexContainer}/>
+      <ProtectedBoolRoute exact={true} path="/search"
+        componentTrue={SearchResultsContainter} 
         componentFalse={ProfileIndexContainer}/>
       <ProtectedBoolRoute exact={false} path='/watch/:documentaryId' 
         componentTrue={WatchPageContainer}

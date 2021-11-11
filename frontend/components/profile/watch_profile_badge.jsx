@@ -15,7 +15,7 @@ class WatchProfileBadge extends Component {
     this.props.selectWatchProfile(this.props.profile.id)
     console.log(`this.props: `, this.props);
     
-    const nexturl = this.props.match.url === "/profiles/manage" ? (
+    const nexturl = this.props.match.url === "/profiles/manage" || this.props.location.pathname === "/search" ? (
       "/browse"
     ) : (
       this.props.match.url

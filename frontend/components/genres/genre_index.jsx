@@ -12,16 +12,13 @@ class GenreIndex extends Component {
 
 
   componentDidMount(){
-    console.log('mounting GENRE INDEX');
     
-    // this.props.updateGenres();
     this.props.selectWatchProfile().then(() => this.props.fetchFeatureDocumentary(pickRandomDocumentary(this.props.documentaries).id))
   }
 
  
 
   render() {
-    // if (!this.props.featuredDocumentary) return null;
     return (
     <div >
         <FeaturedDocumentaryContainer />

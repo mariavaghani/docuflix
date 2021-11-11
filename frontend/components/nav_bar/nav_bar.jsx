@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { withRouter } from 'react-router';
 import { DocuflixLogo } from '../ui_elements/docuflix_logo';
 import ProfileDropdownContainer from '../ui_elements/profile_dropdown';
+import SearchContainer from './search';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class NavBar extends React.Component {
       <nav className="browse-nav">
         <DocuflixLogo logoClass={"docuflix-logo"}/>
         <p>Hello, {currentUser.email}</p>
+        <SearchContainer />
         <ProfileDropdownContainer
           btnClass="docuflix-btn"
           dropClass="contact-drpdwn"/>

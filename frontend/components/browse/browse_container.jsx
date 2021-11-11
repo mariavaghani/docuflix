@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateUserProfileFilter } from '../../actions/filter_actions';
-// import { pickRandomDocumentary } from '../../selectors/selectors';
-import FeaturedDocumentaryContainer from '../documentaries/featured_documentary';
 import GenreIndexContainer from '../genres/genre_index'
 import DocumentaryInfoAndWatchContainer from "../modals/documentary_info_and_watch";
 import { Footer } from '../nav_bar/footer';
@@ -25,7 +22,6 @@ class Browse extends Component {
     return (
       <div>
         {displayDocumentaryInfo}
-        {/* <FeaturedDocumentaryContainer /> */}
         <GenreIndexContainer documentary={this.props.documentary}/>
         <Footer />
       </div>

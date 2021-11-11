@@ -21,15 +21,12 @@ export class DocumentaryIndex extends Component {
   scrollForward() {
     this.setState({scrolledBy: this.state.scrolledBy + 40})
     this.myRef.current.scrollBy(40, 0);
-    console.log('here');
 
   }
 
   scrollBackward() {
     this.setState({scrolledBy: this.state.scrolledBy - 40})
     this.myRef.current.scrollBy(-40, 0);
-    console.log('here');
-    console.log(`this.myRef.current.scrollWidth: `, this.myRef.current.scrollWidth);
 
   }
 
@@ -68,10 +65,6 @@ export class DocumentaryIndex extends Component {
     return (
       <div>
           {this.renderNextBtn()}
-          {/* <div className="overlay-container on-top-15">
-            <button className="scroll-handle-btn overlay-object in-top-left-edge"
-              onClick={() => this.scrollBackward()}>prev</button>
-          </div> */}
           {this.renderPrevBtn()}
           <ul className="docu-carusel of-auto" ref={this.myRef}>
             {

@@ -3,7 +3,9 @@ import { fetchGenres } from "./genre_actions";
 import { fetchProfileWatchList } from "./watch_lists_actions";
 
 export const UPDATE_GENRES = 'UPDATE_GENRES';
+export const UPDATE_TITLE_QUERY = 'UPDATE_TITLE_QUERY';
 export const APPLY_USER_FILTERS = 'APPLY_USER_FILTERS';
+export const CLEAR_FILTERS = 'CLEAR_FILTERS';
 
 
 export const applyUserFilters = (userFilter) => {
@@ -12,12 +14,24 @@ export const applyUserFilters = (userFilter) => {
     userFilter
   }
 }
+export const clearFilters = () => {
+  return {
+    type: CLEAR_FILTERS,
+    
+  }
+}
 
 
 export const updateGenres = (genres) => {
   return {
     type: UPDATE_GENRES,
     genres
+  }
+}
+export const updateTitleQuery = (titleQuery) => {
+  return {
+    type: UPDATE_TITLE_QUERY,
+    titleQuery
   }
 }
 
@@ -37,9 +51,6 @@ export function updateUserProfileFilter(filter, value) {
         updateGenresFilter(updateGenres, action.documentaries.genreIds)(dispatch, getState)
           .then((obj) => {
             
-            console.log(`obj: `, obj);
-            console.log(`getState().session.selectedProfile: `, getState().session.selectedProfile);
-            
             fetchProfileWatchList(getState().session.selectedProfile)(dispatch)
           } )
       })
@@ -57,3 +68,15 @@ export function updateGenresFilter(filter, value) {
     // delicious curry!
   };
 }
+
+export function updateTitlesQueryFilter(filter, value) {
+
+  return (dispatch, getState) => {
+    dispatch(clearFilters())
+    dispatch(changeFilter(filter, value));
+    
+    return fetchDocumentaries(getState().filters)(dispatch);
+    // delicious curry!
+  };
+}
+

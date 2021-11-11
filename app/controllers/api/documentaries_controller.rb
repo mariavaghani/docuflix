@@ -2,13 +2,22 @@ class Api::DocumentariesController < ApplicationController
 
   def index
 
-    # @documentaries = Documentary.with_attached_thumbnail.all.includes(:genres)
-    @documentaries = Documentary
+    if params[:filters][:titleQuery] != ""
+      query = params[:filters][:titleQuery]
+      @documentaries = Documentary
+        .with_attached_thumbnail
+        .joins(:genres)
+        .includes(:genres)
+        .where('title ILIKE ?',"%#{query}%")
+        .distinct
+    else
+      @documentaries = Documentary
       .with_attached_thumbnail
       .joins(:genres)
       .includes(:genres)
-      # .where(documentaries_genres: {genre_id: params[:filters].keys})
-      # .distinct
+    end
+    
+    
     render :index
   end
 

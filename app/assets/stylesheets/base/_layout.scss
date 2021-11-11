@@ -192,6 +192,14 @@ body {
 .mb-30 {
   margin-bottom: 30px;
 }
+.mt-80 {
+  margin-top: 80px;
+}
+.mb-40-children {
+  > li {
+  margin-bottom: 40px;
+}
+}
 
 .ml-30 {
   margin-left: 30px;
@@ -203,6 +211,10 @@ body {
 
 .of-vis-v {
   overflow-y: visible;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
 }
 
 .of-auto {
