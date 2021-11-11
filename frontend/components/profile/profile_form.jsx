@@ -105,7 +105,7 @@ class ProfileForm extends React.Component {
         <nav className="nav-splash">
           <DocuflixLogo logoClass="docuflix-logo"/>
         </nav>
-        <form className="flex-center-on-page-column fixed-nav div-60">
+        <form className="flex-center-on-page-column pad-t-100 div-60">
           <ul className="div-flex-column">
             {
             this.props.errors.map(error => {

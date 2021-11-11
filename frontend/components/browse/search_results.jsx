@@ -21,7 +21,7 @@ class SearchResults extends Component {
     // if (!this.props.documentaries) return null;
     return (
       <div>
-        <ul className="docu-carusel fixed-nav flex-wrap mb-40-children mt-80">
+        <ul className="docu-carusel pad-t-100 flex-wrap mb-40-children mt-80">
           {
             this.props.documentaries.map(documentary => {
               return (<DocumentaryIndexItem key={documentary.id}

@@ -52,7 +52,7 @@ class FeaturedDocumentary extends Component {
     const documentary = this.props.documentary;
     if (!documentary) return null;
     return (
-      <div className="div-100 bdr-rad-5 on-top fixed-nav">
+      <div className="div-100 bdr-rad-5 on-top pad-t-100">
         <div>
           <VideoPreviewContainer
             documentary={documentary}

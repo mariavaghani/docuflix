@@ -11,6 +11,12 @@
   border-radius: 5px;
 }
 
+.profile-thumb {
+  width: $profile-thumb-img-dim;
+  height: $profile-thumb-img-dim;
+  border-radius: 5px;
+}
+
 .profile-avatar {
   width:100%;
   object-fit: cover;

@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
         </ul>
 
         <form className="session-form">
-
+          <h4 className="f-24">{this.props.formType}</h4>
           <label>Email</label>
           <input type="text"
             className="user-edit-input"

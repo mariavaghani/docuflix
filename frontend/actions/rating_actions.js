@@ -1,12 +1,19 @@
 import * as RatingApiUtil from "../utils/ratings_utils";
 
 export const RECEIVE_PROFILE_RATINGS = 'RECEIVE_PROFILE_RATINGS';
+export const RECEIVE_MORE_PROFILE_RATINGS = 'RECEIVE_MORE_PROFILE_RATINGS';
 export const REMOVE_RATING_FROM_DOCUMENTARY = 'REMOVE_RATING_FROM_DOCUMENTARY';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
 
 export const receiveProfileRatings = (ratings) => {
   return {
     type: RECEIVE_PROFILE_RATINGS,
+    ratings
+  }
+}
+export const receiveMoreProfileRatings = (ratings) => {
+  return {
+    type: RECEIVE_MORE_PROFILE_RATINGS,
     ratings
   }
 }
@@ -37,6 +44,13 @@ export const fetchProfileRatings = (profileId) => dispatch => {
   return RatingApiUtil.fetchProfileRatings(profileId)
     .then(ratings => {
       return dispatch(receiveProfileRatings(ratings))
+    })
+}
+
+export const fetchMoreProfileRatings = (profileId) => dispatch => {
+  return RatingApiUtil.fetchProfileRatings(profileId)
+    .then(ratings => {
+      return dispatch(receiveMoreProfileRatings(ratings))
     })
 }
 

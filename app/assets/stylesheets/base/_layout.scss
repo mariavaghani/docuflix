@@ -46,23 +46,20 @@ body {
 
 }
 
-
+// PAGE STYLING MODES
 .light-mode {
   background-color: $ui-main-clr;
   color: $body-background;
   width: 100%;
 }
 
-.fixed-nav {
-  padding-top: 100px;
-}
 
 .flex-center-on-page-column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  
 }
 
 .overlay-container {
@@ -113,8 +110,8 @@ body {
   }
 }
 
-// SIZES
-
+// DIV SIZES
+// RELATIVE SIZES
 .div-100{ 
   width: 100%;
 }
@@ -134,18 +131,32 @@ body {
   margin: 0 auto;
 }
 
-.div-300h {
-  height: 300px;
+.div-30 {
+  width: 30%;
+  margin: 0 auto;
 }
+// FIXED SIZES
 .div-600w {
   width: 600px;
 }
 
-.trans-350 {
-  transform: translate(0, -350px);
-
+// HEIGHTS
+.div-300h {
+  height: 300px;
 }
 
+.vh-100 {
+  height: 100vh;
+}
+
+// MOVING DIV ON PAGE
+
+.trans-350 {
+  transform: translate(0, -350px);
+  
+}
+
+// DIV FLEX SETTINGS
 
 .div-flex-column {
   display: flex;
@@ -156,21 +167,35 @@ body {
   display: flex;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.align-self-start {
+  align-self: start;
+}
+
+// POINTERS
 .pointer {
   cursor: pointer;
 }
 
+// GRID DIVS
 .div-grid-50-50 {
   display: grid;
   grid-template-columns: 50% 50%;
 }
 
+// SPACING
+
 .space-between {
   justify-content: space-between;
 }
+
 .space-evenly {
   justify-content: space-evenly;
 }
+
 .just-start-align-center {
   justify-content: flex-start;
   align-items: center;
@@ -181,29 +206,39 @@ body {
   align-items: flex-start;
 }
 
+.align-center {
+  align-items: center;
+}
+
+// PADDING AND MARGINS
+
 .pad-l-10 {
   padding-left:10px;
 }
 
-.vh-100 {
-  height: 100vh;
+.pad-t-100 {
+  padding-top: 100px;
 }
 
 .mb-30 {
   margin-bottom: 30px;
 }
+
 .mt-80 {
   margin-top: 80px;
 }
+
 .mb-40-children {
   > li {
-  margin-bottom: 40px;
-}
+    margin-bottom: 40px;
+  }
 }
 
 .ml-30 {
   margin-left: 30px;
 }
+
+// OVERFLOW SETTING
 
 .of-hide {
   overflow: hidden;
@@ -213,9 +248,6 @@ body {
   overflow-y: visible;
 }
 
-.flex-wrap{
-  flex-wrap: wrap;
-}
 
 .of-auto {
   overflow-x: hidden;
@@ -229,4 +261,13 @@ body {
   //   // height: 0;
   //   background: transparent;
   // }
+}
+
+// font sizes override
+.f-24 {
+  font-size: 24px;
+}
+
+.f-18 {
+  font-size: 18px;
 }

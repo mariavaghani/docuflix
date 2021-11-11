@@ -12,7 +12,8 @@ export class LoginPage extends Component {
           <DocuflixLogo logoClass={"docuflix-logo-bg"}/>
         </nav>
         <div className="splash-card-main card div-100">
-          <div className="login-box div-40">
+          
+          <div className="login-box div-30">
             <div className="div-80">
               <LoginFormContainer />
             </div>

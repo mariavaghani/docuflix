@@ -10,6 +10,7 @@ import { btnColor } from '../../utils/ui_utils'
 import { addDocumentaryToWatchList, removeDocumentaryFromWatchList } from '../../actions/watch_lists_actions'
 import { documentaryInMyList, documentaryRating, getWatchListId } from '../../selectors/selectors'
 import { addRatingToDocumentary, updateDocumentaryRating } from '../../actions/rating_actions'
+import { RatingBtn } from './rating_btn'
 
 class VideoControls extends Component {
 
@@ -17,7 +18,6 @@ class VideoControls extends Component {
     super(props);
 
     this.goToWatchPage = this.goToWatchPage.bind(this);
-    this.renderRatingBtn = this.renderRatingBtn.bind(this);
   }
 
   goToWatchPage(e) {
@@ -27,48 +27,7 @@ class VideoControls extends Component {
     });
   }
 
-  renderRatingBtn (defaultIcon, iconTrue, iconFalse, onClickUndefined, onClickTrue, onClickFalse) {
-    if (!this.props.rating) return (
-      <button
-        className="fa-btn-circle flex-center-on-page-column"
-        onClick={onClickUndefined}
-      >
-        <FontAwesomeIcon icon={defaultIcon} />
-      </button>
-    )
-
-    switch (this.props.rating.ratingValue) {
-        
-      case true:
-        console.log(`this.props.rating.ratingValue ratedUp: `, this.props.rating.ratingValue);
-        return (
-          <button
-            className="fa-btn-circle flex-center-on-page-column"
-            onClick={onClickTrue}
-          >
-            <FontAwesomeIcon icon={iconTrue} />
-          </button>
-        )
-      case false:
-        console.log(`this.props.rating.ratingValue ratedDown: `, this.props.rating.ratingValue);
-        return (<button
-          className="fa-btn-circle flex-center-on-page-column"
-          onClick={onClickFalse}
-        >
-          <FontAwesomeIcon icon={iconFalse} />
-        </button>)
-      default:
-        console.log(`this.props.rating in default: `, this.props.rating);
-        
-        break;
-    }
-  }
-
-  
-
-
   render() {
-    console.log(`this.props.rating: `, this.props.rating);
     
     const myListToggleButton = this.props.inMyList ? (
       <button className="fa-btn-circle flex-center-on-page-column"
@@ -98,17 +57,24 @@ class VideoControls extends Component {
 
         {myListToggleButton}
 
-        {this.renderRatingBtn(farThumbsUp, faThumbsUp, farThumbsUp,
-          () => this.props.rateThumbsUp(this.props.selectedProfile, this.props.documentaryId),
-          null, 
-          () => this.props.toggleRating(this.props.rating)
-        )}
+        <RatingBtn rating={this.props.rating}
+          color={btnColor}
+          defaultIcon={farThumbsUp} 
+          iconTrue={faThumbsUp}
+          iconFalse={farThumbsUp}
+          onClickUndefined={() => this.props.rateThumbsUp(this.props.selectedProfile, this.props.documentaryId)}
+          onClickTrue={null}
+          onClickFalse={() => this.props.toggleRating(this.props.rating)}/>
 
-        {this.renderRatingBtn(farThumbsDown, farThumbsDown, faThumbsDown,
-          () => this.props.rateThumbsDown(this.props.selectedProfile, this.props.documentaryId),
-          () => this.props.toggleRating(this.props.rating),
-          null
-        )}
+        <RatingBtn rating={this.props.rating}
+          color={btnColor}
+          defaultIcon={farThumbsDown}
+          iconTrue={farThumbsDown}
+          iconFalse={faThumbsDown}
+          onClickUndefined={() => this.props.rateThumbsDown(this.props.selectedProfile, this.props.documentaryId)}
+          onClickTrue={() => this.props.toggleRating(this.props.rating)}
+          onClickFalse={null} />
+
 
         <button className="fa-btn-circle flex-center-on-page-column" onClick={this.props.toggleMute}>
           {muteButtonDisplay}

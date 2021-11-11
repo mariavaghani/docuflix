@@ -1,4 +1,4 @@
-import { RECEIVE_PROFILE_RATINGS, RECEIVE_RATING, REMOVE_RATING_FROM_DOCUMENTARY } from "../actions/rating_actions";
+import { RECEIVE_MORE_PROFILE_RATINGS, RECEIVE_PROFILE_RATINGS, RECEIVE_RATING, REMOVE_RATING_FROM_DOCUMENTARY } from "../actions/rating_actions";
 
 
 export const RatinsReducer = (state = {}, action) => {
@@ -16,7 +16,11 @@ export const RatinsReducer = (state = {}, action) => {
     case REMOVE_RATING_FROM_DOCUMENTARY:
       delete nextState[action.ratingId];
       return nextState;
-
+    case RECEIVE_MORE_PROFILE_RATINGS:
+      Object.values(action.ratings).forEach(rating => {
+        nextState[rating.id] = rating;
+      });
+      return nextState;
 
     default:
       return state;

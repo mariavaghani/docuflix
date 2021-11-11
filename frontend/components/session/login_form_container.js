@@ -6,7 +6,7 @@ import SessionForm from "./session_form";
 
 const mapStateToProps = (state) => ({
   errors: state.errors.session,
-  formType: "Login",
+  formType: "Sign In",
   sessionPath: "/signup",
   btnContent: "Sign Up"
 })

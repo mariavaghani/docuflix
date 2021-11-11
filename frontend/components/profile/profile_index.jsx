@@ -49,7 +49,7 @@ class ProfileIndex extends Component {
     const buttonText = this.state.editMode ? "Done" : "Manage Profiles";
     const newProfileForm = this.state.editMode && this.props.userProfiles.length < 5 ? this.renderAddProfileButton() : "";
     return (
-      <div className="flex-center-on-page-column fixed-nav div-300h">
+      <div className="flex-center-on-page-column pad-t-100 div-300h">
         <h2>{pageTitle}</h2>
         
         <ul className="div-60 profile-index">

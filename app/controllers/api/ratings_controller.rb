@@ -21,6 +21,7 @@ class Api::RatingsController < ApplicationController
 
   def index
     @ratings = Rating
+      .includes(:documentary)
       .where(profile_id: params[:profile_id])
     render :index
   end
