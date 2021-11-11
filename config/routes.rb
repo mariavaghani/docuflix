@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :documentaries, only: [:index, :show]
     resources :profiles, only: [:create, :destroy, :update, :show] do 
       resources :my_watch_lists, only: [:index]
+      resources :ratings, only: [:index]
     end
     resources :my_watch_lists, only: [:create, :destroy]
+    resources :ratings, only: [:create, :destroy, :update]
   end
 end

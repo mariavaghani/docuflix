@@ -1,5 +1,6 @@
 import { fetchDocumentaries } from "./documentary_actions";
 import { fetchGenres } from "./genre_actions";
+import { fetchProfileRatings } from "./rating_actions";
 import { fetchProfileWatchList } from "./watch_lists_actions";
 
 export const UPDATE_GENRES = 'UPDATE_GENRES';
@@ -41,10 +42,12 @@ const changeFilter = (filter, value) => {
 }
 
 export function updateUserProfileFilter(filter, value) {
-
   return (dispatch, getState) => {
     
-    dispatch(changeFilter(filter, value));
+    dispatch(fetchProfileRatings(getState().session.selectedProfile))
+      .then(() => {
+      dispatch(changeFilter(filter, value));
+    })
     return fetchDocumentaries(getState().filters)(dispatch, getState)
       .then((action) => {
         
@@ -54,8 +57,10 @@ export function updateUserProfileFilter(filter, value) {
             fetchProfileWatchList(getState().session.selectedProfile)(dispatch)
           } )
       })
+      
     // delicious curry!
-  };
+    
+  }
 }
 
 export function updateGenresFilter(filter, value) {

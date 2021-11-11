@@ -1,5 +1,4 @@
 export const selectDocumentariesByGenre = (state, genreId) => {
-  // if (!state.entities.genres) return [];
   return Object.values(state.entities.documentaries).filter((docu) => {
     
     if (docu.genreIds) return docu.genreIds.includes(genreId)
@@ -71,4 +70,14 @@ export const selectAllDocumentaries = (documentaries) => {
   delete onlyDocumentaries.genreIds;
 
   return Object.values(onlyDocumentaries);
+}
+
+export const documentaryRating = (ratings, documentaryId) => {
+  for (let i = 0; i < Object.values(ratings).length; i++) {
+    const rating = Object.values(ratings)[i];
+    if (rating.documentaryId === documentaryId) {
+      return rating;
+    };
+  }
+  return undefined;
 }

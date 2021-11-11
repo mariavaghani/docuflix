@@ -31,5 +31,11 @@ class Profile < ApplicationRecord
     through: :user,
     source: :profiles
 
+  has_many :ratings, dependent: :destroy
+
+  has_many :rated_documentaries,
+    through: :ratings,
+    source: :documentary
+
 
 end
