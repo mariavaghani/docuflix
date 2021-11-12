@@ -17,16 +17,21 @@ The platform is implemented using the following technologies:
 
 This feature is implemented using a combination of React event handlers and CSS styling. Each tile loads a documentary asset and remembers a global mute/unmute state.
 
-
-
-https://user-images.githubusercontent.com/54246143/141482675-fc0a5070-6c65-4921-80ba-82108a95354f.mov
+https://user-images.githubusercontent.com/54246143/141483742-fca7b0c4-b1d9-4b1e-95a5-444d761d2147.mov
 
 ## Watch Profiles
 
 User is able to add up to 5 profiles to their account. User needs to select their watch profile in order to watch documentaries.
 
+https://user-images.githubusercontent.com/54246143/141483762-fdeb0e2a-500e-4b58-b502-f773cfa84728.mov
 
-https://user-images.githubusercontent.com/54246143/141483352-5431741f-98ef-40bc-a71f-4fca529267b6.mov
+## Search
+
+User is able to review search results while typing. Search is only available to users with selected profile
+
+https://user-images.githubusercontent.com/54246143/141484357-b790873f-36b9-4a03-96d0-1e04fde7e045.mov
+
+
 
 
 
