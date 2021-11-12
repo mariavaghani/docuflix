@@ -22,24 +22,15 @@ class FeaturedDocumentary extends Component {
   }
   
   componentDidMount() {
-    // this.props.fetchDocumentary(this.props.documentary.id);
-    // this.props.fetchDocumentary(this.props.documentary.id);
-    console.log(`this.props.documentary: `, this.props.documentary);
     
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
         this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
       }, 3000);
     };
-    // this.props.setInFocus(this.props.documentary.id)
 
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // if (this.props.currDocumentaryInFocus === null) {
-    //   this.props.setInFocus(this.props.documentary.id);
-    // }
-  }
   
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
@@ -65,7 +56,7 @@ class FeaturedDocumentary extends Component {
       this.props.setInFocus(this.props.documentary.id);
     }
     return (
-      <div className="div-100 bdr-rad-5 on-top pad-t-100">
+      <div className="div-100 bdr-rad-5 on-top">
         <div>
           <VideoPreviewContainer
             documentary={documentary}

@@ -1,9 +1,17 @@
 .browse-nav {
   @include nav(50px);
   position: fixed;
-  background-color: $body-background;
   top: 0;
   z-index: 50;
+}
+
+.nav-init {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.541), rgba(0, 0, 0, 0));
+
+}
+
+.nav-window {
+  background-color: $body-background;
 }
 
 .nav-splash {
@@ -49,4 +57,24 @@ footer {
 
 .signup-footer {
   background-color: rgb(197, 197, 197);
+}
+
+.profile-dropdown {
+  top: 30px;
+  right: 0;
+  color: $ui-main-clr;
+  width: 150px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.521);
+  text-align: left;
+
+  li {
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  li:hover {
+    // background-color: lighten($docu-preview-background, 20);
+    text-decoration: underline;
+  }
 }

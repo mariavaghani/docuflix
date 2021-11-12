@@ -27,7 +27,6 @@ export const RatingBtn = (props) => {
         </button>
       )
     case false:
-      console.log(`this.props.rating.ratingValue ratedDown: `, props.rating.ratingValue);
       return (
       <button
         className="fa-btn-circle flex-center-on-page-column"

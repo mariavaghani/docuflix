@@ -22,7 +22,6 @@ class UpdateUserInfo extends Component {
 
   updateUserInfo(e) {
     e.preventDefault();
-    console.log(`this.state: `, this.state);
     const nextUserState = this.props.user;
     nextUserState.email = this.state.email;
     this.props.updateUser(nextUserState);
@@ -68,7 +67,6 @@ class UpdateUserInfo extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(`state: `, state);
   
   return {
 

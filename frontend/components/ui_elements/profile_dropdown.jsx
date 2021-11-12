@@ -25,20 +25,37 @@ class ProfileDropdown extends React.Component {
     const btnClass = this.props.btnClass;
     const dropClass = this.props.dropClass;
     if (!this.props.selectedProfile) return null;
+    const { selectedProfile } = this.props;
     return (
     
       <div className="drpdwn-container ">
-        <button className={"drpdwn-btn " + btnClass}>
-          {this.props.selectedProfile.profileName}
-        </button>
+        <div className="profile-micro-thumb">
+          <img
+            src={selectedProfile.avatar}
+            alt={selectedProfile.profileName}
+            className="profile-avatar bdr-rad-5"
+          />
+        </div>
         <div className={"dropdown-list " + dropClass}>
           <ul>
 
               {
               this.props.userProfiles.map(profile => {
-                return (<li 
-                  onClick={ () => this.props.selectWatchProfile(profile.id) }
-                  key={profile.id}>{profile.profileName}</li>)
+                return (
+                  <li 
+                    onClick={ () => this.props.selectWatchProfile(profile.id) }
+                    key={profile.id}
+                    className="div-flex align-center space-between">
+                      <div className="profile-micro-thumb">
+                        <img
+                          src={profile.avatar}
+                          alt={profile.profileName}
+                          className="profile-avatar bdr-rad-5"
+                        />
+                      </div>
+                      {profile.profileName}
+                  </li>
+                )
                 })
               }
           </ul>
@@ -50,13 +67,10 @@ class ProfileDropdown extends React.Component {
             <li>
               <Link to="/profiles/manage">Manage Profiles</Link>
             </li>
-            <li>
-              <button
-                onClick={this.handleLogout}
-                className="docuflix-btn"
-              >
-                Logout
-              </button>
+            <li onClick={this.handleLogout}>
+              
+                <h5>Sign out of Docuflix</h5>
+              
             </li>
           </ul>
         </div>

@@ -6,15 +6,11 @@ import ProfileRatingsContainer from './profile_ratings'
 class ProfileRatingIndex extends Component {
 
   componentDidMount() {
-    console.log(`this.props.userProfiles: `, this.props.userProfiles.length === 0);
     
-    // if (this.props.userProfiles.length === 0) 
     this.props.fetchUserProfiles(this.props.user.id)
   }
 
   render() {
-    console.log(`this.props.user: `, this.props.user);
-    console.log(`this.props.userProfiles: `, this.props.userProfiles);
     
     return (
       <div >

@@ -9,15 +9,15 @@
 production_path_video = "https://docuflix-seeds-pro.s3.amazonaws.com/videos/"
 production_path_thumbnail = "https://docuflix-seeds-pro.s3.amazonaws.com/thumbnails/"
 
-dev_path_video = "#{Rails.root}/app/assets/seeds/video_seeds/"
-dev_path_thumbnail = "#{Rails.root}/app/assets/seeds/thumbnail_seeds/"
+# dev_path_video = "#{Rails.root}/app/assets/seeds/video_seeds/"
+# dev_path_thumbnail = "#{Rails.root}/app/assets/seeds/thumbnail_seeds/"
 
 
-curr_path_video = production_path_video
-curr_path_thumbnail = production_path_thumbnail
+# curr_path_video = production_path_video
+# curr_path_thumbnail = production_path_thumbnail
 
-# curr_path_video = dev_path_video
-# curr_path_thumbnail = dev_path_thumbnail
+curr_path_video = dev_path_video
+curr_path_thumbnail = dev_path_thumbnail
 
 MINUTE = 60
 HOUR   = MINUTE*60
@@ -275,6 +275,187 @@ doc14.save
 
 d_g14 = DocumentariesGenre.create(documentary_id: doc14.id, genre_id: socialCultural.id)
 d_g14 = DocumentariesGenre.create(documentary_id: doc14.id, genre_id: biography.id)
+
+
+doc15 = Documentary.create!(title: "The Wonderful: Stories from the Space Station",
+  description: "Over twenty years ago, rival nations put aside political and cultural differences and came together in a demonstration of international co-operation to create something unique—the International Space Station. For the first time in history, driven by his innate impulse to explore, man had a permanently inhabited foothold in the heavens. The Wonderful draws together personal stories from men and women from around the world who have been a part of this extraordinary endeavor, providing a fascinating insight into human nature and our relationship with planet Earth. These testimonials bring an intimacy and uniqueness to the story—bringing life in space alive, yet showing the strong emotional ties that bind these astronauts to the earth—and we are left not only with a sense of the vast 'velvet bottomless bucket' of the universe, but also the remarkable resilience and potential of mankind.",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name15 = "the-wonderful"
+doc15_video = open( curr_path_video + "#{name15}-trailer-1_a720p.m4v")
+doc15_thumb = open( curr_path_thumbnail + "#{name15}_background_2x.jpeg")
+doc15.video.attach(io: doc15_video, filename: "#{name15}-trailer-1_a720p.m4v")
+doc15.thumbnail.attach(io: doc15_thumb, filename: "#{name15}_background_2x.jpeg")
+doc15.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc15.video.blob).metadata[:duration])
+doc15.save
+
+d_g15 = DocumentariesGenre.create(documentary_id: doc15.id, genre_id: scienceNature.id)
+
+
+doc16 = Documentary.create!(title: "Little Girl",
+  description: "LITTLE GIRL is the moving portrait of 7-year-old Sasha, who has always known that she is a girl. Sasha’s family has recently accepted her gender identity, embracing their daughter for who she truly is while working to confront outdated norms and find affirmation in a small community of rural France. Realized with delicacy and intimacy, Sébastien Lifshitz’s documentary poetically explores the emotional challenges, everyday feats, and small moments in Sasha’s life.",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name16 = "little-girl"
+doc16_video = open( curr_path_video + "#{name16}-trailer-1_a720p.m4v")
+doc16_thumb = open( curr_path_thumbnail + "#{name16}_background_2x.jpeg")
+doc16.video.attach(io: doc16_video, filename: "#{name16}-trailer-1_a720p.m4v")
+doc16.thumbnail.attach(io: doc16_thumb, filename: "#{name16}_background_2x.jpeg")
+doc16.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc16.video.blob).metadata[:duration])
+doc16.save
+
+d_g16 = DocumentariesGenre.create(documentary_id: doc16.id, genre_id: socialCultural.id)
+
+
+doc17 = Documentary.create!(title: "What We Left Unfinished",
+  description: "Utterly unique in film history, Mariam Ghani's archival marvel is a probing and engrossing case study in censorship, authoritarianism, and political art. Thirty years after the Soviet withdrawal from Afghanistan and the subsequent civil war, during a new era of political uncertainty for the embattled nation, the film looks closely at the era of state-funded Afghan filmmaking during the country’s Communist era, bringing together writers, actors, and filmmakers to discuss five unfinished, unedited projects produced from 1978-1991. The studio politics and mishaps that accompany any film’s production here rise to the level of life-and-death conflict, as filmmakers recall coming up against the censorship of an authoritarian government, as well as unceasing threats of violence. The film raises potent, eternally relevant questions about what happens when the truth becomes a bargaining chip.",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name17 = "what-we-left-unfinished"
+doc17_video = open( curr_path_video + "#{name17}-trailer-1_a720p.m4v")
+doc17_thumb = open( curr_path_thumbnail + "#{name17}_background_2x.jpeg")
+doc17.video.attach(io: doc17_video, filename: "#{name17}-trailer-1_a720p.m4v")
+doc17.thumbnail.attach(io: doc17_thumb, filename: "#{name17}_background_2x.jpeg")
+doc17.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc17.video.blob).metadata[:duration])
+doc17.save
+
+d_g17 = DocumentariesGenre.create(documentary_id: doc17.id, genre_id: socialCultural.id)
+
+
+doc18 = Documentary.create!(title: "Julia",
+  description: "JULIA tells the story of the legendary cookbook author and television superstar who changed the way Americans think about food, television, and even about women. Using never-before-seen archival footage, personal photos, first-person narratives, and cutting-edge, mouth-watering food cinematography, the film traces Julia Child's surprising path, from her struggles to create and publish the revolutionary Mastering the Art of French Cooking (1961) which has sold more than 2.5 million copies to date, to her empowering story of a woman who found fame in her 50s, and her calling as an unlikely television sensation.",
+  year: 2021,
+  maturity_rating:"PG-13",
+  type_media: "movie")
+name18 = "julia"
+doc18_video = open( curr_path_video + "#{name18}-trailer-1_a720p.m4v")
+doc18_thumb = open( curr_path_thumbnail + "#{name18}_background_2x.jpeg")
+doc18.video.attach(io: doc18_video, filename: "#{name18}-trailer-1_a720p.m4v")
+doc18.thumbnail.attach(io: doc18_thumb, filename: "#{name18}_background_2x.jpeg")
+doc18.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc18.video.blob).metadata[:duration])
+doc18.save
+
+d_g18 = DocumentariesGenre.create(documentary_id: doc18.id, genre_id: biography.id)
+
+
+doc19 = Documentary.create!(title: "Against The Current",
+  description: "How far do you have to travel to find yourself? And what sacrifices are you willing to make to get there? Veiga Grétarsdóttir is the first person in the world to attempt to kayak the 1,300 mile circumference of Iceland, counter-clockwise and against the current, an achievement that has been compared to climbing K2. Veiga’s personal journey is no less remarkable. She was born 44 years ago as a boy in a fishing village on the far west coast of Iceland. By the age of 38 Veigar had a wife and family but decided that she could no longer live as a man and decided to undergo gender reassignment. The inner struggle for Veigar to become Veiga was a journey as difficult if not more so than the solo kayak expedition she undertakes. These two stories of conflict and struggle are intertwined as the film follows her amazing 103 day journey around Iceland, with the magical, rugged coastline of the country a backdrop to the story of Veiga’s transition.",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name19 = "against-the-current"
+doc19_video = open( curr_path_video + "#{name19}-trailer-1_a720p.m4v")
+doc19_thumb = open( curr_path_thumbnail + "#{name19}_background_2x.jpeg")
+doc19.video.attach(io: doc19_video, filename: "#{name19}-trailer-1_a720p.m4v")
+doc19.thumbnail.attach(io: doc19_thumb, filename: "#{name19}_background_2x.jpeg")
+doc19.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc19.video.blob).metadata[:duration])
+doc19.save
+
+d_g19 = DocumentariesGenre.create(documentary_id: doc19.id, genre_id: biography.id)
+
+
+doc20 = Documentary.create!(title: "Billie Eilish: The World's A Little Blurry",
+  description: "'Billie Eilish: The World's a Little Blurry' tells the true coming-of-age story of the singer-songwriter and her rise to global superstardom. From award-winning filmmaker R.J. Cutler, the documentary offers a deeply intimate look at this extraordinary teenager's journey, at just seventeen years old, navigating life on the road, on stage, and at home with her family, while writing, recording and releasing her debut album 'When We All Fall Asleep, Where Do We Go?'",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name20 = "billie-eilish-the-worlds-a-little-blurry"
+doc20_video = open( curr_path_video + "#{name20}-trailer-1_a720p.m4v")
+doc20_thumb = open( curr_path_thumbnail + "#{name20}_background_2x.jpeg")
+doc20.video.attach(io: doc20_video, filename: "#{name20}-trailer-1_a720p.m4v")
+doc20.thumbnail.attach(io: doc20_thumb, filename: "#{name20}_background_2x.jpeg")
+doc20.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc20.video.blob).metadata[:duration])
+doc20.save
+
+d_g20 = DocumentariesGenre.create(documentary_id: doc20.id, genre_id: biography.id)
+d_g20 = DocumentariesGenre.create(documentary_id: doc20.id, genre_id: music.id)
+
+
+doc21 = Documentary.create!(title: "Meltdown",
+  description: "MELTDOWN presents an extraordinary convergence of art & science, as we see two fascinating perspectives on the world's most pressing issue of Climate Change. The film features acclaimed photographer Lynn Davis, who has earned global recognition with her spectacular collection of photos of icebergs off the coast of Greenland; and Tony Leiserowitz, the Director of Yale's Climate Change Communication Project. MELTDOWN follows Lynn and Tony to the tiny, picturesque town of Ilulissat, Greenland, which is 'Ground Zero' for the climate crisis facing the world. There they discuss how beauty and tragedy share the stage, and each enlightens the other on ways to appreciate the wonders of the world while addressing the issues of how to help solve global crises. It's a small, intimate conversation set on a large canvas, showing how art and science can co-exist.",
+  year: 2021,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name21 = "meltdown"
+doc21_video = open( curr_path_video + "#{name21}-trailer-1_a720p.m4v")
+doc21_thumb = open( curr_path_thumbnail + "#{name21}_background_2x.jpeg")
+doc21.video.attach(io: doc21_video, filename: "#{name21}-trailer-1_a720p.m4v")
+doc21.thumbnail.attach(io: doc21_thumb, filename: "#{name21}_background_2x.jpeg")
+doc21.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc21.video.blob).metadata[:duration])
+doc21.save
+
+d_g21 = DocumentariesGenre.create(documentary_id: doc21.id, genre_id: natureEcology.id)
+d_g21 = DocumentariesGenre.create(documentary_id: doc21.id, genre_id: scienceNature.id)
+
+
+doc22 = Documentary.create!(title: "Fly Like A Girl",
+  description: "Fly Like A Girl is more than just a film. It’s a movement of young girls and women relentlessly pursuing their passion for aviation. A field currently dominated by men. Hearing first-hand stories from girls and women who dared to aim higher. From a lego-loving young girl who includes female pilots in her toy airplanes, to a courageous woman who helped lead shuttle missions to space, Fly Like A Girl shows us that women are in charge of their own destiny.",
+  year: 2020,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name22 = "fly-like-a-girl"
+doc22_video = open( curr_path_video + "#{name22}-trailer-1_a720p.m4v")
+doc22_thumb = open( curr_path_thumbnail + "#{name22}_background_2x.jpeg")
+doc22.video.attach(io: doc22_video, filename: "#{name22}-trailer-1_a720p.m4v")
+doc22.thumbnail.attach(io: doc22_thumb, filename: "#{name22}_background_2x.jpeg")
+doc22.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc22.video.blob).metadata[:duration])
+doc22.save
+
+d_g22 = DocumentariesGenre.create(documentary_id: doc22.id, genre_id: socialCultural.id)
+
+
+doc23 = Documentary.create!(title: "Dads",
+  description: "A joyful exploration of modern fatherhood, this doc gathers the testimonies of dads around the world, from famous comedians to everyday parents. Their unfiltered stories speak to the beauty, struggles, and ridiculous hilarity of being a dad today.",
+  year: 2020,
+  maturity_rating:"NOT RATED",
+  type_media: "movie")
+name23 = "dads"
+doc23_video = open( curr_path_video + "#{name23}-trailer-1_a720p.m4v")
+doc23_thumb = open( curr_path_thumbnail + "#{name23}_background_2x.jpeg")
+doc23.video.attach(io: doc23_video, filename: "#{name23}-trailer-1_a720p.m4v")
+doc23.thumbnail.attach(io: doc23_thumb, filename: "#{name23}_background_2x.jpeg")
+doc23.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc23.video.blob).metadata[:duration])
+doc23.save
+
+d_g23 = DocumentariesGenre.create(documentary_id: doc23.id, genre_id: socialCultural.id)
+
+
+doc24 = Documentary.create!(title: "Apollo 11",
+  description: "From director Todd Douglas Miller (Dinosaur 13) comes a cinematic event 50 years in the making. Crafted from a newly discovered trove of 65mm footage, and more than 11,000 hours of uncatalogued audio recordings, Apollo 11 takes us straight to the heart of NASA's most celebrated mission—the one that first put men on the moon, and forever made Neil Armstrong and Buzz Aldrin into household names. Immersed in the perspectives of the astronauts, the team in Mission Control, and the millions of spectators on the ground, we vividly experience those momentous days and hours in 1969 when humankind took a giant leap into the future.",
+  year: 2019,
+  maturity_rating:"G",
+  type_media: "movie")
+name24 = "dads"
+doc24_video = open( curr_path_video + "#{name24}-trailer-1_a720p.m4v")
+doc24_thumb = open( curr_path_thumbnail + "#{name24}_background_2x.jpeg")
+doc24.video.attach(io: doc24_video, filename: "#{name24}-trailer-1_a720p.m4v")
+doc24.thumbnail.attach(io: doc24_thumb, filename: "#{name24}_background_2x.jpeg")
+doc24.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc24.video.blob).metadata[:duration])
+doc24.save
+
+d_g24 = DocumentariesGenre.create(documentary_id: doc24.id, genre_id: scienceNature.id)
+
+
+doc25 = Documentary.create!(title: "The Elephant Queen",
+  description: "Embark on an epic journey of family, courage, and coming home. Join Athena, the majestic matriarch, as she leads her elephant herd across an unforgiving African landscape. Narrated by Chiwetel Ejiofor. Official selection of TIFF and Sundance.",
+  year: 2019,
+  maturity_rating:"PG",
+  type_media: "movie")
+name25 = "the-elephant-queen"
+doc25_video = open( curr_path_video + "#{name25}-trailer-1_a720p.m4v")
+doc25_thumb = open( curr_path_thumbnail + "#{name25}_background_2x.jpeg")
+doc25.video.attach(io: doc25_video, filename: "#{name25}-trailer-1_a720p.m4v")
+doc25.thumbnail.attach(io: doc25_thumb, filename: "#{name25}_background_2x.jpeg")
+doc25.runtime_size = sec_to_str(ActiveStorage::Analyzer::VideoAnalyzer.new(doc25.video.blob).metadata[:duration])
+doc25.save
+
+d_g25 = DocumentariesGenre.create(documentary_id: doc25.id, genre_id: natureEcology.id)
+
+
+
 
 User.destroy_all
 

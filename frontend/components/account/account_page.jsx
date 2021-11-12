@@ -32,7 +32,6 @@ class AccountPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(`state: `, state);
   
   return {
     user: state.entities.users[state.session.id]

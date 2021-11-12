@@ -24,11 +24,6 @@ export const VideoPreview = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(`state.videoControls.muted: `, state.videoControls.muted);
-  console.log(`ownProps.documentary.id: `, ownProps.documentary.id);
-  console.log(`state.ui.documentaryInFocus: `, state.ui.documentaryInFocus);
-  
-  
   
   const muted = (state.videoControls.muted) || (ownProps.documentary.id !== state.ui.documentaryInFocus )
   return ({

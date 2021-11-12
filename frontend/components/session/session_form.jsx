@@ -48,14 +48,13 @@ class SessionForm extends React.Component {
     const emailErrorStyle = emailErrors.length > 0 ? "in-error-state" : "";
     const passwordErrorStyle = passwordErrors.length > 0 ? "in-error-state" : "";
     const sessionErrorStyle = sessionErrors.length > 0 ? "" : "hidden";
-    console.log(`this.props.errors: `, this.props.errors);
     
     
     return (
       <div className="div-100">
         <form className="session-form">
           <h4 className="f-24">{this.props.formType}</h4>
-          
+
         <ul className={"session-errors-display mt-10 mb-30 bdr-rad-5 pad-10 " + sessionErrorStyle}>
           {
             sessionErrors.map((error, idx) => {

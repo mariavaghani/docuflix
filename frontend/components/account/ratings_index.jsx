@@ -13,7 +13,6 @@ class RatingsIndex extends Component {
 
 
   render() {
-    console.log(`this.props.ratings: `, this.props.ratings);
     
     return (
       <div>

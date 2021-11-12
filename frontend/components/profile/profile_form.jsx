@@ -49,7 +49,6 @@ class ProfileForm extends React.Component {
   }
 
   pickAvatar(avatar) {
-    console.log(`avatar: `, avatar);
     
     this.setState({avatar: avatar});
     this.setState({ avatarModified: true })

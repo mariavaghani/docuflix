@@ -8,21 +8,39 @@ import SearchContainer from './search';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      navbarClass: "nav-init"
+    }
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
- 
+  handleScroll(e) {
+    if (window.scrollY > 50 & window.scrollY < 100) this.setState({navbarClass: "nav-window"})
+    if (window.scrollY < 50 ) this.setState({navbarClass: "nav-init"})
+    
+  }
+  
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
 
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+    
   render() {
-
+    
+    
+    
     const { currentUser, logout } = this.props;
     return (
-      <nav className="browse-nav">
+      <nav className={"browse-nav " + this.state.navbarClass}>
         <DocuflixLogo logoClass={"docuflix-logo"}/>
         <p>Hello, {currentUser.email}</p>
         <SearchContainer />
         <ProfileDropdownContainer
           btnClass="docuflix-btn"
-          dropClass="contact-drpdwn"/>
+          dropClass="profile-dropdown"/>
       </nav>
     )
   }

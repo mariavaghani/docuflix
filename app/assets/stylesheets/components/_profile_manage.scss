@@ -17,6 +17,12 @@
   border-radius: 5px;
 }
 
+.profile-micro-thumb {
+  width: $profile-micro-thumb-img-dim;
+  height: $profile-micro-thumb-img-dim;
+  border-radius: 5px;
+}
+
 .profile-avatar {
   width:100%;
   object-fit: cover;
