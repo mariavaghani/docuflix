@@ -13,11 +13,11 @@ production_path_thumbnail = "https://docuflix-seeds-pro.s3.amazonaws.com/thumbna
 # dev_path_thumbnail = "#{Rails.root}/app/assets/seeds/thumbnail_seeds/"
 
 
-# curr_path_video = production_path_video
-# curr_path_thumbnail = production_path_thumbnail
+curr_path_video = production_path_video
+curr_path_thumbnail = production_path_thumbnail
 
-curr_path_video = dev_path_video
-curr_path_thumbnail = dev_path_thumbnail
+# curr_path_video = dev_path_video
+# curr_path_thumbnail = dev_path_thumbnail
 
 MINUTE = 60
 HOUR   = MINUTE*60
