@@ -5,7 +5,7 @@ class User < ApplicationRecord
   attr_reader :password
   
   validates :email, presence: true, uniqueness: { case_sensitive: false }, 
-    format: { with: VALID_EMAIL_REGEX, message: "Email isn't valid" }
+    format: { with: VALID_EMAIL_REGEX, message: "isn't valid" }
   validates :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 

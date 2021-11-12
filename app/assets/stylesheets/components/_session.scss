@@ -47,3 +47,17 @@
   
 }
 
+.in-error-state {
+  border-bottom: 3px solid orange;
+}
+
+.errors-display {
+  color: orange;
+  text-align: left;
+}
+
+.session-errors-display {
+  color: white;
+  background-color: orange;
+  text-align: left;
+}

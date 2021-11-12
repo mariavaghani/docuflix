@@ -35,7 +35,7 @@ class WatchPage extends Component {
     
     return (
       <div className="flex-center-on-page-column vh-100 of-hide" >
-        <div className="div-100 div-flex just-start-align-center pointer mb-30 ml-30 ">
+        <div className="div-100 div-flex just-start-align-center pointer mb-30 ml-30 on-top overlay-object-fixed in-top-left-corner">
           <FontAwesomeIcon icon={faArrowLeft} onClick={this.goBack} size="2x"/>
         </div>
         <video

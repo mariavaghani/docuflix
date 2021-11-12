@@ -1,0 +1,39 @@
+// PADDING AND MARGINS
+
+.pad-l-10 {
+  padding-left:10px;
+}
+
+.pad-10 {
+  padding:10px;
+}
+
+.pad-t-100 {
+  padding-top: 100px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-80 {
+  margin-top: 80px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mb-40-children {
+  > li {
+    margin-bottom: 40px;
+  }
+}
+
+.ml-30 {
+  margin-left: 30px;
+}

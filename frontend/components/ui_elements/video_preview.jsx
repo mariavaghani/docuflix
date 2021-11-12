@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 export const VideoPreview = (props) => {
   
+  
   return (
     <div className="preview-container div-100">
         <img
@@ -12,7 +13,7 @@ export const VideoPreview = (props) => {
         />
     
       <video
-        className="video-preview div-100 bdr-rad-5-top"
+        className="video-preview div-100 bdr-rad-7-top"
         src={props.documentary.video}
         autoPlay={props.autoplay}
         muted={props.muted}
@@ -22,10 +23,19 @@ export const VideoPreview = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  muted: state.videoControls.muted,
-  autoplay: state.entities.profiles[state.session.selectedProfile].autoplayPreview
-})
+const mapStateToProps = (state, ownProps) => {
+  console.log(`state.videoControls.muted: `, state.videoControls.muted);
+  console.log(`ownProps.documentary.id: `, ownProps.documentary.id);
+  console.log(`state.ui.documentaryInFocus: `, state.ui.documentaryInFocus);
+  
+  
+  
+  const muted = (state.videoControls.muted) || (ownProps.documentary.id !== state.ui.documentaryInFocus )
+  return ({
+    muted: muted,
+    autoplay: state.entities.profiles[state.session.selectedProfile].autoplayPreview
+  })
+}
 
 const mapDispatchToProps = {
   

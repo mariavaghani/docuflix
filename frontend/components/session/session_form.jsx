@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import { sortErrors } from '../../selectors/users_selectors';
 
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+    const preFilledEmail = this.props.location.state ? (this.props.location.state.email) : ( "" );
     this.state = {
-      email: '',
+      email: preFilledEmail,
       password: ''
     }
 
@@ -42,32 +44,59 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const { emailErrors, passwordErrors, sessionErrors } = sortErrors(this.props.errors);
+    const emailErrorStyle = emailErrors.length > 0 ? "in-error-state" : "";
+    const passwordErrorStyle = passwordErrors.length > 0 ? "in-error-state" : "";
+    const sessionErrorStyle = sessionErrors.length > 0 ? "" : "hidden";
+    console.log(`this.props.errors: `, this.props.errors);
+    
+    
     return (
       <div className="div-100">
-
-        <ul>
+        <form className="session-form">
+          <h4 className="f-24">{this.props.formType}</h4>
+          
+        <ul className={"session-errors-display mt-10 mb-30 bdr-rad-5 pad-10 " + sessionErrorStyle}>
           {
-            this.props.errors.map((error, idx) => {
+            sessionErrors.map((error, idx) => {
               return (<li key={idx} >{error}</li>)
             })
           }
         </ul>
 
-        <form className="session-form">
-          <h4 className="f-24">{this.props.formType}</h4>
-          <label>Email</label>
-          <input type="text"
-            className="user-edit-input"
-            value={this.state.email}
-            onChange={this.handleInput("email")} />
+          <div className="input-group div-100">
+            <label>
+              <h5 className="muted-txt-clr">Email</h5>
+            </label>
+            <input type="text"
+              className={"user-edit-input div-100 bdr-rad-5 " + emailErrorStyle}
+              value={this.state.email}
+              onChange={this.handleInput("email")} />
+          </div>
+              <ul className="errors-display mt-10">
+                {
+                  emailErrors.map((error, idx) => {
+                    return (<li key={idx} >{error}</li>)
+                  })
+                }
+              </ul>
           
-
-
-          <label>Password</label>
-          <input type="password"
-            className="user-edit-input"
-            value={this.state.password}
-            onChange={this.handleInput("password")} />
+          <div className="input-group div-100 mt-30">
+            <label>
+              <h5 className="muted-txt-clr">Password</h5>
+            </label>
+            <input type="password"
+              className={"user-edit-input div-100 bdr-rad-5 " + passwordErrorStyle}
+              value={this.state.password}
+              onChange={this.handleInput("password")} />
+          </div>
+              <ul className="errors-display mt-10">
+                {
+                  passwordErrors.map((error, idx) => {
+                    return (<li key={idx} >{error}</li>)
+                  })
+                }
+              </ul>
           
 
           <button onClick={this.handleSubmit} className="docuflix-btn form-ele">

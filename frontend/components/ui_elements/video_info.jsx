@@ -5,7 +5,7 @@ export const VideoInfo = (props) => {
   const { documentary } = props;
   
   return (
-    <div className="info-row pad-l-10">
+    <div className="info-row pad-l-10 align-center">
       <span className="maturity-rating">{documentary.maturityRating}</span>
       <span>{documentary.runtimeSize}</span>
     </div>

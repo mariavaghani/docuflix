@@ -19,6 +19,7 @@ class GenreIndex extends Component {
  
 
   render() {
+    // if (!this.props.featuredDocumentary.id) return null;
     return (
     <div >
         <FeaturedDocumentaryContainer />
@@ -55,6 +56,7 @@ const mapStateToProps = (state) => ({
   documentaries: state.entities.documentaries,
   genres: Object.values(state.entities.genres),
   selectedProfile: state.session.selectedProfile,
+  featuredDocumentary: state.entities.featuredDocumentary
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,0 +1,50 @@
+.flex-center-on-page-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+// DIV FLEX SETTINGS
+
+.div-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-flex {
+  display: flex;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.align-self-start {
+  align-self: start;
+}
+
+// SPACING
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.just-start-align-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.align-start-just-center {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}

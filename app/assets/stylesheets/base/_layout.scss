@@ -53,15 +53,6 @@ body {
   width: 100%;
 }
 
-
-.flex-center-on-page-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-}
-
 .overlay-container {
   position: relative;
 }
@@ -88,6 +79,10 @@ body {
   top: 10px;
   right: 10px;
 }
+.in-top-left-corner {
+  top: 10px;
+  left: 10px;
+}
 
 .in-top-right-edge {
   top: 0;
@@ -110,44 +105,7 @@ body {
   }
 }
 
-// DIV SIZES
-// RELATIVE SIZES
-.div-100{ 
-  width: 100%;
-}
 
-.div-60 {
-  width: 60%;
-  margin: 0 auto;
-}
-
-.div-80 {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.div-40 {
-  width: 40%;
-  margin: 0 auto;
-}
-
-.div-30 {
-  width: 30%;
-  margin: 0 auto;
-}
-// FIXED SIZES
-.div-600w {
-  width: 600px;
-}
-
-// HEIGHTS
-.div-300h {
-  height: 300px;
-}
-
-.vh-100 {
-  height: 100vh;
-}
 
 // MOVING DIV ON PAGE
 
@@ -156,24 +114,6 @@ body {
   
 }
 
-// DIV FLEX SETTINGS
-
-.div-flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.div-flex {
-  display: flex;
-}
-
-.flex-wrap{
-  flex-wrap: wrap;
-}
-
-.align-self-start {
-  align-self: start;
-}
 
 // POINTERS
 .pointer {
@@ -186,57 +126,6 @@ body {
   grid-template-columns: 50% 50%;
 }
 
-// SPACING
-
-.space-between {
-  justify-content: space-between;
-}
-
-.space-evenly {
-  justify-content: space-evenly;
-}
-
-.just-start-align-center {
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.align-start-just-center {
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.align-center {
-  align-items: center;
-}
-
-// PADDING AND MARGINS
-
-.pad-l-10 {
-  padding-left:10px;
-}
-
-.pad-t-100 {
-  padding-top: 100px;
-}
-
-.mb-30 {
-  margin-bottom: 30px;
-}
-
-.mt-80 {
-  margin-top: 80px;
-}
-
-.mb-40-children {
-  > li {
-    margin-bottom: 40px;
-  }
-}
-
-.ml-30 {
-  margin-left: 30px;
-}
 
 // OVERFLOW SETTING
 
@@ -244,10 +133,13 @@ body {
   overflow: hidden;
 }
 
+.of-init {
+  overflow: initial;
+}
+
 .of-vis-v {
   overflow-y: visible;
 }
-
 
 .of-auto {
   overflow-x: hidden;
@@ -263,11 +155,11 @@ body {
   // }
 }
 
-// font sizes override
-.f-24 {
-  font-size: 24px;
-}
 
-.f-18 {
-  font-size: 18px;
+
+
+
+.modal-scroll {
+  overflow:auto;
+  max-height: calc(100vh - 100px);;
 }

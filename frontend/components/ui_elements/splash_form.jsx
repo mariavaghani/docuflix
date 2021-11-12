@@ -8,16 +8,26 @@ import { withRouter } from 'react-router';
 class SplashForm extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email: ""
+    }
     this.goToSignup = this.goToSignup.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
   }
 
   goToSignup (e) {
     e.preventDefault();
-    console.log(`this.props: `, this.props);
     this.props.history.push({
-      pathname: "/signup"
+      pathname: "/signup",
+      state: {email: this.state.email}
     });
   }
+
+  handleChangeEmail(e) {
+    e.preventDefault();
+    this.setState({email: e.target.value })
+  }
+
   render() {
     return (
       <form className="splash-form div-100">
@@ -25,6 +35,8 @@ class SplashForm extends Component {
         <div className="input-group">
           <label><h5>Email</h5></label>
           <input type='text'
+            value={this.state.email}
+            onChange={ this.handleChangeEmail }
             className="input-field-splash div-100"
             />
         </div>

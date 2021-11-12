@@ -10,6 +10,7 @@ import { VideoMetadata } from '../ui_elements/video_metadata';
 import { selectGenresByDocumentary } from '../../selectors/selectors';
 import { fetchDocumentary, toggleDocumentaryInfo } from '../../actions/documentary_actions';
 import { withRouter } from 'react-router';
+import { settingDocumentaryInFocus } from '../../actions/video_controls_actions';
 
 class FeaturedDocumentary extends Component {
   constructor(props) {
@@ -21,23 +22,31 @@ class FeaturedDocumentary extends Component {
   }
   
   componentDidMount() {
+    // this.props.fetchDocumentary(this.props.documentary.id);
+    // this.props.fetchDocumentary(this.props.documentary.id);
+    console.log(`this.props.documentary: `, this.props.documentary);
     
-    // this.props.fetchDocumentary(this.props.documentary.id);
-    // this.props.fetchDocumentary(this.props.documentary.id);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
         this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
       }, 3000);
     };
+    // this.props.setInFocus(this.props.documentary.id)
 
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    // if (this.props.currDocumentaryInFocus === null) {
+    //   this.props.setInFocus(this.props.documentary.id);
+    // }
+  }
+  
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
   }
-
+  
   goToDocumentarySplash(id) {
-
+    
     return (e) => {
       this.props.history.push({
         pathname: "/browse",
@@ -51,6 +60,10 @@ class FeaturedDocumentary extends Component {
     
     const documentary = this.props.documentary;
     if (!documentary) return null;
+    if (!documentary.id) return null;
+    if (this.props.currDocumentaryInFocus === null || this.props.currDocumentaryInFocus === undefined) {
+      this.props.setInFocus(this.props.documentary.id);
+    }
     return (
       <div className="div-100 bdr-rad-5 on-top pad-t-100">
         <div>
@@ -81,13 +94,15 @@ class FeaturedDocumentary extends Component {
 const mapStateToProps = (state, ownProps) => ({
   documentary: state.entities.featuredDocumentary,
   loading: state.ui.loadingPreview,
-  genres: selectGenresByDocumentary(state, ownProps.documentaryId)
+  genres: selectGenresByDocumentary(state, ownProps.documentaryId),
+  currDocumentaryInFocus: state.ui.documentaryInFocus
 
 })
 
 const mapDispatchToProps = (dispatch) => ({
   // fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId)),
-  showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo())
+  showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
+  setInFocus: (id) => dispatch(settingDocumentaryInFocus(id))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FeaturedDocumentary))

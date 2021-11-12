@@ -33,19 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // MVP VIDEOS
-// TODO: add a page to edit user account and where a user could see their watch 
-// profiles
 // TODO: add errors to edit account page
 // TODO: Go over css and refactor
 // TODO: add sign up button on login page
 // TODO: style the dropdown and "Choose Profile" button, little image next to name
 // TODO: stop scroll of main page when it is time to scroll modal
-// TODO: add carousel to documentaries
-// TODO: add ratings
-// TODO: add feature movie
+// TODO: add linkedIn and Github links
+// TODO: style errors on sign in / sign up pages
 
 // LATER:
-// TODO_LATER: paginate documentaries by groups that fit the page
 // TODO_LATER: make a frontend show page for a documentary info panel
 // if would react on query string in route and render title page with documentary
 // info panel

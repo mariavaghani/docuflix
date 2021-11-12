@@ -18,7 +18,6 @@ export const RatingBtn = (props) => {
   switch (props.rating.ratingValue) {
 
     case true:
-      console.log(`this.props.rating.ratingValue ratedUp: `, props.rating.ratingValue);
       return (
         <button
           className="fa-btn-circle flex-center-on-page-column"
@@ -37,8 +36,8 @@ export const RatingBtn = (props) => {
         <FontAwesomeIcon icon={props.iconFalse} color={props.color}/>
       </button>)
     default:
-      console.log(`this.props.rating in default: `, props.rating);
-
+      console.log('HITTING DEFAULT CASE');
+      
       break;
   }
 

@@ -10,6 +10,7 @@ import  VideoControlsContainer  from "../ui_elements/video_controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { btnColor } from '../../utils/ui_utils';
+import { removingDocumentaryInFocus, settingDocumentaryInFocus } from '../../actions/video_controls_actions';
 
 
 class DocumentaryPreview extends Component {
@@ -17,16 +18,17 @@ class DocumentaryPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgClasses: "loading-img div-100 bdr-rad-5-top"
+      imgClasses: "loading-img div-100 bdr-rad-7-top"
     }
   }
   
   componentDidMount(){
     
     this.props.fetchDocumentary(this.props.documentary.id);
+    this.props.setInFocus(this.props.documentary.id);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
-        this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden"});
+        this.setState({ imgClasses: "loading-img div-100 bdr-rad-7-top hidden"});
       }, 3000);
     };
     
@@ -34,6 +36,7 @@ class DocumentaryPreview extends Component {
   
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
+    this.props.removeFromFocus();
   }
 
   goToDocumentarySplash(id) {
@@ -53,7 +56,7 @@ class DocumentaryPreview extends Component {
 
     return (
             
-      <div className="documentary-preview bdr-rad-5 on-top"
+      <div className="documentary-preview bdr-rad-7 on-top"
         onMouseLeave={() => this.props.hideModal()}
         style={{transform: `translate(-${this.props.scrolledBy+50}px, 0px)`}}
         >
@@ -65,10 +68,10 @@ class DocumentaryPreview extends Component {
           />
         </div>
 
-        <VideoControlsContainer documentaryId={documentary.id}/>
 
         <div className="info-row pad-l-10">
 
+          <VideoControlsContainer documentaryId={documentary.id}/>
           <button className="fa-btn-circle flex-center-on-page-column font-075" onClick={this.goToDocumentarySplash(documentary.id)}>
             <FontAwesomeIcon icon={faChevronDown} size="sm" color={btnColor} />
           </button>
@@ -90,7 +93,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchDocumentary: (postId) => dispatch(fetchDocumentary(postId)),
-  showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo())
+  showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
+  setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
+  removeFromFocus: () => dispatch(removingDocumentaryInFocus())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DocumentaryPreview))

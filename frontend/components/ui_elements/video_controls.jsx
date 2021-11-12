@@ -42,9 +42,9 @@ class VideoControls extends Component {
     )
 
     const muteButtonDisplay = this.props.muted ? (
-      <FontAwesomeIcon icon={faVolumeUp} size="lg" color={btnColor}/>
+      <FontAwesomeIcon icon={faVolumeMute} size="lg" color={btnColor}/>
       ) : (
-        <FontAwesomeIcon icon={faVolumeMute} size="lg" color={btnColor}/>
+        <FontAwesomeIcon icon={faVolumeUp} size="lg" color={btnColor}/>
       );
 
      

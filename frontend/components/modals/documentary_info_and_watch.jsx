@@ -50,8 +50,8 @@ class DocumentaryInfoAndWatch extends Component {
 
     const { documentary } = this.props;
     return (
-      <div className="documentary-info-and-watch" onClick={this.closeDocumentarySplash}>
-        <div className="div-60">
+      <div className="documentary-info-and-watch " onClick={this.closeDocumentarySplash}>
+        <div className="div-60 modal-scroll of-auto">
           <div className="overlay-container">
 
             <button 

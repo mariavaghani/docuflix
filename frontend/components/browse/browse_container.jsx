@@ -12,7 +12,7 @@ class Browse extends Component {
     // this.props.selectWatchProfile();
   }
   render() {
-    
+    const stopScrolling = this.props.showingDocumentaryInfo ? ("of-init vh-100") : ("")
     
     const displayDocumentaryInfo = this.props.showingDocumentaryInfo ?
       (
@@ -22,8 +22,10 @@ class Browse extends Component {
     return (
       <div>
         {displayDocumentaryInfo}
-        <GenreIndexContainer documentary={this.props.documentary}/>
-        <Footer />
+        <div className={stopScrolling}>
+          <GenreIndexContainer documentary={this.props.documentary}/>
+          <Footer />
+        </div>
       </div>
     )
   }
