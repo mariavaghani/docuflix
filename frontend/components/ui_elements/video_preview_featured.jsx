@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-export const VideoPreview = (props) => {
+export const VideoPreviewFeatured = (props) => {
   
   
   return (
@@ -27,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
   
   // const muted = (state.videoControls.muted) || (ownProps.documentary.id !== state.ui.documentaryInFocus )
   return ({
-    muted: state.videoControls.muted,
+    // muted: state.videoControls.muted,
     autoplay: state.entities.profiles[state.session.selectedProfile].autoplayPreview
   })
 }
@@ -36,4 +36,4 @@ const mapDispatchToProps = {
   
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VideoPreview)
+export default connect(mapStateToProps, mapDispatchToProps)(VideoPreviewFeatured)

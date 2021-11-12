@@ -1,10 +1,11 @@
 import { RECEIVE_DOCUMENTARY, START_LOADING_VIDEO, TOGGLE_DOCUMENTARY_INFO } from "../actions/documentary_actions";
-import { REMOVING_DOCUMENTARY_IN_FOCUS, SETTING_DOCUMENTARY_IN_FOCUS } from "../actions/video_controls_actions";
+import { MUTE_FEATURED_VIDEO, REMOVING_DOCUMENTARY_IN_FOCUS, SETTING_DOCUMENTARY_IN_FOCUS, UNMUTE_FEATURED_VIDEO } from "../actions/video_controls_actions";
 
 const _null_State = {
   loadingPreview: false,
   showDocumentaryInfo: false,
-  documentaryInFocus: null
+  documentaryInFocus: null,
+  muteFeatured: true
 }
 
 export const UIReducer = (state = _null_State, action) => {
@@ -28,6 +29,12 @@ export const UIReducer = (state = _null_State, action) => {
       return nextState;
     case REMOVING_DOCUMENTARY_IN_FOCUS:
       nextState.documentaryInFocus = null;
+      return nextState;
+    case MUTE_FEATURED_VIDEO:
+      nextState.muteFeatured = true;
+      return nextState;
+    case UNMUTE_FEATURED_VIDEO:
+      nextState.muteFeatured = false;
       return nextState;
     default:
       return state;

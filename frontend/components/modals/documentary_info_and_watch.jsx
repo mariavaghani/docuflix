@@ -10,6 +10,7 @@ import VideoControlsContainer from "../ui_elements/video_controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { btnColor } from '../../utils/ui_utils';
+import { removingDocumentaryInFocus, settingDocumentaryInFocus } from '../../actions/video_controls_actions';
 
 
 class DocumentaryInfoAndWatch extends Component {
@@ -25,11 +26,11 @@ class DocumentaryInfoAndWatch extends Component {
   
   componentDidMount() {
     
+    // this.props.setInFocus(this.props.documentary.id)
     if (this.props.history.action === "POP") this.props.fetchDocumentary(this.props.documentary.id);
     this.loadingImgTimeout = setTimeout(() => {
       this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
     }, 3000);
-    
   }
   
   closeDocumentarySplash(e) {
@@ -39,6 +40,7 @@ class DocumentaryInfoAndWatch extends Component {
       pathname: "/browse"
     });
     this.props.hideDocumentaryInfo();
+    // this.props.removeFocus();
   }
   
   
@@ -96,7 +98,9 @@ const mapStateToProps = (state, { location }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   hideDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
-  fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId))
+  fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId)),
+  // setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
+  // removeFocus: () => dispatch(removingDocumentaryInFocus())
 })
 
 
