@@ -1,24 +1,33 @@
-# README
+# Docuflix
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Docuflix is a clone of a video streaming platform Netflix. While Netflix gathers movies and shows to help peop relax after a long day, Docuflix presents a hand picked collection of documentaries that all directed to satisfy curiosity of every user.
 
-Things you may want to cover:
+Live site: [Docuflix](https://docuflix.herokuapp.com/)
 
-* Ruby version
+The platform is implemented using the following technologies:
+ - Backend : Ruby on Rails
+ - Frontend : React-Redux
+ - Database : PostgreSQL
+ - Hosting : Heroku
+ - Asset Storage: AWS S3
 
-* System dependencies
+# MVP Overview
 
-* Configuration
+## Documentary preview play on hover
 
-* Database creation
+This feature is implemented using a combination of React event handlers and CSS styling. Each tile loads a documentary asset and remembers a global mute/unmute state.
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+https://user-images.githubusercontent.com/54246143/141482675-fc0a5070-6c65-4921-80ba-82108a95354f.mov
 
-* Deployment instructions
+## Watch Profiles
 
-* ...
+User is able to add up to 5 profiles to their account. User needs to select their watch profile in order to watch documentaries.
+
+
+https://user-images.githubusercontent.com/54246143/141483352-5431741f-98ef-40bc-a71f-4fca529267b6.mov
+
+
+
+
