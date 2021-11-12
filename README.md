@@ -38,7 +38,21 @@ User is able to click a button to review a modal with more information, as well 
 
 https://user-images.githubusercontent.com/54246143/141485262-29201e90-5576-46a8-8fc3-f650930c356e.mov
 
+## Profile Management
 
+A user is able to update profile information in the manager mode, and select a watch profile when pressing on the profile bagde. 
+
+https://user-images.githubusercontent.com/54246143/141486454-8e1a7756-528b-4e36-bfc7-dade2eb18bcc.mov
+
+When a profile is selected, a user is able to delete watch profiles
+
+https://user-images.githubusercontent.com/54246143/141486725-983eb4f2-3725-420d-bda0-219f142fae62.mov
+
+## Documentary Ratings and Ratings index
+
+User is able to rate documentaries from previews, and review their ratings in the account page of the website.
+
+https://user-images.githubusercontent.com/54246143/141487376-2623a22e-74a3-4ce9-b33a-17a684331e3a.mov
 
 
 
