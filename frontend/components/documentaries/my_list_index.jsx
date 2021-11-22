@@ -11,15 +11,6 @@ class MyListIndex extends Component {
   render() {
     
     return (
-      // <ul className="docu-carusel">
-      //   {
-      //     this.props.documentaries.map(documentary => {
-      //       return (<DocumentaryIndexItem key={documentary.id}
-      //         documentary={documentary}
-      //       />)
-      //     })
-      //   }
-      // </ul>
       <DocumentaryIndex documentaries={this.props.documentaries}/>
     )
   }
