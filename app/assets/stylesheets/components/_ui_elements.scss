@@ -70,7 +70,7 @@
 }
 .contact-btn-muted {
   @include button($transparent, $muted-text-clr, $muted-text-clr);
-  width: 120px;
+  // width: 120px;
   margin-left: 0px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -151,6 +151,19 @@
   li {
     padding: 15px;
     border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    a {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      h6 {
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
   }
 
   li:hover {
@@ -162,6 +175,7 @@
 .contact-drpdwn-footer {
   // display:block;
   bottom: 30px;
+  left: 5px;
   color: $muted-text-clr;
 
   width: 100px;
@@ -171,6 +185,19 @@
   li {
     padding: 15px;
     border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    a {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      h6 {
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
   }
 
   li:hover {
