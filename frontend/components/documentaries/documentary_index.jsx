@@ -35,7 +35,7 @@ export class DocumentaryIndex extends Component {
     
     const nextBtn = this.myRef.current.scrollWidth >= window.innerWidth && window.innerWidth + this.state.scrolledBy < this.myRef.current.scrollWidth ? (
       <div className="overlay-container on-top-15">
-        <button className="scroll-handle-btn overlay-object in-top-right-edge"
+        <button className="scroll-handle-btn r overlay-object in-top-right-edge"
           onClick={() => this.scrollForward()}>
             <FontAwesomeIcon icon={faChevronRight} size="lg" color={btnColor} />
           </button>
@@ -51,7 +51,7 @@ export class DocumentaryIndex extends Component {
       <div></div>
     ) : (
       <div className="overlay-container on-top-15">
-        <button className="scroll-handle-btn overlay-object in-top-left-edge"
+        <button className="scroll-handle-btn l overlay-object in-top-left-edge"
           onClick={() => this.scrollBackward()}>
             <FontAwesomeIcon icon={faChevronLeft} size="lg" color={btnColor} />
           </button>

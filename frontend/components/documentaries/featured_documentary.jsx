@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import VideoControlsContainer from '../ui_elements/video_controls'
+import VideoControlsExpandedContainer from '../ui_elements/video_controls_expanded'
 import VideoPreviewContainer from '../ui_elements/video_preview'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +18,8 @@ class FeaturedDocumentary extends Component {
     super(props);
     this.state = {
       imgClasses: "loading-img div-100 bdr-rad-5-top",
-      muted: this.props.globalMute
+      muted: this.props.globalMute,
+      paused: false
     }
     
     this.handleScroll = this.handleScroll.bind(this);
@@ -51,8 +52,8 @@ componentWillUnmount() {
   }
   
   goToDocumentarySplash(id) {
-    
     return (e) => {
+      this.setState({muted: true})
       this.props.history.push({
         pathname: "/browse",
         search: `jbv=${id}`
@@ -71,24 +72,26 @@ componentWillUnmount() {
     // }
     return (
       <div className="div-100 bdr-rad-5 on-top">
-        <div>
-          <VideoPreviewFeaturedContainer
-            documentary={documentary}
-            imgClasses={this.state.imgClasses}
-            muted={this.state.muted}
-          />
-        </div>
+          <div className='gradient-overlay-featured'>
+          </div>
+              <VideoPreviewFeaturedContainer
+                documentary={documentary}
+                imgClasses={this.state.imgClasses}
+                muted={this.state.muted}
+              />
 
         <div className="overlay-container div-100 trans-350 on-top-20">
-          <div className="overlay-object ">
-            <VideoControlsContainer documentaryId={documentary.id} />
-            <div className="info-row pad-l-10">
+          <div className="overlay-object div-100">
+            <VideoControlsExpandedContainer documentaryId={documentary.id} />
+            <div className="info-row m-lr-70">
               <button className="fa-btn-circle flex-center-on-page-column font-075" onClick={this.goToDocumentarySplash(documentary.id)}>
                 <FontAwesomeIcon icon={faChevronDown} size="sm" color={btnColor} />
               </button>
             </div>
-            <VideoInfo documentary={documentary} />
-            <VideoMetadata genres={this.props.genres} />
+            <div className="m-lr-70">
+              <VideoInfo documentary={documentary} />
+              <VideoMetadata genres={this.props.genres} />
+            </div>
           </div>
         </div>
 

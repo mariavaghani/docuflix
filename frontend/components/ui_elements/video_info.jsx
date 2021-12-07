@@ -6,8 +6,8 @@ export const VideoInfo = (props) => {
   
   return (
     <div className="info-row pad-l-10 align-center">
-      <span className="maturity-rating">{documentary.maturityRating}</span>
-      <span>{documentary.runtimeSize}</span>
+      <h5 className="maturity-rating">{documentary.maturityRating}</h5>
+      <h5>{documentary.runtimeSize}</h5>
     </div>
   )
 }

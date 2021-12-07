@@ -29,15 +29,20 @@ class SplashForm extends Component {
   }
 
   render() {
+    const labelDisplay = this.state.email.length !== 0 ? (
+    <label><h5>Email</h5></label>
+    ) : ""
+    const changePadding = this.state.email.length !== 0 ? "pad-t-20" : ""
     return (
       <form className="splash-form div-100">
     
         <div className="input-group">
-          <label><h5>Email</h5></label>
+          {labelDisplay}
           <input type='text'
             value={this.state.email}
             onChange={ this.handleChangeEmail }
-            className="input-field-splash div-100"
+            className={`input-field-splash div-100 pad-l-20 ${changePadding}`}
+            placeholder="Email address"
             />
         </div>
         <button

@@ -37,4 +37,12 @@
 }
 
 
+.gradient-overlay-featured {
+    @include gradient-overlay($body-background);
+}
+
+.gradient-overlay-modal {
+    @include gradient-overlay($docu-preview-background);
+}
+
 

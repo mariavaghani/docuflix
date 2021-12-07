@@ -6,7 +6,7 @@ import VideoPreviewContainer from "../ui_elements/video_preview";
 import { VideoInfo } from "../ui_elements/video_info";
 import { VideoMetadata } from "../ui_elements/video_metadata";
 import { selectGenresByDocumentary } from '../../selectors/selectors';
-import VideoControlsContainer from "../ui_elements/video_controls";
+import VideoControlsExpandedContainer from "../ui_elements/video_controls_expanded";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { btnColor } from '../../utils/ui_utils';
@@ -62,22 +62,28 @@ class DocumentaryInfoAndWatch extends Component {
               <FontAwesomeIcon icon={faTimes} size="sm" color={btnColor} onClick={this.closeDocumentarySplash}/>
             </button>
           </div>
+          <div className="gradient-overlay-modal"></div>
           <VideoPreviewContainer
             documentary={documentary}
             imgClasses={this.state.imgClasses}
           />
-          <VideoControlsContainer documentaryId={documentary.id}/>
-          <h1>{documentary.title}</h1>
-          <div className="documentary-info div-100">
-            <div>
-              <VideoInfo documentary={documentary} />
-          <div>{documentary.description}</div>
+          <div className="overlay-container div-100 trans-100 on-top-20">
+            <div className="overlay-object div-100">
+              <VideoControlsExpandedContainer documentaryId={documentary.id}/>
 
             </div>
-            <div>
-              <span>Genres: </span>
-              <VideoMetadata genres={this.props.genres} />
-
+          </div>
+            <div className="pad-lrb-30">
+              <h1>{documentary.title}</h1>
+              <div className="documentary-info div-100">
+                <div>
+                  <VideoInfo documentary={documentary} />
+                  <div><p>{documentary.description}</p></div>
+                </div>
+                <div>
+                  <span className="muted-txt-clr">Genres: </span>
+                  <VideoMetadata genres={this.props.genres} />
+                </div>
             </div>
           </div>
         </div>

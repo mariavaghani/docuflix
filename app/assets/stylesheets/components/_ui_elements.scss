@@ -5,6 +5,7 @@
   padding-bottom: 4px;
   padding-left: 6px;
   padding-right: 6px;
+  margin-right: 15px;
 }
 
 .info-row{
@@ -89,6 +90,17 @@
   background-color: rgba(255, 255, 255, 0.123);
 }
 
+.fa-btn-play {
+  @include button($ui-main-clr, $transparent, $body-background);
+  // color: $body-background;
+  // background-color: $ui-main-clr;
+  // border-radius: ;
+  h5 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
 .fa-btn-circle:hover {
   border-color: lighten($video-control-clr, 20);
 }
@@ -99,8 +111,12 @@
   width: 50px;
 }
 
-.scroll-handle-btn:hover {
+.scroll-handle-btn:hover.r {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.541));
+}
+
+.scroll-handle-btn:hover.l {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.541), rgba(0, 0, 0, 0));
 }
 
 
@@ -125,8 +141,8 @@
 //  =========================
 
 .contact-drpdwn {
-  top: 20px;
-  right: 0;
+  top: 50px;
+  right: 20px;
   color: $ui-main-clr;
   width: 100px;
   border-radius: 5px;
@@ -179,8 +195,7 @@
     font-family: $text-font;
     font-weight: 300;
     font-size: 18px;
-    padding-top: 5%;
-    padding-left: 2%;
+    
   }
 }
 
