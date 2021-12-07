@@ -84,7 +84,7 @@ componentWillUnmount() {
           <div className="overlay-object div-100">
             <VideoControlsExpandedContainer documentaryId={documentary.id} />
             <div className="info-row m-lr-70">
-              <button className="fa-btn-circle flex-center-on-page-column font-075" onClick={this.goToDocumentarySplash(documentary.id)}>
+              <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column font-075" onClick={this.goToDocumentarySplash(documentary.id)}>
                 <FontAwesomeIcon icon={faChevronDown} size="sm" color={btnColor} />
               </button>
             </div>

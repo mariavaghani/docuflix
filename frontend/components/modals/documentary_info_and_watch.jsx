@@ -58,7 +58,7 @@ class DocumentaryInfoAndWatch extends Component {
 
             <button 
               onClick={this.closeDocumentarySplash}
-              className="overlay-object on-top-20 in-top-right-corner fa-btn-circle flex-center-on-page-column">
+              className="overlay-object on-top-20 in-top-right-corner fa-btn-circle fa-btn-lg flex-center-on-page-column">
               <FontAwesomeIcon icon={faTimes} size="sm" color={btnColor} onClick={this.closeDocumentarySplash}/>
             </button>
           </div>

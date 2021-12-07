@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import { toggleMuteVideo } from '../../actions/video_controls_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { faPlay, faPlus, faThumbsUp, faThumbsDown, faVolumeMute, faVolumeUp, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faPlus, faThumbsUp, faThumbsDown, faVolumeMute, faVolumeUp, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown } from '@fortawesome/free-regular-svg-icons'
 import { withRouter } from 'react-router'
 import { btnColor } from '../../utils/ui_utils'
 import { addDocumentaryToWatchList, removeDocumentaryFromWatchList } from '../../actions/watch_lists_actions'
 import { documentaryInMyList, documentaryRating, getWatchListId } from '../../selectors/selectors'
-import { addRatingToDocumentary, updateDocumentaryRating } from '../../actions/rating_actions'
+import { addRatingToDocumentary, deleteRatingFromDocumentary, updateDocumentaryRating } from '../../actions/rating_actions'
 import { RatingBtn } from './rating_btn'
 
 class VideoControlsExpanded extends Component {
@@ -30,12 +30,12 @@ class VideoControlsExpanded extends Component {
   render() {
     
     const myListToggleButton = this.props.inMyList ? (
-      <button className="fa-btn-circle flex-center-on-page-column"
+      <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column"
         onClick={ () => this.props.removeFromMyList(this.props.watchListId) }>
         <FontAwesomeIcon icon={faCheck} size="lg" color={btnColor} />
       </button>
     ) : (
-      <button className="fa-btn-circle flex-center-on-page-column"
+      <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column"
           onClick={() => this.props.addToMyList(this.props.selectedProfile, this.props.documentaryId) }>
         <FontAwesomeIcon icon={faPlus} size="lg" color={btnColor} />
       </button>
@@ -46,8 +46,16 @@ class VideoControlsExpanded extends Component {
       ) : (
         <FontAwesomeIcon icon={faVolumeUp} size="lg" color={btnColor}/>
       );
-
-     
+    
+    const removeRatingDisplay = this.props.rating ? (
+      <button
+        className="fa-btn-circle fa-btn-lg flex-center-on-page-column"
+        onClick={ () => this.props.removeRating(this.props.rating.id) }
+        >
+        <FontAwesomeIcon icon={faTimes} color={btnColor}/>
+      </button>
+    ) : ""
+    
 
     return (
       <div className="div-flex align-center space-between m-lr-70">
@@ -73,11 +81,12 @@ class VideoControlsExpanded extends Component {
             onClickUndefined={() => this.props.rateThumbsDown(this.props.selectedProfile, this.props.documentaryId)}
             onClickTrue={() => this.props.toggleRating(this.props.rating)}
             onClickFalse={null} />
+          {removeRatingDisplay}
         </div>
 
 
         <div className="div-flex">
-          <button className="fa-btn-circle flex-center-on-page-column" onClick={this.props.toggleMute}>
+          <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column" onClick={this.props.toggleMute}>
             {muteButtonDisplay}
           </button>
         </div>
@@ -101,6 +110,8 @@ const mapDispatchToProps = (dispatch) => ({
   rateThumbsUp: (profileId, documentaryId) => dispatch(addRatingToDocumentary(profileId, documentaryId, true)),
   rateThumbsDown: (profileId, documentaryId) => dispatch(addRatingToDocumentary(profileId, documentaryId, false)),
   toggleRating: (rating) => dispatch(updateDocumentaryRating(rating, !rating.ratingValue)),
+  removeRating: (ratingId) => dispatch(deleteRatingFromDocumentary(ratingId))
+
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VideoControlsExpanded))

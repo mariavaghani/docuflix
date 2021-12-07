@@ -36,7 +36,7 @@ class RatingsControlItem extends Component {
             onClickTrue={() => this.props.toggleRating(this.props.rating)}
             onClickFalse={null} />
           <button
-            className="fa-btn-circle flex-center-on-page-column"
+            className="fa-btn-circle fa-btn-lg flex-center-on-page-column"
             onClick={ () => this.props.removeRating(this.props.rating.id) }
           >
             <FontAwesomeIcon icon={faTimes} color="black"/>

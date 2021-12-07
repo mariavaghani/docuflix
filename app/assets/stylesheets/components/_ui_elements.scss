@@ -90,6 +90,18 @@
   background-color: rgba(255, 255, 255, 0.123);
 }
 
+.fa-btn-lg {
+  height: 35px;
+  width: 35px;
+  margin: 5px;
+}
+
+.fa-btn-sm {
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+}
+
 .fa-btn-play {
   @include button($ui-main-clr, $transparent, $body-background);
   // color: $body-background;
@@ -236,6 +248,17 @@
 .user-edit-input:focus {
   height: 40px;
   background-color: white;
+}
+
+.search-input {
+  height: 20px;
+  background-color: rgba(90, 90, 90, 0.425);
+  padding-left: 10px;
+}
+
+.search-input:focus {
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.548);
 }
 
 .bdr-rad-5 {

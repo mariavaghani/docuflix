@@ -75,7 +75,7 @@ class DocumentaryPreview extends Component {
         <div className="info-row pad-l-10">
 
           <VideoControlsContainer documentaryId={documentary.id}/>
-          <button className="fa-btn-circle flex-center-on-page-column font-075" onClick={this.goToDocumentarySplash(documentary.id)}>
+          <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column font-075" onClick={this.goToDocumentarySplash(documentary.id)}>
             <FontAwesomeIcon icon={faChevronDown} size="sm" color={btnColor} />
           </button>
         </div>

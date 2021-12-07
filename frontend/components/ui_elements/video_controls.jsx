@@ -30,12 +30,12 @@ class VideoControls extends Component {
   render() {
     
     const myListToggleButton = this.props.inMyList ? (
-      <button className="fa-btn-circle flex-center-on-page-column"
+      <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column"
         onClick={ () => this.props.removeFromMyList(this.props.watchListId) }>
         <FontAwesomeIcon icon={faCheck} size="lg" color={btnColor} />
       </button>
     ) : (
-      <button className="fa-btn-circle flex-center-on-page-column"
+      <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column"
           onClick={() => this.props.addToMyList(this.props.selectedProfile, this.props.documentaryId) }>
         <FontAwesomeIcon icon={faPlus} size="lg" color={btnColor} />
       </button>
@@ -51,7 +51,7 @@ class VideoControls extends Component {
 
     return (
       <div className="div-flex just-start-align-center pad-l-10">
-        <button className="fa-btn-circle flex-center-on-page-column font-075" onClick={this.goToWatchPage}>
+        <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column font-075" onClick={this.goToWatchPage}>
           <FontAwesomeIcon icon={faPlay} size="sm" color={btnColor}/>
         </button>
 
@@ -76,7 +76,7 @@ class VideoControls extends Component {
           onClickFalse={null} />
 
 
-        <button className="fa-btn-circle flex-center-on-page-column" onClick={this.props.toggleMute}>
+        <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column" onClick={this.props.toggleMute}>
           {muteButtonDisplay}
         </button>
       </div>

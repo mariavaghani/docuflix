@@ -38,15 +38,15 @@ class Search extends Component {
 
   render() {
     const containerDisplay = this.state.searchMode ? (
-      <div className='div-flex'>
+      <div className='div-flex align-center'>
         <input type="text"
-          className="user-edit-input"
+          className="search-input"
           value={this.state.searchVal}
           onChange={this.searchOnInput}
           autoFocus
           />
-        <div className="fa-btn-circle ml-30 pointer flex-center-on-page-column">
-          <FontAwesomeIcon icon={faTimes} size="lg" color={btnColor} onClick={this.closeSearch} />
+        <div className="fa-btn-circle fa-btn-sm ml-30 pointer flex-center-on-page-column">
+          <FontAwesomeIcon icon={faTimes} size="sm" color={btnColor} onClick={this.closeSearch} />
         </div>
 
       </div>
