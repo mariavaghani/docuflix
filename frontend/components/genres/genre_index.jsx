@@ -23,7 +23,7 @@ class GenreIndex extends Component {
     return (
     <div >
         <FeaturedDocumentaryContainer />
-        <ul className="genres-index pad-10">
+        <ul className="genres-index pad-10 pad-t-50">
   
           <li key="my list">
             <h4>
