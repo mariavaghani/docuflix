@@ -222,17 +222,19 @@
     font-family: $text-font;
     font-weight: 300;
     font-size: 18px;
-    
+    box-sizing: border-box;
   }
 }
 
 .user-edit-input {
-  height: 30px;
-  background-color: grey;
+  height: 40px;
+  background-color: rgba(90, 90, 90, 0.425);
+  padding-left: 10px;
+  padding-top: 7px;
 }
 
 .user-edit-input:focus {
-  height: 30px;
+  height: 40px;
   background-color: white;
 }
 

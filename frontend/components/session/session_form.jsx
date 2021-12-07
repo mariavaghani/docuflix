@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
-
+    this.renderFieldLabel = this.renderFieldLabel.bind(this);
   }
 
   handleInput(type) {
@@ -29,6 +29,17 @@ class SessionForm extends React.Component {
       this.setState({ [type]: e.target.value });
 
     }
+  }
+
+  renderFieldLabel(type) {
+    const titleCapital = type[0].toUpperCase() + type.substring(1);
+    const display = this.state[type].length !== 0 ? (
+      <label>
+        <h5 className="muted-txt-clr">{titleCapital}</h5>
+      </label>
+    ) : ""
+
+    return display;
   }
 
   handleSubmit(e) {
@@ -64,13 +75,12 @@ class SessionForm extends React.Component {
         </ul>
 
           <div className="input-group div-100">
-            <label>
-              <h5 className="muted-txt-clr">Email</h5>
-            </label>
+            {this.renderFieldLabel("email")}
             <input type="text"
               className={"user-edit-input div-100 bdr-rad-5 " + emailErrorStyle}
               value={this.state.email}
-              onChange={this.handleInput("email")} />
+              onChange={this.handleInput("email")}
+              placeholder="Email address" />
           </div>
               <ul className="errors-display mt-10">
                 {
@@ -81,13 +91,12 @@ class SessionForm extends React.Component {
               </ul>
           
           <div className="input-group div-100 mt-30">
-            <label>
-              <h5 className="muted-txt-clr">Password</h5>
-            </label>
+            {this.renderFieldLabel("password")}
             <input type="password"
               className={"user-edit-input div-100 bdr-rad-5 " + passwordErrorStyle}
               value={this.state.password}
-              onChange={this.handleInput("password")} />
+              onChange={this.handleInput("password")}
+              placeholder="Password" />
           </div>
               <ul className="errors-display mt-10">
                 {
