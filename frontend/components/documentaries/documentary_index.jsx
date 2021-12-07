@@ -19,14 +19,14 @@ export class DocumentaryIndex extends Component {
   }
   
   scrollForward() {
-    this.setState({scrolledBy: this.state.scrolledBy + 40})
-    this.myRef.current.scrollBy(40, 0);
+    this.setState({scrolledBy: this.state.scrolledBy + 350})
+    this.myRef.current.scrollBy(350, 0);
 
   }
 
   scrollBackward() {
-    this.setState({scrolledBy: this.state.scrolledBy - 40})
-    this.myRef.current.scrollBy(-40, 0);
+    this.setState({scrolledBy: this.state.scrolledBy - 350})
+    this.myRef.current.scrollBy(-350, 0);
 
   }
 
