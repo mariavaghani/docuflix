@@ -38,7 +38,7 @@ class Search extends Component {
 
   render() {
     const containerDisplay = this.state.searchMode ? (
-      <div className='div-flex align-center'>
+      <div className='div-flex align-center div-100'>
         <input type="text"
           className="search-input"
           value={this.state.searchVal}

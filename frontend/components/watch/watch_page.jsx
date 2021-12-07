@@ -16,9 +16,10 @@ class WatchPage extends Component {
   
     this.props.fetchDocumentary(this.props.match.params.documentaryId)
   }
-
+  
   goBack () {
-    this.props.history.goBack();
+    this.props.history.goBack()
+    
   }
 
   goToNextDocumentary() {
@@ -39,7 +40,7 @@ class WatchPage extends Component {
           <FontAwesomeIcon icon={faArrowLeft} onClick={this.goBack} size="2x"/>
         </div>
         <video
-        className="div-100"
+        className="div-100 vh-100"
         src={documentary.video}
         autoPlay={autoplay}
         muted={muted}

@@ -36,7 +36,7 @@ class NavBar extends React.Component {
     return (
       <nav className={"browse-nav " + this.state.navbarClass}>
         <DocuflixLogo logoClass={"docuflix-logo"}/>
-        <h5>Hello, {currentUser.email}</h5>
+        {/* <h5>Hello, {currentUser.email}</h5> */}
         <SearchContainer />
         <ProfileDropdownContainer
           btnClass="docuflix-btn"

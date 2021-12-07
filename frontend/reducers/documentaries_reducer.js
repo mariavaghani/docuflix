@@ -10,6 +10,10 @@ export const DocumentariesReducer = (state = {}, action) => {
   switch (action.type) {
 
     case RECEIVE_DOCUMENTARIES:
+      return {
+        ...action.documentaries,
+        ...nextState
+      };
       return action.documentaries;
     case RECEIVE_DOCUMENTARY:
       nextState[action.documentary.id] = action.documentary

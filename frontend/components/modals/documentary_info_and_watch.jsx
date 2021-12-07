@@ -26,8 +26,6 @@ class DocumentaryInfoAndWatch extends Component {
   
   componentDidMount() {
     
-    // this.props.setInFocus(this.props.documentary.id)
-    if (this.props.history.action === "POP") this.props.fetchDocumentary(this.props.documentary.id);
     this.loadingImgTimeout = setTimeout(() => {
       this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
     }, 3000);
@@ -51,6 +49,8 @@ class DocumentaryInfoAndWatch extends Component {
   render() {
 
     const { documentary } = this.props;
+    console.log(`documentary: `, documentary);
+    
     return (
       <div className="documentary-info-and-watch " onClick={this.closeDocumentarySplash}>
         <div className="div-60 modal-scroll of-auto">
