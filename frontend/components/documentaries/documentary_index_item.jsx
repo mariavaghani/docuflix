@@ -23,12 +23,13 @@ export class DocumentaryIndexItem extends Component {
     return (
       <li>
         {displayModal}
-        
-                <DocumentaryIndexCard
-        documentary={this.props.documentary}
-        showModal={ () => this.setState({ showModal: true }) }
-        
-          />
+        <div 
+          onMouseOver={ () => this.setState({ showModal: true }) }
+        >
+        <DocumentaryIndexCard
+          documentary={this.props.documentary}
+            />
+        </div>
       </li>
     )
   }

@@ -4,15 +4,13 @@ import { connect } from 'react-redux'
 export const DocumentaryIndexCard = (props) => {
   const { documentary } = props;
   return (
-    <div 
-      onMouseOver={ () => props.showModal() }
-      >
-      <img
-        src={documentary.thumbnail}
-        alt={documentary.title} 
-        className="index-thumbnail"
-      />
-    </div>
+    
+    <img
+      src={documentary.thumbnail}
+      alt={documentary.title} 
+      className="index-thumbnail"
+    />
+    
   )
 }
 
