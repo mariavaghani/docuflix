@@ -17,6 +17,41 @@ The platform is implemented using the following technologies:
 
 This feature is implemented using a combination of React event handlers and CSS styling. Each tile loads a documentary asset and remembers a global mute/unmute state.
 
+```
+export class DocumentaryIndexItem extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { showModal: false }
+  }
+
+  render() {
+
+    const displayModal = this.state.showModal ?
+      (
+        <DocumentaryPreviewContainer
+          hideModal={() => this.setState({ showModal: false })}
+          documentary={this.props.documentary}
+          scrolledBy={this.props.scrolledBy}
+        />
+      ) : ""
+
+    
+    return (
+      <li>
+        {displayModal}
+        <div 
+          onMouseOver={ () => this.setState({ showModal: true }) }
+        >
+        <DocumentaryIndexCard
+          documentary={this.props.documentary}
+            />
+        </div>
+      </li>
+    )
+  }
+}
+```
+
 https://user-images.githubusercontent.com/54246143/141483742-fca7b0c4-b1d9-4b1e-95a5-444d761d2147.mov
 
 ## My List
