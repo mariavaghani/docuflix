@@ -59,10 +59,7 @@ class DocumentaryPreview extends Component {
 
     return (
             
-      <div className="documentary-preview bdr-rad-7 on-top"
-        onMouseLeave={() => this.props.hideModal()}
-        style={{transform: `translate(-${this.props.scrolledBy+50}px, 0px)`}}
-        >
+      <div>
 
         <div>
           <VideoPreviewContainer
