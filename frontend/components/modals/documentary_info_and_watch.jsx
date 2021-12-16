@@ -26,6 +26,7 @@ class DocumentaryInfoAndWatch extends Component {
   
   componentDidMount() {
     
+    this.props.setInFocus(this.props.documentary.id)
     this.loadingImgTimeout = setTimeout(() => {
       this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
     }, 3000);
@@ -38,7 +39,7 @@ class DocumentaryInfoAndWatch extends Component {
       pathname: "/browse"
     });
     this.props.hideDocumentaryInfo();
-    // this.props.removeFocus();
+    this.props.removeFocus();
   }
   
   
@@ -49,7 +50,6 @@ class DocumentaryInfoAndWatch extends Component {
   render() {
 
     const { documentary } = this.props;
-    console.log(`documentary: `, documentary);
     
     return (
       <div className="documentary-info-and-watch " onClick={this.closeDocumentarySplash}>
@@ -105,8 +105,8 @@ const mapStateToProps = (state, { location }) => {
 const mapDispatchToProps = (dispatch) => ({
   hideDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
   fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId)),
-  // setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
-  // removeFocus: () => dispatch(removingDocumentaryInFocus())
+  setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
+  removeFocus: () => dispatch(removingDocumentaryInFocus())
 })
 
 

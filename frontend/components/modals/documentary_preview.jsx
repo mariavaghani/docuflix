@@ -18,14 +18,15 @@ class DocumentaryPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgClasses: "loading-img div-100 bdr-rad-7-top"
+      imgClasses: "loading-img div-100 bdr-rad-7-top",
+      wentToSplash: false
     }
   }
   
   componentDidMount(){
     
     this.props.fetchDocumentary(this.props.documentary.id);
-    // this.props.setInFocus(this.props.documentary.id);
+    this.props.setInFocus(this.props.documentary.id);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
         this.setState({ imgClasses: "loading-img div-100 bdr-rad-7-top hidden"});
@@ -36,7 +37,9 @@ class DocumentaryPreview extends Component {
   
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
-    // this.props.removeFromFocus();
+    if (!this.state.wentToSplash) {
+      this.props.removeFromFocus();
+    }
   }
 
   goToDocumentarySplash(id) {
@@ -48,7 +51,9 @@ class DocumentaryPreview extends Component {
       });
 
       // this.props.setInFocus(id);
-
+      this.setState({
+        wentToSplash: true
+      })
       this.props.showDocumentaryInfo();
     }
   }
@@ -94,8 +99,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchDocumentary: (postId) => dispatch(fetchDocumentary(postId)),
   showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
-  // setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
-  // removeFromFocus: () => dispatch(removingDocumentaryInFocus())
+  setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
+  removeFromFocus: () => dispatch(removingDocumentaryInFocus())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DocumentaryPreview))

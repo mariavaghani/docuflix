@@ -18,25 +18,16 @@ class FeaturedDocumentary extends Component {
     super(props);
     this.state = {
       imgClasses: "loading-img div-100 bdr-rad-5-top",
-      muted: this.props.globalMute,
-      paused: false
+      muted: false,
     }
     
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
 
 
-  handleScroll(e) {
-    if (window.scrollY < 200 ) this.setState({ muted: this.props.globalMute })
-    if (window.scrollY > 200 && window.scrollY < 300) this.setState({ muted: true })
-
-  }
 
 
   componentDidMount() {
-    
-    window.addEventListener('scroll', this.handleScroll);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
         this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
@@ -44,10 +35,22 @@ class FeaturedDocumentary extends Component {
     };
     
   }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.documentary.id === undefined && this.props.documentary.id) {
+      this.props.setInFocus(this.props.documentary.id);
+      
+    }
+    if (prevProps.currDocumentaryInFocus !== null && this.props.currDocumentaryInFocus === null) {
+      this.props.setInFocus(this.props.documentary.id);
+      this.setState({
+        muted: false
+      })
+    }
+  }
 
 
 componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
     clearTimeout(this.loadingImgTimeout);
   }
   
@@ -67,9 +70,7 @@ componentWillUnmount() {
     const documentary = this.props.documentary;
     if (!documentary) return null;
     if (!documentary.id) return null;
-    // if (this.props.currDocumentaryInFocus === null || this.props.currDocumentaryInFocus === undefined) {
-    //   this.props.setInFocus(this.props.documentary.id);
-    // }
+    const mutedState = this.state.muted ? true : this.props.globalMute
     return (
       <div className="div-100 bdr-rad-5 on-top">
           <div className='gradient-overlay-featured'>
@@ -77,7 +78,7 @@ componentWillUnmount() {
               <VideoPreviewFeaturedContainer
                 documentary={documentary}
                 imgClasses={this.state.imgClasses}
-                muted={this.state.muted}
+                muted={mutedState}
               />
 
         <div className="overlay-container div-100 trans-350 on-top-20">
@@ -100,19 +101,23 @@ componentWillUnmount() {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  documentary: state.entities.featuredDocumentary,
-  loading: state.ui.loadingPreview,
-  genres: selectGenresByDocumentary(state, ownProps.documentaryId),
-  globalMute: state.videoControls.muted
-  // currDocumentaryInFocus: state.ui.documentaryInFocus
+const mapStateToProps = (state, ownProps) => {
+  
+  const muteDocu = state.entities.featuredDocumentary.id === state.ui.documentaryInFocus ? state.videoControls.muted : true
+  
+  return {
+    documentary: state.entities.featuredDocumentary,
+    loading: state.ui.loadingPreview,
+    genres: selectGenresByDocumentary(state, ownProps.documentaryId),
+    globalMute: muteDocu,
+    currDocumentaryInFocus: state.ui.documentaryInFocus
+  }
 
-})
+}
 
 const mapDispatchToProps = (dispatch) => ({
-  // fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId)),
   showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
-  // setInFocus: (id) => dispatch(settingDocumentaryInFocus(id))
+  setInFocus: (id) => dispatch(settingDocumentaryInFocus(id))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FeaturedDocumentary))

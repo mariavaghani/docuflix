@@ -14,7 +14,7 @@ export const DocumentariesReducer = (state = {}, action) => {
         ...action.documentaries,
         ...nextState
       };
-      return action.documentaries;
+      // return action.documentaries;
     case RECEIVE_DOCUMENTARY:
       nextState[action.documentary.id] = action.documentary
       return nextState;

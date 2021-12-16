@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchDocumentary } from '../../actions/documentary_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { removingDocumentaryInFocus } from '../../actions/video_controls_actions';
 
 class WatchPage extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class WatchPage extends Component {
   }
   
   goBack () {
+    this.props.removeFromFocus();
     this.props.history.goBack()
     
   }
@@ -60,7 +62,9 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId))
+  fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId)),
+  removeFromFocus: () => dispatch(removingDocumentaryInFocus())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WatchPage)
