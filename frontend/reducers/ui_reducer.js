@@ -5,7 +5,7 @@ const _null_State = {
   loadingPreview: false,
   showDocumentaryInfo: false,
   documentaryInFocus: null,
-  muteFeatured: true
+  muteFeatured: false
 }
 
 export const UIReducer = (state = _null_State, action) => {

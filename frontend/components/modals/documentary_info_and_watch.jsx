@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { fetchDocumentary, toggleDocumentaryInfo } from '../../actions/documentary_actions';
 import VideoPreviewContainer from "../ui_elements/video_preview";
 import { VideoInfo } from "../ui_elements/video_info";
@@ -10,7 +10,7 @@ import VideoControlsExpandedContainer from "../ui_elements/video_controls_expand
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { btnColor } from '../../utils/ui_utils';
-import { removingDocumentaryInFocus, settingDocumentaryInFocus } from '../../actions/video_controls_actions';
+import { muteFeaturedVideo, unmuteFeaturedVideo } from '../../actions/video_controls_actions';
 
 
 class DocumentaryInfoAndWatch extends Component {
@@ -25,7 +25,7 @@ class DocumentaryInfoAndWatch extends Component {
   }
   
   componentDidMount() {
-    
+    this.props.muteFeatured();
     this.loadingImgTimeout = setTimeout(() => {
       this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
     }, 3000);
@@ -38,18 +38,17 @@ class DocumentaryInfoAndWatch extends Component {
       pathname: "/browse"
     });
     this.props.hideDocumentaryInfo();
-    // this.props.removeFocus();
   }
   
   
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
+    this.props.unmuteFeatured();
   }
   
   render() {
 
     const { documentary } = this.props;
-    console.log(`documentary: `, documentary);
     
     return (
       <div className="documentary-info-and-watch " onClick={this.closeDocumentarySplash}>
@@ -105,8 +104,8 @@ const mapStateToProps = (state, { location }) => {
 const mapDispatchToProps = (dispatch) => ({
   hideDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
   fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId)),
-  // setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
-  // removeFocus: () => dispatch(removingDocumentaryInFocus())
+  muteFeatured: () => dispatch(muteFeaturedVideo()),
+  unmuteFeatured: () => dispatch(unmuteFeaturedVideo())
 })
 
 

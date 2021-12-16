@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import VideoControlsExpandedContainer from '../ui_elements/video_controls_expanded'
-import VideoPreviewContainer from '../ui_elements/video_preview'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { btnColor } from '../../utils/ui_utils';
 import { VideoInfo } from '../ui_elements/video_info';
 import { VideoMetadata } from '../ui_elements/video_metadata';
 import { selectGenresByDocumentary } from '../../selectors/selectors';
-import { fetchDocumentary, toggleDocumentaryInfo } from '../../actions/documentary_actions';
+import { toggleDocumentaryInfo } from '../../actions/documentary_actions';
 import { withRouter } from 'react-router';
-import { settingDocumentaryInFocus } from '../../actions/video_controls_actions';
 import VideoPreviewFeaturedContainer from '../ui_elements/video_preview_featured';
 
 class FeaturedDocumentary extends Component {
@@ -19,24 +17,13 @@ class FeaturedDocumentary extends Component {
     this.state = {
       imgClasses: "loading-img div-100 bdr-rad-5-top",
       muted: this.props.globalMute,
-      paused: false
     }
     
-    this.handleScroll = this.handleScroll.bind(this);
-  }
-
-
-
-  handleScroll(e) {
-    if (window.scrollY < 200 ) this.setState({ muted: this.props.globalMute })
-    if (window.scrollY > 200 && window.scrollY < 300) this.setState({ muted: true })
-
   }
 
 
   componentDidMount() {
     
-    window.addEventListener('scroll', this.handleScroll);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
         this.setState({ imgClasses: "loading-img div-100 bdr-rad-5-top hidden" });
@@ -47,13 +34,11 @@ class FeaturedDocumentary extends Component {
 
 
 componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
     clearTimeout(this.loadingImgTimeout);
   }
   
   goToDocumentarySplash(id) {
     return (e) => {
-      this.setState({muted: true})
       this.props.history.push({
         pathname: "/browse",
         search: `jbv=${id}`
@@ -67,9 +52,6 @@ componentWillUnmount() {
     const documentary = this.props.documentary;
     if (!documentary) return null;
     if (!documentary.id) return null;
-    // if (this.props.currDocumentaryInFocus === null || this.props.currDocumentaryInFocus === undefined) {
-    //   this.props.setInFocus(this.props.documentary.id);
-    // }
     return (
       <div className="div-100 bdr-rad-5 on-top">
           <div className='gradient-overlay-featured'>
@@ -77,7 +59,7 @@ componentWillUnmount() {
               <VideoPreviewFeaturedContainer
                 documentary={documentary}
                 imgClasses={this.state.imgClasses}
-                muted={this.state.muted}
+                muted={this.props.muted}
               />
 
         <div className="overlay-container div-100 trans-350 on-top-20">
@@ -100,19 +82,20 @@ componentWillUnmount() {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  documentary: state.entities.featuredDocumentary,
-  loading: state.ui.loadingPreview,
-  genres: selectGenresByDocumentary(state, ownProps.documentaryId),
-  globalMute: state.videoControls.muted
-  // currDocumentaryInFocus: state.ui.documentaryInFocus
+const mapStateToProps = (state, ownProps) => {
+  const muteDocu = state.ui.muteFeatured ? true : state.videoControls.muted;
+  return {
+    documentary: state.entities.featuredDocumentary,
+    loading: state.ui.loadingPreview,
+    genres: selectGenresByDocumentary(state, ownProps.documentaryId),
+    muted: muteDocu
 
-})
+  }
+
+}
 
 const mapDispatchToProps = (dispatch) => ({
-  // fetchDocumentary: (documentaryId) => dispatch(fetchDocumentary(documentaryId)),
   showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
-  // setInFocus: (id) => dispatch(settingDocumentaryInFocus(id))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FeaturedDocumentary))

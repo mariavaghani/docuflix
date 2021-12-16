@@ -10,7 +10,7 @@ import  VideoControlsContainer  from "../ui_elements/video_controls";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { btnColor } from '../../utils/ui_utils';
-import { removingDocumentaryInFocus, settingDocumentaryInFocus } from '../../actions/video_controls_actions';
+import { muteFeaturedVideo, removingDocumentaryInFocus, settingDocumentaryInFocus, unmuteFeaturedVideo } from '../../actions/video_controls_actions';
 
 
 class DocumentaryPreview extends Component {
@@ -18,14 +18,14 @@ class DocumentaryPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgClasses: "loading-img div-100 bdr-rad-7-top"
+      imgClasses: "loading-img div-100 bdr-rad-7-top",
+      wentToSplash: false
     }
   }
   
   componentDidMount(){
-    
+    this.props.muteFeatured()
     this.props.fetchDocumentary(this.props.documentary.id);
-    // this.props.setInFocus(this.props.documentary.id);
     if (!this.props.loading) {
       this.loadingImgTimeout = setTimeout(() => {
         this.setState({ imgClasses: "loading-img div-100 bdr-rad-7-top hidden"});
@@ -36,7 +36,10 @@ class DocumentaryPreview extends Component {
   
   componentWillUnmount() {
     clearTimeout(this.loadingImgTimeout);
-    // this.props.removeFromFocus();
+    if (!this.state.wentToSplash) {
+      this.props.unmuteFeatured();
+
+    }
   }
 
   goToDocumentarySplash(id) {
@@ -47,8 +50,9 @@ class DocumentaryPreview extends Component {
         search: `jbv=${id}`
       });
 
-      // this.props.setInFocus(id);
-
+      this.setState({
+        wentToSplash: true
+      })
       this.props.showDocumentaryInfo();
     }
   }
@@ -94,8 +98,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchDocumentary: (postId) => dispatch(fetchDocumentary(postId)),
   showDocumentaryInfo: () => dispatch(toggleDocumentaryInfo()),
-  // setInFocus: (id) => dispatch(settingDocumentaryInFocus(id)),
-  // removeFromFocus: () => dispatch(removingDocumentaryInFocus())
+  muteFeatured: () => dispatch(muteFeaturedVideo()),
+  unmuteFeatured: () => dispatch(unmuteFeaturedVideo())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DocumentaryPreview))
