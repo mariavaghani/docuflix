@@ -42,9 +42,9 @@ class Splash extends React.Component {
             </div>
           </nav>
           <div className="sign-up-starter div-60">
-            <h1>Almost unlimited documentaries, and... actually nothing more</h1>
-            <h3>Watch in your browser. Cancel... There is nothing to cancel :</h3>
-            <h3>Ready? Let's go!! We just need your email below to get started.</h3>
+            <h1>{t("Almost unlimited documentaries, and... actually nothing more")}</h1>
+            <h3>{t("Watch in your browser. Cancel... There is nothing to cancel :")}</h3>
+            <h3>{t("Ready? Let's go!! We just need your email below to get started.")}</h3>
             
             <SplashFormContainer />
             
@@ -56,8 +56,8 @@ class Splash extends React.Component {
             src={window.kidsIntroUrl}
             className="img-splash"/>
           <div className="cards-below-txt">
-            <h1>Profiles for kids</h1>
-            <h2>Our special collection of their favorite shows! We have the best documentaries to entertain young voracious minds</h2>
+            <h1>{t("Profiles for kids")}</h1>
+            <h2>{t("Our special collection of their favorite shows! We have the best documentaries to entertain young voracious minds")}</h2>
           </div>
         </div>
         <Footer />

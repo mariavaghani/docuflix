@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router'
+import { withTranslation } from 'react-i18next';
 
 
 class CreateProfileBadge extends Component {
@@ -21,6 +22,7 @@ class CreateProfileBadge extends Component {
     });
   }
   render() {
+    const { t } = this.props;
     return (
       <div
         className="profile-card overlay-container"
@@ -33,7 +35,7 @@ class CreateProfileBadge extends Component {
           
           className="profile-avatar profile-card"
         ></div>
-        Add Profile
+        {t("Add Profile")}
       </div>
     )
   }
@@ -46,4 +48,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateProfileBadge))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(CreateProfileBadge)))

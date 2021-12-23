@@ -61,9 +61,9 @@ class VideoControlsExpanded extends Component {
     return (
       <div className="div-flex align-center space-between m-lr-70">
         <div className="div-flex">
-          <button className="fa-btn-play div-flex space-between align-center font-075 div-80w div-40h mr-20" onClick={this.goToWatchPage}>
+          <button className="fa-btn-play div-flex space-between align-center font-075 div-40h mr-20" onClick={this.goToWatchPage}>
             <FontAwesomeIcon icon={faPlay} size="2x" />
-            <h5>{t("Play")}</h5>
+            <h5 className='pad-l-10'>{t("Play")}</h5>
           </button>
           {myListToggleButton}
           <RatingBtn rating={this.props.rating}

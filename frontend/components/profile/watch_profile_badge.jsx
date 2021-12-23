@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router';
 import { fetchUserProfile, receiveSelectedProfile } from '../../actions/profiles_actions'
@@ -27,16 +28,17 @@ class WatchProfileBadge extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <div 
         className="profile-card"
         onClick={this.selectProfileAndGoToBrowse}>
         <img
           src={this.props.profile.avatar}
-          alt={this.props.profile.profileName}
+          alt={t([this.props.profile.profileName])}
           className="profile-avatar profile-card"
         />
-        {this.props.profile.profileName}
+        {t([this.props.profile.profileName])}
       </div>
     )
   }
@@ -51,4 +53,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUserProfile: (profileId) => dispatch(fetchUserProfile(profileId))
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(WatchProfileBadge))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(WatchProfileBadge)))

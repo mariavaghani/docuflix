@@ -7,6 +7,7 @@ import EditProfileFormContainer from './edit_profile_form';
 import CreateProfileFormContainer from './create_profile_container';
 import ManageProfileBadgeContainer from './manage_proflie_badge';
 import WatchProfileBadgeContainer from './watch_profile_badge';
+import { withTranslation } from 'react-i18next';
 
 class ProfileIndex extends Component {
   constructor(props) {
@@ -44,13 +45,13 @@ class ProfileIndex extends Component {
       profileId={this.props.location.state.editProfileId}/>;
 
     if (this.props.location.state && this.props.location.state.addNewProfile) return <CreateProfileFormContainer/>;
-    
+    const { t } = this.props;
     const pageTitle = this.state.editMode ? "Manage Profiles:" : "Who's watching?";
     const buttonText = this.state.editMode ? "Done" : "Manage Profiles";
     const newProfileForm = this.state.editMode && this.props.userProfiles.length < 5 ? this.renderAddProfileButton() : "";
     return (
       <div className="flex-center-on-page-column pad-t-100 div-300h">
-        <h2>{pageTitle}</h2>
+        <h2>{t([pageTitle])}</h2>
         
         <ul className="div-60 profile-index">
           {
@@ -63,7 +64,7 @@ class ProfileIndex extends Component {
         </ul>
         <button 
         onClick={ () => this.setState({ editMode: !this.state.editMode }) }
-        className="contact-btn">{buttonText}</button>
+        className="contact-btn">{t([buttonText])}</button>
       </div>
     )
   }
@@ -81,4 +82,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUserProfiles: (userId) => dispatch(fetchUserProfiles(userId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ProfileIndex));

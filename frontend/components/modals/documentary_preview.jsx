@@ -80,7 +80,6 @@ class DocumentaryPreview extends Component {
             <FontAwesomeIcon icon={faChevronDown} size="sm" color={btnColor} />
           </button>
         </div>
-      
         <VideoInfo documentary={documentary}/>
         <VideoMetadata genres={this.props.genres}/>
 

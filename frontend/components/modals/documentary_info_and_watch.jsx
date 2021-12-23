@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { btnColor } from '../../utils/ui_utils';
 import { muteFeaturedVideo, unmuteFeaturedVideo } from '../../actions/video_controls_actions';
+import { withTranslation } from 'react-i18next';
 
 
 class DocumentaryInfoAndWatch extends Component {
@@ -48,7 +49,7 @@ class DocumentaryInfoAndWatch extends Component {
   
   render() {
 
-    const { documentary } = this.props;
+    const { documentary, t } = this.props;
     
     return (
       <div className="documentary-info-and-watch " onClick={this.closeDocumentarySplash}>
@@ -73,14 +74,14 @@ class DocumentaryInfoAndWatch extends Component {
             </div>
           </div>
             <div className="pad-lrb-30">
-              <h1>{documentary.title}</h1>
+              <h1>{t([documentary.title])}</h1>
               <div className="documentary-info div-100">
                 <div>
                   <VideoInfo documentary={documentary} />
-                  <div><p>{documentary.description}</p></div>
+                  <div><p>{t([documentary.description])}</p></div>
                 </div>
                 <div>
-                  <span className="muted-txt-clr">Genres: </span>
+                  <span className="muted-txt-clr">{t("Genres:")} </span>
                   <VideoMetadata genres={this.props.genres} />
                 </div>
             </div>
@@ -109,4 +110,4 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DocumentaryInfoAndWatch))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(DocumentaryInfoAndWatch)))

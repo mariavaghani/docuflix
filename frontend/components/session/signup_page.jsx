@@ -5,9 +5,11 @@ import { Footer } from '../nav_bar/footer';
 import { DocuflixLogo } from '../ui_elements/docuflix_logo';
 import { Link } from 'react-router-dom';
 import { clearSessionErrors } from '../../actions/session_actions';
+import { withTranslation } from 'react-i18next';
 
 class SignupPage extends Component {
   render() {
+    const { t } = this.props;
     return (
       <div className="light-mode">
         <nav className="nav-signup">
@@ -15,7 +17,7 @@ class SignupPage extends Component {
           <Link className="docuflix-lnk"
                     to="/login"
                     onClick={ () => this.props.clearSessionErrors() }>
-            <h2>Sign In</h2>
+            <h2>{t("Sign In")}</h2>
           </Link>
         </nav>
         <div className="signup-card div-40">
@@ -38,4 +40,4 @@ const mapDispatchToProps = (dispatch) => ({
   clearSessionErrors: () => dispatch(clearSessionErrors())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupPage)
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(SignupPage))

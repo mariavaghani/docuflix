@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faEdit, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { DocuflixLogo } from '../ui_elements/docuflix_logo';
+import { withTranslation } from 'react-i18next';
 
 class ProfileForm extends React.Component {
   constructor(props) {
@@ -55,13 +56,13 @@ class ProfileForm extends React.Component {
   }
 
   render() {
-    
+    const { t } = this.props;
     const deleteBtn = (this.props.formType === "Update Profile" && this.props.selectedProfile && this.props.selectedProfile !== this.props.profile.id) ? (
       <button 
         className="contact-btn-muted"
         onClick={this.handleDelete}
       >
-        Delete
+        {t("Delete")}
       </button>
     ) : (
       ""
@@ -108,12 +109,12 @@ class ProfileForm extends React.Component {
           <ul className="div-flex-column">
             {
             this.props.errors.map(error => {
-              return (<li key={error}><h5>{error}</h5></li>)
+              return (<li key={error}><h5>{t([error])}</h5></li>)
               })
             }
           </ul>
           <div className="form-card">
-            <h3>{this.props.formType}</h3>
+            <h3>{t([this.props.formType])}</h3>
           </div>
           <div className="form-body form-card">
 
@@ -128,7 +129,7 @@ class ProfileForm extends React.Component {
               </div>
               <img
                 src={this.state.avatar}
-                alt={this.props.profile.profileName}
+                alt={t([this.props.profile.profileName])}
                 className="profile-avatar profile-card"
               />
               {avatarOptions}
@@ -144,7 +145,7 @@ class ProfileForm extends React.Component {
               
               </div>
               <div className="form-card div-flex-column">
-                <h4>Maturity Setting</h4>
+                <h4>{t("Maturity Setting")}</h4>
                   <select
                     value={this.state.maturitySetting}
                     onChange={this.update("maturitySetting")}
@@ -152,20 +153,20 @@ class ProfileForm extends React.Component {
                     {
                     MATURITY_SETTINGS.map(setting => {
                       return (
-                      <option key={setting} value={setting}>{setting}</option>
+                      <option key={setting} value={setting}>{t([setting])}</option>
                       )
                     })
                     }
                   </select>
               </div>
               <div className="div-flex-column">
-                <h4>Autoplay controls</h4>
+                <h4>{t("Autoplay controls")}</h4>
                 <div className="div-flex">
                   <input
                     type="checkbox"
                     checked={this.state.autoplayNextEpisode}
                     onChange={this.updateCheckbox("autoplayNextEpisode")} />
-                  <h5>Autoplay next episode in a series</h5>
+                  <h5>{t("Autoplay next episode in a series")}</h5>
                 </div>
                 
                 <div className="div-flex">
@@ -173,7 +174,7 @@ class ProfileForm extends React.Component {
                     type="checkbox"
                     checked={this.state.autoplayPreview}
                     onChange={this.updateCheckbox("autoplayPreview")} />
-                  <h5>Autoplay previews while browsing in all devices</h5>
+                  <h5>{t("Autoplay previews while browsing in all devices")}</h5>
                 </div>
                 
               </div>
@@ -181,12 +182,12 @@ class ProfileForm extends React.Component {
           </div>
           <div className="div-flex space-evenly div-100">
             <input type="submit"
-            value={this.props.formType}
+            value={t([this.props.formType])}
               className="contact-btn-muted"
               onClick={this.handleSubmit}
             />
             {deleteBtn}
-            <Link to="/profiles/manage" className="contact-btn-muted">Cancel</Link>
+            <Link to="/profiles/manage" className="contact-btn-muted">{t("Cancel")}</Link>
           </div>
         </form>
       </div>
@@ -194,4 +195,4 @@ class ProfileForm extends React.Component {
   }
 }
 
-export default withRouter(ProfileForm);
+export default withRouter(withTranslation()(ProfileForm));
