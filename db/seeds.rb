@@ -31,6 +31,14 @@ def sec_to_str(sec)
   units.reject{|str| str.start_with?("0")}.join("")
 end
 
+def sec_to_str_rus(sec)
+
+  h, rem = sec.round.divmod(HOUR)
+  m, s   = rem.divmod(MINUTE)
+  units  = [ "#{h}h", "#{m}min", "#{s}sec"]
+  units.reject{|str| str.start_with?("0")}.join("")
+end
+
 require 'open-uri'
 Genre.destroy_all
 

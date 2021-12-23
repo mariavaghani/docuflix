@@ -156,7 +156,7 @@
   top: 50px;
   right: 20px;
   color: $ui-main-clr;
-  width: 100px;
+  width: 120px;
   border-radius: 5px;
   background-color: $docu-preview-background;
 
@@ -169,13 +169,19 @@
       width: 100%;
       display: flex;
       align-items: center;
-      h6 {
+      // h6 {
+      //   margin-top: 0;
+      //   padding-bottom: 0;
+      //   margin-bottom: 0;
+      //   padding-bottom: 0;
+      // }
+    }
+    h6 {
         margin-top: 0;
         padding-bottom: 0;
         margin-bottom: 0;
         padding-bottom: 0;
       }
-    }
   }
 
   li:hover {
@@ -190,7 +196,7 @@
   left: 5px;
   color: $muted-text-clr;
 
-  width: 100px;
+  width: 120px;
   border-radius: 5px;
   background-color: $docu-preview-background;
 
@@ -203,12 +209,12 @@
       width: 100%;
       display: flex;
       align-items: center;
-      h6 {
-        margin-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
+    }
+    h6 {
+      margin-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
   }
 

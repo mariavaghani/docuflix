@@ -5,12 +5,18 @@ import { Link } from 'react-router-dom';
 import { receiveSelectedProfile, switchUserProfile } from '../../actions/profiles_actions';
 import { logout } from "../../actions/session_actions";
 import { selectAllUserProfilesWithoutSelected } from '../../selectors/selectors';
+import { withTranslation } from 'react-i18next';
+
+
 
 class ProfileDropdown extends React.Component {
 
   constructor(props) {
     super(props);
     this.handleLogout = this.handleLogout.bind(this);
+    // this.state = {
+    //   language: props.i18n.language
+    // }
 
   }
 
@@ -19,9 +25,37 @@ class ProfileDropdown extends React.Component {
     this.props.logout()
       .then((e) => this.props.history.push({ pathname: "/" }));
   }
+
+  changeLanguage(lang) {
+    console.log(`this.props: `, this.props);
+    
+    const { i18n } = this.props;
+    i18n.changeLanguage(lang);
+  }
+
+  renderlanguageSwitcher () {
+    switch (this.props.i18n.language) {
+      case "en":
+        return (
+          <li onClick={() => this.changeLanguage("rus") }>
+            Русский
+          </li>
+        );
+      case "rus":
+        return (
+          <li onClick={() => this.changeLanguage("en") }>
+            Switch to English
+          </li>
+        );
+      default:
+        console.log('Language is not supported');
+        ;
+    }
+  }
   
 
   render() {
+    const { t } = this.props;
     const btnClass = this.props.btnClass;
     const dropClass = this.props.dropClass;
     if (!this.props.selectedProfile) return null;
@@ -32,7 +66,7 @@ class ProfileDropdown extends React.Component {
         <div className="profile-micro-thumb">
           <img
             src={selectedProfile.avatar}
-            alt={selectedProfile.profileName}
+            alt={t([selectedProfile.profileName])}
             className="profile-avatar bdr-rad-5"
           />
         </div>
@@ -49,11 +83,11 @@ class ProfileDropdown extends React.Component {
                       <div className="profile-micro-thumb">
                         <img
                           src={profile.avatar}
-                          alt={profile.profileName}
+                          alt={t([profile.profileName])}
                           className="profile-avatar bdr-rad-5"
                         />
                       </div>
-                      {profile.profileName}
+                      {t([profile.profileName])}
                   </li>
                 )
                 })
@@ -62,14 +96,15 @@ class ProfileDropdown extends React.Component {
 
           <ul>
             <li>
-              <Link to="/YourAccount">Account</Link>
+              <Link to="/YourAccount">{ t("Account") }</Link>
             </li>
             <li>
-              <Link to="/profiles/manage">Manage Profiles</Link>
+              <Link to="/profiles/manage">{ t("Manage Profiles") }</Link>
             </li>
+            {this.renderlanguageSwitcher()}
             <li onClick={this.handleLogout}>
               
-                <h5>Sign out of Docuflix</h5>
+                <h5>{ t("Sign out of Docuflix") }</h5>
               
             </li>
           </ul>
@@ -94,4 +129,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileDropdown))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ProfileDropdown)))

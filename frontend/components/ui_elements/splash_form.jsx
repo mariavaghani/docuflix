@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router';
+import { withTranslation } from 'react-i18next';
 
 class SplashForm extends Component {
   constructor(props) {
@@ -29,8 +30,9 @@ class SplashForm extends Component {
   }
 
   render() {
+    const { t } = this.props;
     const labelDisplay = this.state.email.length !== 0 ? (
-    <label><h5>Email</h5></label>
+    <label><h5>{t("Email")}</h5></label>
     ) : ""
     const changePadding = this.state.email.length !== 0 ? "pad-t-20" : ""
     return (
@@ -42,13 +44,13 @@ class SplashForm extends Component {
             value={this.state.email}
             onChange={ this.handleChangeEmail }
             className={`input-field-splash div-100 pad-l-20 ${changePadding}`}
-            placeholder="Email address"
+            placeholder={t("Email address")}
             />
         </div>
         <button
           className="splash-get-started"
           onClick={this.goToSignup}>
-          Get Started
+          {t("Get Started")}
           <span className="fa">
             <FontAwesomeIcon icon={faChevronRight} />
           </span>
@@ -66,4 +68,4 @@ const mapDispatchToProps = {
   
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SplashForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(SplashForm)));

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ContactButton } from '../ui_elements/contact_button'
+import { ChangeLanguageButton } from '../ui_elements/change_language_button';
 
 export const Footer = (props) => {
 
@@ -36,6 +37,9 @@ export const Footer = (props) => {
       </div>
       <div>
         <ContactButton
+          btnClass={"contact-btn-muted"}
+          dropClass={"contact-drpdwn-footer"}/>
+        <ChangeLanguageButton
           btnClass={"contact-btn-muted"}
           dropClass={"contact-drpdwn-footer"}/>
       </div>

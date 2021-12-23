@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Footer } from '../nav_bar/footer';
 import { DocuflixLogo } from '../ui_elements/docuflix_logo';
 import LoginFormContainer from "./login_form_container";
 
-export class LoginPage extends Component {
+class LoginPage extends Component {
   render() {
+    const { t } = this.props;
     return (
       <div>
         <nav className="nav-login">
@@ -19,8 +21,8 @@ export class LoginPage extends Component {
               <LoginFormContainer />
             </div>
             <div className="div-flex mt-30 align-center">
-              New to Docuflix?
-              <Link to="/signup" className="pad-l-10 fw-600">Sign Up Now</Link>
+              {t("New to Docuflix?")}
+              <Link to="/signup" className="pad-l-10 fw-600">{t("Sign Up Now")}</Link>
             </div>
           </div>
         </div>
@@ -39,3 +41,4 @@ export class LoginPage extends Component {
 // }
 
 // export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+export default withTranslation()(LoginPage);

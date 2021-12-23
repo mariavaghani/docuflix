@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchDocumentary, toggleDocumentaryInfo } from '../../actions/documentary_actions';
 import VideoPreviewContainer from "../ui_elements/video_preview";
-import { VideoInfo } from "../ui_elements/video_info";
+import {VideoInfo} from "../ui_elements/video_info";
 import { VideoMetadata } from "../ui_elements/video_metadata";
 import { selectGenresByDocumentary } from '../../selectors/selectors';
 import VideoControlsExpandedContainer from "../ui_elements/video_controls_expanded";

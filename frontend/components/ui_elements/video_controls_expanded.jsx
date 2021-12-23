@@ -11,6 +11,7 @@ import { addDocumentaryToWatchList, removeDocumentaryFromWatchList } from '../..
 import { documentaryInMyList, documentaryRating, getWatchListId } from '../../selectors/selectors'
 import { addRatingToDocumentary, deleteRatingFromDocumentary, updateDocumentaryRating } from '../../actions/rating_actions'
 import { RatingBtn } from './rating_btn'
+import { withTranslation } from 'react-i18next'
 
 class VideoControlsExpanded extends Component {
 
@@ -28,7 +29,7 @@ class VideoControlsExpanded extends Component {
   }
 
   render() {
-    
+    const { t } = this.props;
     const myListToggleButton = this.props.inMyList ? (
       <button className="fa-btn-circle fa-btn-lg flex-center-on-page-column"
         onClick={ () => this.props.removeFromMyList(this.props.watchListId) }>
@@ -62,7 +63,7 @@ class VideoControlsExpanded extends Component {
         <div className="div-flex">
           <button className="fa-btn-play div-flex space-between align-center font-075 div-80w div-40h mr-20" onClick={this.goToWatchPage}>
             <FontAwesomeIcon icon={faPlay} size="2x" />
-            <h5>Play</h5>
+            <h5>{t("Play")}</h5>
           </button>
           {myListToggleButton}
           <RatingBtn rating={this.props.rating}
@@ -114,4 +115,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VideoControlsExpanded))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTranslation()(VideoControlsExpanded)))

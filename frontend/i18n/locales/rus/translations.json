@@ -1,0 +1,43 @@
+{
+  "Sign In": "Войти",
+  "Account" : "Аккаунт",
+  "Manage Profiles" : "Сменить профиль",
+  "Sign out of Docuflix": "Выйти из Докуфликс",
+  "Email": "Электронная почта", 
+  "Password": "Пароль",
+  "Email address": "Электронная почта",
+  "Login as Demo User": "Войти как демо юзер",
+  "New to Docuflix?": "Впервые здесь?",
+  "Sign Up Now": "Зарегистририруйся здесь",
+  "Sign Up": "Регистрация", 
+  "Sorry, we can't find an account with this email address. Please try again or create a new account." : "Извините, мы не можем найти аккаунт зарегестрированного по этому адресу. Пожалуйста, попробуйте еще раз или зарегестрируйте новый аккаунт.",
+  "Language": "Выбрать зык",
+  "Contact": "Связаться",
+  "LinkedIn": "ЛинкдИн",
+  "Github": "Гитхаб",
+  "Angel.co": "Анжел.ко",
+  "Portfolio": "Портфолио",
+  "Guest": "Гость",
+  "Kids": "Дети",
+  "Get Started": "Начать",
+  "Play": "Играть",
+  "NOT RATED": "НЕТ ОЦЕНКИ",
+  "PG": "15+",
+  "G": "0+",
+  "PG-13": "13+",
+  "R": "17+",
+  "h": "ч",
+  "min": "мин",
+  "sec": "сек",
+  "Nature & Ecology": "Природа и Экология",
+  "Science & Nature": "Наука и Природа",
+  "Biography": "Библиография",
+  "Music & Musicals": "Музыка и Мьюзиклы",
+  "Social & Cultural": "Социум и Культура"
+
+
+
+
+
+
+}
