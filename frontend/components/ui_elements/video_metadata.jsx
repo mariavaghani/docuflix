@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { connect } from 'react-redux'
 
 export const VideoMetadata = (props) => {
-  const { t } = useTranslation
+  const { t } = useTranslation();
   return (
     <div className="info-row pad-l-10">
       <ul className="genre-docu-preview">
