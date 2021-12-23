@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux'
 import { updateUser } from '../../actions/session_actions';
 
@@ -29,7 +30,7 @@ class UpdateUserInfo extends Component {
   }
 
   render() {
-
+    const { t } = this.props;
     const fieldEditDisplay = this.state.editMode ? (
       <div className="ap-inner-grid">
         <input type="text"
@@ -39,7 +40,7 @@ class UpdateUserInfo extends Component {
         <div 
           className="contact-btn-muted"
           onClick={this.updateUserInfo}>
-          Save Changes
+          {t("Save Changes")}
         </div>
         <div 
           className="contact-btn-muted"
@@ -53,7 +54,7 @@ class UpdateUserInfo extends Component {
         <div 
           className="contact-btn-muted"
           onClick={() => this.setState({editMode: true})}>
-          Change email
+          {t("Change email")}
         </div>
       </div>
     )
@@ -77,4 +78,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateUser: (user) => dispatch(updateUser(user))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(UpdateUserInfo)
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(UpdateUserInfo))

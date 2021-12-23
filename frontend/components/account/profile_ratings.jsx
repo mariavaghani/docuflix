@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { btnColor } from '../../utils/ui_utils';
 import RatingsIndexContainer from './ratings_index';
+import { withTranslation } from 'react-i18next';
 
 class ProfileRatings extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class ProfileRatings extends Component {
   
 
   render() {
+    const { t } = this.props;
     const profileRatings = this.state.showRatings ? (
       <RatingsIndexContainer profile={this.props.profile}/>
     ) : (
@@ -33,7 +35,7 @@ class ProfileRatings extends Component {
               className="profile-avatar bdr-rad-5"
               />
             </div>
-            <h6 className="f-18 ml-30">{this.props.profile.profileName}</h6>
+            <h6 className="f-18 ml-30">{t([this.props.profile.profileName])}</h6>
           </div>
           <FontAwesomeIcon icon={btnAppearance} size="2x" color={btnColor} onClick={ () => this.setState({ showRatings: !this.state.showRatings})} />
         </div>
@@ -51,4 +53,4 @@ const mapDispatchToProps = (dispatch) => ({
   
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileRatings)
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ProfileRatings))

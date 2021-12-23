@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown } from '@fortawesome/free-regular-svg-icons'
 import { addRatingToDocumentary, deleteRatingFromDocumentary, updateDocumentaryRating } from '../../actions/rating_actions';
+import { withTranslation } from 'react-i18next';
 
 
 class RatingsControlItem extends Component {
@@ -14,10 +15,10 @@ class RatingsControlItem extends Component {
   
   render() {
     
-    
+    const { t } = this.props;
     return (
       <div className="ap-card div-80 div-flex space-between align-center">
-        <h6>{this.props.rating.documentary.title}</h6>
+        <h6>{t([this.props.rating.documentary.title])}</h6>
         <div className="div-flex">
           <RatingBtn rating={this.props.rating}
             color={"black"}
@@ -58,4 +59,4 @@ const mapDispatchToProps = (dispatch) => ({
   removeRating: (ratingId) => dispatch(deleteRatingFromDocumentary(ratingId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(RatingsControlItem)
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(RatingsControlItem))

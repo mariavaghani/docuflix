@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux'
 import { fetchDocumentary, fetchFeaturedDocumentary } from '../../actions/documentary_actions';
 import { applyUserFilters, updateGenres, updateGenresFilter, updateUserProfileFilter } from "../../actions/filter_actions";
@@ -19,6 +20,7 @@ class GenreIndex extends Component {
  
 
   render() {
+    const { t } = this.props;
     // if (!this.props.featuredDocumentary.id) return null;
     return (
     <div >
@@ -27,7 +29,7 @@ class GenreIndex extends Component {
   
           <li key="my list">
             <h4>
-              My List
+              {t("My List")}
             </h4>
             <MyListIndex />
           </li>
@@ -37,7 +39,7 @@ class GenreIndex extends Component {
             return (
               <li key={genre.id}>
                 <h4>
-                  {genre.genre}
+                  {t([genre.genre])}
                 </h4>
                 <DocumentaryIndexContainer genreId={genre.id} />
   
@@ -64,4 +66,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchFeatureDocumentary: (id) => dispatch(fetchFeaturedDocumentary(id))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(GenreIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(GenreIndex))
