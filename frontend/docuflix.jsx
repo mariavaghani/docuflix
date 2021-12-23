@@ -17,9 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
         users: { [window.currentUser.id]: window.currentUser }
       },
       session: {
-        id: window.currentUser.id
+        id: window.currentUser.id,
       }
     };
+    
   }
 
   const store = configureStore(preloadedState);
@@ -27,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // const store = configureStore();
 
-  window.logout= () => store.dispatch(logout());
 
   ReactDOM.render(<Root store={store} />, root);
 })

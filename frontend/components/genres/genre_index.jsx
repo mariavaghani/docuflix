@@ -14,7 +14,9 @@ class GenreIndex extends Component {
 
   componentDidMount(){
     
-    this.props.selectWatchProfile().then(() => this.props.fetchFeatureDocumentary(pickRandomDocumentary(this.props.documentaries).id))
+    this.props.selectWatchProfile().then(
+      () => this.props.fetchFeatureDocumentary(pickRandomDocumentary(this.props.documentaries).id)
+    )
   }
 
  

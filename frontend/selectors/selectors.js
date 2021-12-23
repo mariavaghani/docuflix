@@ -59,7 +59,7 @@ export const getDocumentariesFromWatchList = (documentaries, watchLists) => {
 }
 
 export const pickRandomDocumentary = (documentaries) => {
-  if (!documentaries) return undefined;
+  if (!documentaries) return 1;
   const ids = Object.keys(documentaries);
   return documentaries[ids[ids.length * Math.random() << 0]];
 }

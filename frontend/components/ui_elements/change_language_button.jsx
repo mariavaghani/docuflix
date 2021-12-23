@@ -8,6 +8,7 @@ export const ChangeLanguageButton = (props) => {
   const dropClass = props.dropClass;
   const { i18n, t } = useTranslation();
   function changeLanguage(lang) {
+    localStorage.setItem('docuflixLang', lang);
     i18n.changeLanguage(lang);
   }
   return (

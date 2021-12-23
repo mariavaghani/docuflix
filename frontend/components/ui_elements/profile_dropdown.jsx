@@ -27,9 +27,9 @@ class ProfileDropdown extends React.Component {
   }
 
   changeLanguage(lang) {
-    console.log(`this.props: `, this.props);
     
     const { i18n } = this.props;
+    localStorage.setItem('docuflixLang', lang);
     i18n.changeLanguage(lang);
   }
 
